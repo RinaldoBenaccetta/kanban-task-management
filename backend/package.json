@@ -1,0 +1,25 @@
+{
+  "name": "fullstack_boilerplate_mrfn_backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "server:test": "tap \"test/**/*.test.js\"",
+    "server:start": "fastify start -l info app.js",
+    "server:dev": "fastify start -w -l info -P app.js"
+  },
+  "author": "Rinaldo Benaccetta",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^4.0.0",
+    "fastify-plugin": "^3.0.0",
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/sensible": "^4.1.0",
+    "fastify-cli": "^4.4.0",
+    "@fastify/static": "^6.5.0",
+    "mongoose": "^6.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "tap": "^16.1.0"
+  }
+}

@@ -1,0 +1,8 @@
+@import 'vendor/normalize', 'variables/variables', 'variables/colors',
+'mixins/mixins', 'fonts/fonts', 'components/buttons';
+
+@if $dev == true {
+    * {
+        outline: 1px solid red;
+    }
+}

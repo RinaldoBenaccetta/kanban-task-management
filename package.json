@@ -1,0 +1,20 @@
+{
+  "name": "fullstack_boilerplate_mrfn",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "server:test": "npm run server:test --prefix backend",
+    "client:preview": "npm run client:preview --prefix frontend",
+    "dev": "npm run server:dev --prefix backend & npm run client:dev --prefix frontend",
+    "build": "npm run client:build --prefix frontend",
+    "start": "npm run server:start --prefix dist",
+    "setup": "npm install && npm install --prefix backend && npm install --prefix frontend"
+  },
+  "author": "Rinaldo Benaccetta",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
