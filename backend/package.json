@@ -19,7 +19,6 @@
     "mongoose": "^6.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.20.0",
     "tap": "^16.1.0"
   }
 }
