@@ -3,22 +3,25 @@ const disconnect = require('./disconnect')
 const getBoardsModel = require('./getBoardsModel')
 
 /**
- * Returns a list from the database with names and id of all boards.
+ * Returns the board from the database with the provided id.
  *
- * @returns Array<Object>
+ * @param id
+ * @returns {Promise<*>}
  */
-const readBoards = async () => {
+const readBoard = async (id) => {
     await connect()
 
     const Boards = await getBoardsModel()
 
     // No argument says get all.
     // Second parameter define the fields output, here only _id and name
-    const output = await Boards.find({}, '_id name')
+    const output = await Boards.findOne({
+        _id: id,
+    }).exec()
 
     disconnect()
 
     return output
 }
 
-module.exports = { readBoards }
+module.exports = { readBoard }

@@ -1,7 +1,7 @@
 const startData = require('./data/startData')
 const mongoose = require('mongoose')
-const dbSettings = require('./settings/dbSettings')
-const { getBoardSchema } = require('../controllers/schemas/boards')
+const connect = require('./connect')
+const disconnect = require('./disconnect')
 
 /**
  * Populate database with some fake data found in startData.js
@@ -9,8 +9,7 @@ const { getBoardSchema } = require('../controllers/schemas/boards')
  * @returns {Promise<void>}
  */
 module.exports = async () => {
-    await mongoose.connect(`mongodb://localhost:27017/${dbSettings.database}`)
-    // use `await mongoose.connect('mongodb://user:password@localhost:27017/test');` if your database has auth enabled
+    connect()
 
     const BoardsSchema = new mongoose.Schema({
         name: String,
@@ -23,5 +22,5 @@ module.exports = async () => {
         await newEntry.save()
     }
 
-    mongoose.connection.close()
+    disconnect()
 }
