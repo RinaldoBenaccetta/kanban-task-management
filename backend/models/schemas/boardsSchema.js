@@ -2,7 +2,6 @@
 
 module.exports = [
     {
-        _id: String,
         name: String,
         columns: [
             {

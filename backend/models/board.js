@@ -1,6 +1,7 @@
 const connect = require('./connect')
 const disconnect = require('./disconnect')
 const getBoardsModel = require('./getBoardsModel')
+const mongoose = require('mongoose')
 
 /**
  * Returns the board from the database with the provided id.
@@ -11,11 +12,11 @@ const getBoardsModel = require('./getBoardsModel')
 const readBoard = async (id) => {
     await connect()
 
-    const Boards = await getBoardsModel()
+    const Board = await getBoardsModel()
 
     // No argument says get all.
     // Second parameter define the fields output, here only _id and name
-    const output = await Boards.findOne({
+    const output = await Board.findOne({
         _id: id,
     }).exec()
 
@@ -24,4 +25,27 @@ const readBoard = async (id) => {
     return output
 }
 
-module.exports = { readBoard }
+/**
+ * Create a new board in the database with the provided data's
+ *
+ * @param data
+ *     "name": String,
+ *     "columns": [
+ *         {"name": String}
+ *     ]
+ *
+ * @returns {Promise<void>}
+ */
+const createBoard = async (data) => {
+    await connect()
+
+    const Board = await getBoardsModel()
+
+    const newBoard = new Board(data)
+
+    await newBoard.save()
+
+    disconnect()
+}
+
+module.exports = { readBoard, createBoard }

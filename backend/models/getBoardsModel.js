@@ -7,9 +7,16 @@ const dbSettings = require('./settings/dbSettings')
  * Send the existing one if it exists, otherwise send a new one.
  */
 module.exports = async () => {
+    // return (
+    //     mongoose.models[dbSettings.boardsCollection] ||
+    //     (await mongoose.model(dbSettings.boardsCollection, await getSchema()))
+    // )
+
+    const Schema = new mongoose.Schema(boardsSchema)
+
     return (
         mongoose.models[dbSettings.boardsCollection] ||
-        (await mongoose.model(dbSettings.boardsCollection, await getSchema()))
+        (await mongoose.model(dbSettings.boardsCollection, Schema))
     )
 }
 
@@ -17,7 +24,5 @@ module.exports = async () => {
  * Returns the already set schema for the boards' collection.
  */
 const getSchema = async () => {
-    return new mongoose.Schema({
-        boardsSchema,
-    })
+    return new mongoose.Schema(boardsSchema)
 }

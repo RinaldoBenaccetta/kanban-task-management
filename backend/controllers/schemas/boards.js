@@ -26,7 +26,35 @@ const getBoardSchema = {
     },
 }
 
+const postBoardSchema = {
+    body: {
+        type: 'object',
+        additionalProperties: false,
+        // additionalProperties will remove all the field that is NOT in the JSON schema
+        required: ['name', 'columns'],
+        properties: {
+            name: { type: 'string' },
+            columns: {
+                type: 'array',
+                items: {
+                    type: 'object',
+                    properties: {
+                        name: { type: 'string' },
+                    },
+                    required: ['name'],
+                },
+            },
+        },
+    },
+    response: {
+        200: {
+            type: 'string',
+        },
+    },
+}
+
 module.exports = {
     getBoardsSchema,
     getBoardSchema,
+    postBoardSchema,
 }
