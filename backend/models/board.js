@@ -1,7 +1,6 @@
 const connect = require('./connect')
 const disconnect = require('./disconnect')
 const getBoardsModel = require('./getBoardsModel')
-const mongoose = require('mongoose')
 
 /**
  * Returns the board from the database with the provided id.
