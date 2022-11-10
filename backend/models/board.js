@@ -45,4 +45,25 @@ const createBoard = async (data) => {
     disconnect()
 }
 
-module.exports = { readBoard, createBoard }
+const updateBoard = async (id, data) => {
+    await connect()
+
+    const Board = await getBoardsModel()
+
+    const boardToUpdate = await Board.findOne({
+        _id: id,
+    }).exec()
+
+    boardToUpdate.name = data.name
+    boardToUpdate.columns = data.columns
+
+    // Use save instead of updateOne because updateOne will not validate.
+    // https://masteringjs.io/tutorials/mongoose/update
+    // https://masteringjs.io/tutorials/mongoose/save
+    // https://medium.com/@i-rebel-aj/why-you-should-avoid-using-mongoose-save-method-for-updates-cd841159a4ad
+    await boardToUpdate.save()
+
+    disconnect()
+}
+
+module.exports = { readBoard, createBoard, updateBoard }

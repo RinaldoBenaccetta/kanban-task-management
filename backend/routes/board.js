@@ -1,12 +1,12 @@
 'use strict'
 
-// const { getBoardsSchema } = require('../controllers/schemas/boards.js')
 const {
     getBoardsSchema,
     getBoardSchema,
     postBoardSchema,
+    updateBoardSchema,
 } = require('../controllers/schemas/boards.js')
-const { readBoard, createBoard } = require('../models/board')
+const { readBoard, createBoard, updateBoard } = require('../models/board')
 const { readBoards } = require('../models/boards')
 
 module.exports = async function (fastify, opts) {
@@ -33,29 +33,22 @@ module.exports = async function (fastify, opts) {
         },
     })
 
-    fastify.post('/api/board', {
+    fastify.post('/api/board/store', {
         schema: postBoardSchema,
-        // params: {
-        //     board: { type: 'object' },
-        // },
         handler: async (req, reply) => {
             await createBoard(req.body)
-            // reply.send(await createBoard(req.body))
-            reply.send('Board added')
+            reply.send('Board added successfully')
+        },
+    })
+
+    fastify.put('/api/board/edit/:id', {
+        schema: updateBoardSchema,
+        params: {
+            id: { type: 'string' },
+        },
+        handler: async (req, reply) => {
+            await updateBoard(req.params.id, req.body)
+            reply.send('board edited successfully')
         },
     })
 }
-
-// const addPostSchema = {
-//     body: {
-//         type: 'object',
-//         required: ['title', 'body']
-//         properties: {
-//             title: typeString, // recall we created typeString earlier
-//             body: typeString,
-//         },
-//     },
-//     response: {
-//         200: typeString, // sending a simple message as string
-//     },
-// };

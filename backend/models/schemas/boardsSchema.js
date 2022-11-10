@@ -1,5 +1,8 @@
 'use strict'
 
+/**
+ * Mongoose schema for board's documents.
+ */
 module.exports = [
     {
         name: String,
