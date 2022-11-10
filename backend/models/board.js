@@ -14,8 +14,6 @@ const readBoard = async (id) => {
 
     const Board = await getBoardsModel()
 
-    // No argument says get all.
-    // Second parameter define the fields output, here only _id and name
     const output = await Board.findOne({
         _id: id,
     }).exec()
