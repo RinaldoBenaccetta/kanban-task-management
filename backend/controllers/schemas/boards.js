@@ -2,34 +2,34 @@
  * Fastify schema for get all boards.
  */
 const getBoardsSchema = {
-    response: {
-        200: {
-            type: 'array',
-            items: {
-                type: 'object',
-                properties: {
-                    _id: { type: 'string' },
-                    name: { type: 'string' },
-                },
-            },
-        },
-    },
+    // response: {
+    //     200: {
+    //         type: 'array',
+    //         items: {
+    //             type: 'object',
+    //             properties: {
+    //                 _id: { type: 'string' },
+    //                 name: { type: 'string' },
+    //             },
+    //         },
+    //     },
+    // },
 }
 
 /**
  * Fastify schema for get one board.
  */
 const getBoardSchema = {
-    response: {
-        200: {
-            type: 'object',
-            properties: {
-                _id: { type: 'string' },
-                name: { type: 'string' },
-                columns: { type: 'array' },
-            },
-        },
-    },
+    // response: {
+    //     200: {
+    //         type: 'object',
+    //         properties: {
+    //             _id: { type: 'string' },
+    //             name: { type: 'string' },
+    //             columns: { type: 'array' },
+    //         },
+    //     },
+    // },
 }
 
 /**
@@ -55,6 +55,11 @@ const postBoardSchema = {
             },
         },
     },
+    // response: {
+    //     200: {
+    //         type: 'object',
+    //     },
+    // },
 }
 
 const updateBoardSchema = {
@@ -93,22 +98,22 @@ const updateBoardSchema = {
             },
         },
     },
-    response: {
-        200: {
-            type: 'string',
-        },
-    },
+    // response: {
+    //     200: {
+    //         type: 'string',
+    //     },
+    // },
 }
 
 /**
  * Fastify schema for get all boards.
  */
 const deleteBoardSchema = {
-    response: {
-        200: {
-            type: 'string',
-        },
-    },
+    // response: {
+    //     200: {
+    //         type: 'string',
+    //     },
+    // },
 }
 
 module.exports = {

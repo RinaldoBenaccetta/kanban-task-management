@@ -7,17 +7,18 @@ const {
     updateBoardSchema,
     deleteBoardSchema,
 } = require('../controllers/schemas/boards.js')
-const {
-    readBoard,
-    readBoards,
-    createBoard,
-    updateBoard,
-    deleteBoard,
-} = require('../controllers/boardsController')
 
 const boardsController = require('../controllers/boardsController')
 
 module.exports = async function (fastify, opts) {
+    /**
+     * Add a board to the database.
+     */
+    fastify.post('/api/board/store', {
+        schema: postBoardSchema,
+        handler: boardsController.create,
+    })
+
     /**
      * Returns all boards names and id
      */
@@ -34,17 +35,7 @@ module.exports = async function (fastify, opts) {
         params: {
             id: { type: 'string' },
         },
-        handler: async (req, reply) => {
-            reply.send(await readBoard(req.params.id))
-        },
-    })
-
-    /**
-     * Add a board to the database.
-     */
-    fastify.post('/api/board/store', {
-        schema: postBoardSchema,
-        handler: boardsController.create,
+        handler: boardsController.get,
     })
 
     /**
@@ -55,10 +46,7 @@ module.exports = async function (fastify, opts) {
         params: {
             id: { type: 'string' },
         },
-        handler: async (req, reply) => {
-            await updateBoard(req.params.id, req.body)
-            reply.send('board edited successfully')
-        },
+        handler: boardsController.update,
     })
 
     /**
@@ -69,9 +57,6 @@ module.exports = async function (fastify, opts) {
         params: {
             id: { type: 'string' },
         },
-        handler: async (req, reply) => {
-            await deleteBoard(req.params.id, reply)
-            reply.send('board successfully deleted')
-        },
+        handler: boardsController.delete,
     })
 }
