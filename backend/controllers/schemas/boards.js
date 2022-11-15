@@ -105,9 +105,21 @@ const updateBoardSchema = {
     },
 }
 
+/**
+ * Fastify schema for get all boards.
+ */
+const deleteBoardSchema = {
+    response: {
+        200: {
+            type: 'string',
+        },
+    },
+}
+
 module.exports = {
     getBoardsSchema,
     getBoardSchema,
     postBoardSchema,
     updateBoardSchema,
+    deleteBoardSchema,
 }

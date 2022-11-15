@@ -5,8 +5,14 @@ const {
     getBoardSchema,
     postBoardSchema,
     updateBoardSchema,
+    deleteBoardSchema,
 } = require('../controllers/schemas/boards.js')
-const { readBoard, createBoard, updateBoard } = require('../models/board')
+const {
+    readBoard,
+    createBoard,
+    updateBoard,
+    deleteBoard,
+} = require('../models/board')
 const { readBoards } = require('../models/boards')
 
 module.exports = async function (fastify, opts) {
@@ -33,6 +39,9 @@ module.exports = async function (fastify, opts) {
         },
     })
 
+    /**
+     * Add a board to the database.
+     */
     fastify.post('/api/board/store', {
         schema: postBoardSchema,
         handler: async (req, reply) => {
@@ -41,6 +50,9 @@ module.exports = async function (fastify, opts) {
         },
     })
 
+    /**
+     * Edit a board in the database.
+     */
     fastify.put('/api/board/edit/:id', {
         schema: updateBoardSchema,
         params: {
@@ -49,6 +61,20 @@ module.exports = async function (fastify, opts) {
         handler: async (req, reply) => {
             await updateBoard(req.params.id, req.body)
             reply.send('board edited successfully')
+        },
+    })
+
+    /**
+     * Delete a board in the database.
+     */
+    fastify.delete('/api/board/delete/:id', {
+        schema: deleteBoardSchema,
+        params: {
+            id: { type: 'string' },
+        },
+        handler: async (req, reply) => {
+            await deleteBoard(req.params.id, reply)
+            reply.send('board successfully deleted')
         },
     })
 }

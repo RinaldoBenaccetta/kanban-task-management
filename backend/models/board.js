@@ -44,7 +44,13 @@ const createBoard = async (data) => {
 
     disconnect()
 }
-
+/**
+ * Updates board in the database with the provided data's
+ * @param id
+ * @param data
+ *
+ * @returns {Promise<void>}
+ */
 const updateBoard = async (id, data) => {
     await connect()
 
@@ -66,4 +72,19 @@ const updateBoard = async (id, data) => {
     disconnect()
 }
 
-module.exports = { readBoard, createBoard, updateBoard }
+/**
+ * Delete board with the provided id.
+ * @param id
+ * @returns {Promise<void>}
+ */
+const deleteBoard = async (id) => {
+    await connect()
+
+    const Board = await getBoardsModel()
+
+    await Board.findByIdAndDelete(id).exec()
+
+    disconnect()
+}
+
+module.exports = { readBoard, createBoard, updateBoard, deleteBoard }
