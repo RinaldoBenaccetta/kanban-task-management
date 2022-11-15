@@ -15,6 +15,8 @@ const {
     deleteBoard,
 } = require('../controllers/boardsController')
 
+const boardsController = require('../controllers/boardsController')
+
 module.exports = async function (fastify, opts) {
     /**
      * Returns all boards names and id
@@ -44,11 +46,10 @@ module.exports = async function (fastify, opts) {
      */
     fastify.post('/api/board/store', {
         schema: postBoardSchema,
-        handler: async (req, reply) => {
-            await createBoard(req.body)
-            reply.send('Board added successfully')
-        },
+        handler: boardsController.create,
     })
+
+    // fastify.post('/api/board/store', boardsController.create)
 
     /**
      * Edit a board in the database.

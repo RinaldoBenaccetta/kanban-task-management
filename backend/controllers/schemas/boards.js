@@ -55,11 +55,6 @@ const postBoardSchema = {
             },
         },
     },
-    response: {
-        200: {
-            type: 'string',
-        },
-    },
 }
 
 const updateBoardSchema = {

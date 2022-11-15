@@ -1,6 +1,40 @@
 const connect = require('../models/connect')
 const disconnect = require('../models/disconnect')
-const getBoardsModel = require('../models/getBoardsModel')
+const Board = require('../models/getBoardsModel')
+
+module.exports = {
+    //# create a board
+    create: async (request, reply) => {
+        try {
+            connect()
+
+            const board = request.body
+
+            const BoardModel = await Board()
+
+            // create is a shortcut for new Board(board).save()
+            const newBoard = await BoardModel.create(board)
+
+            reply.code(201).send(newBoard)
+        } catch (error) {
+            reply.code(500).send(error)
+        } finally {
+            disconnect()
+        }
+    },
+
+    //#get the list of notes
+    fetch: async (request, reply) => {},
+
+    //#get a single noteNote
+    get: async (request, reply) => {},
+
+    //#update a note
+    update: async (request, reply) => {},
+
+    //#delete a note
+    delete: async (request, reply) => {},
+}
 
 /**
  * Returns a list from the database with names and id of all boards.
@@ -10,7 +44,7 @@ const getBoardsModel = require('../models/getBoardsModel')
 const readBoards = async () => {
     await connect()
 
-    const Boards = await getBoardsModel()
+    const Boards = await Board()
 
     // No argument says get all.
     // Second parameter define the fields output, here only _id and name
@@ -30,7 +64,7 @@ const readBoards = async () => {
 const readBoard = async (id) => {
     await connect()
 
-    const Board = await getBoardsModel()
+    const Board = await Board()
 
     const output = await Board.findOne({
         _id: id,
@@ -55,7 +89,7 @@ const readBoard = async (id) => {
 const createBoard = async (data) => {
     await connect()
 
-    const Board = await getBoardsModel()
+    const Board = await Board()
 
     const newBoard = new Board(data)
 
@@ -63,6 +97,7 @@ const createBoard = async (data) => {
 
     disconnect()
 }
+
 /**
  * Updates board in the database with the provided data's
  * @param id
@@ -73,7 +108,7 @@ const createBoard = async (data) => {
 const updateBoard = async (id, data) => {
     await connect()
 
-    const Board = await getBoardsModel()
+    const Board = await Board()
 
     const boardToUpdate = await Board.findOne({
         _id: id,
@@ -99,17 +134,17 @@ const updateBoard = async (id, data) => {
 const deleteBoard = async (id) => {
     await connect()
 
-    const Board = await getBoardsModel()
+    const Board = await Board()
 
     await Board.findByIdAndDelete(id).exec()
 
     disconnect()
 }
 
-module.exports = {
-    readBoard,
-    createBoard,
-    updateBoard,
-    deleteBoard,
-    readBoards,
-}
+// module.exports = {
+//     readBoard,
+//     createBoard,
+//     updateBoard,
+//     deleteBoard,
+//     readBoards,
+// }
