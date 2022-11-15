@@ -17,7 +17,7 @@ module.exports = {
      */
     create: async (request, reply) => {
         try {
-            connect()
+            await connect()
 
             const board = request.body
 
@@ -86,9 +86,9 @@ module.exports = {
 
     /**
      * Updates board in the database with the provided data's
-     * @param id
-     * @param data
      *
+     * @param request
+     * @param reply
      * @returns {Promise<void>}
      */
     update: async (request, reply) => {

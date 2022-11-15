@@ -10,7 +10,7 @@ const {
 
 const boardsController = require('../controllers/boardsController')
 
-module.exports = async function (fastify, opts) {
+module.exports = async function (fastify) {
     /**
      * Add a board to the database.
      */

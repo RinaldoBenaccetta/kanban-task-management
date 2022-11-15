@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+const { connection } = require('mongoose')
 
 /**
  * Disconnect from database
  */
 module.exports = () => {
-    mongoose.connection.close()
+    connection.close()
 }
