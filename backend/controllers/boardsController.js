@@ -4,6 +4,8 @@ const Board = require('../models/boardsModel')
 const mongoose = require('mongoose')
 const startData = require('../models/data/startData')
 
+// source for the response codes : https://www.moesif.com/blog/technical/api-design/Which-HTTP-Status-Code-To-Use-For-Every-CRUD-App/#200---299
+
 module.exports = {
     /**
      * Create a new board in the database with the provided data's
@@ -135,10 +137,9 @@ module.exports = {
 
             const BoardModel = await Board()
 
-            const boardToDelete = await BoardModel.findById(request.params.id)
             await BoardModel.findByIdAndDelete(request.params.id).exec()
 
-            reply.code(200).send({ data: boardToDelete })
+            reply.code(204)
         } catch (error) {
             reply.code(500).send(error)
         } finally {
@@ -155,9 +156,7 @@ module.exports = {
                 columns: Array,
             })
 
-            // let board
-
-            for (board of startData) {
+            for (let board of startData) {
                 const boardModel = mongoose.model('Board', BoardsSchema)
                 const newEntry = new boardModel(board)
                 await newEntry.save()
