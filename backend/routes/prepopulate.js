@@ -1,6 +1,6 @@
 'use strict'
 
-const prepopulateDatabase = require('../controllers/prepopulateDatabase')
+const prepopulateDatabase = require('../controllers/prepopulateDB')
 
 module.exports = async function (fastify, opts) {
     fastify.get('/api/prepopulate', async function (request, reply) {
