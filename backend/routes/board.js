@@ -12,8 +12,8 @@ const {
     createBoard,
     updateBoard,
     deleteBoard,
-} = require('../models/board')
-const { readBoards } = require('../models/boards')
+} = require('../controllers/board')
+const { readBoards } = require('../controllers/boards')
 
 module.exports = async function (fastify, opts) {
     /**

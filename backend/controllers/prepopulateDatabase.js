@@ -1,7 +1,7 @@
-const startData = require('./data/startData')
+const startData = require('../models/data/startData')
 const mongoose = require('mongoose')
-const connect = require('./connect')
-const disconnect = require('./disconnect')
+const connect = require('../models/connect')
+const disconnect = require('../models/disconnect')
 
 /**
  * Populate database with some fake data found in startData.js

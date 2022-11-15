@@ -1,6 +1,6 @@
-const connect = require('./connect')
-const disconnect = require('./disconnect')
-const getBoardsModel = require('./getBoardsModel')
+const connect = require('../models/connect')
+const disconnect = require('../models/disconnect')
+const getBoardsModel = require('../models/getBoardsModel')
 
 /**
  * Returns a list from the database with names and id of all boards.
