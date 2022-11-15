@@ -9,11 +9,11 @@ const {
 } = require('../controllers/schemas/boards.js')
 const {
     readBoard,
+    readBoards,
     createBoard,
     updateBoard,
     deleteBoard,
-} = require('../controllers/board')
-const { readBoards } = require('../controllers/boards')
+} = require('../controllers/boardsController')
 
 module.exports = async function (fastify, opts) {
     /**

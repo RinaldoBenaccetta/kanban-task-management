@@ -3,6 +3,25 @@ const disconnect = require('../models/disconnect')
 const getBoardsModel = require('../models/getBoardsModel')
 
 /**
+ * Returns a list from the database with names and id of all boards.
+ *
+ * @returns Array<Object>
+ */
+const readBoards = async () => {
+    await connect()
+
+    const Boards = await getBoardsModel()
+
+    // No argument says get all.
+    // Second parameter define the fields output, here only _id and name
+    const output = await Boards.find({}, '_id name')
+
+    disconnect()
+
+    return output
+}
+
+/**
  * Returns the board from the database with the provided id.
  *
  * @param id
@@ -87,4 +106,10 @@ const deleteBoard = async (id) => {
     disconnect()
 }
 
-module.exports = { readBoard, createBoard, updateBoard, deleteBoard }
+module.exports = {
+    readBoard,
+    createBoard,
+    updateBoard,
+    deleteBoard,
+    readBoards,
+}
