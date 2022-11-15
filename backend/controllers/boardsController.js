@@ -1,6 +1,8 @@
 const connect = require('../models/connect')
 const disconnect = require('../models/disconnect')
-const Board = require('../models/getBoardsModel')
+const Board = require('../models/boardsModel')
+const mongoose = require('mongoose')
+const startData = require('../models/data/startData')
 
 module.exports = {
     /**
@@ -137,6 +139,31 @@ module.exports = {
             await BoardModel.findByIdAndDelete(request.params.id).exec()
 
             reply.code(200).send({ data: boardToDelete })
+        } catch (error) {
+            reply.code(500).send(error)
+        } finally {
+            disconnect()
+        }
+    },
+
+    hydrate: async (request, reply) => {
+        try {
+            await connect()
+
+            const BoardsSchema = new mongoose.Schema({
+                name: String,
+                columns: Array,
+            })
+
+            // let board
+
+            for (board of startData) {
+                const boardModel = mongoose.model('Board', BoardsSchema)
+                const newEntry = new boardModel(board)
+                await newEntry.save()
+            }
+
+            reply.code(200).send('OK')
         } catch (error) {
             reply.code(500).send(error)
         } finally {

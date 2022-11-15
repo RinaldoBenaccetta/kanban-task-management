@@ -20,6 +20,14 @@ module.exports = async function (fastify) {
     })
 
     /**
+     * Add a board to the database.
+     */
+    fastify.post('/api/boards/hydrate', {
+        // schema: postBoardSchema,
+        handler: boardsController.hydrate,
+    })
+
+    /**
      * Returns all boards names and id
      */
     fastify.get('/api/boards', {
