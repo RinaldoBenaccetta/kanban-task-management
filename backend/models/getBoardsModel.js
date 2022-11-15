@@ -19,10 +19,3 @@ module.exports = async () => {
         (await mongoose.model(dbSettings.boardsCollection, Schema))
     )
 }
-
-/**
- * Returns the already set schema for the boards' collection.
- */
-const getSchema = async () => {
-    return new mongoose.Schema(boardsSchema)
-}
