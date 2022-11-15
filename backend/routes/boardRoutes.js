@@ -23,9 +23,7 @@ module.exports = async function (fastify, opts) {
      */
     fastify.get('/api/boards', {
         schema: getBoardsSchema,
-        handler: async (req, reply) => {
-            reply.send(await readBoards())
-        },
+        handler: boardsController.fetch,
     })
 
     /**
@@ -48,8 +46,6 @@ module.exports = async function (fastify, opts) {
         schema: postBoardSchema,
         handler: boardsController.create,
     })
-
-    // fastify.post('/api/board/store', boardsController.create)
 
     /**
      * Edit a board in the database.

@@ -3,7 +3,17 @@ const disconnect = require('../models/disconnect')
 const Board = require('../models/getBoardsModel')
 
 module.exports = {
-    //# create a board
+    /**
+     * Create a new board in the database with the provided data's
+     *
+     * @param data
+     *     "name": String,
+     *     "columns": [
+     *         {"name": String}
+     *     ]
+     *
+     * @returns {Promise<void>}
+     */
     create: async (request, reply) => {
         try {
             connect()
@@ -23,8 +33,30 @@ module.exports = {
         }
     },
 
-    //#get the list of notes
-    fetch: async (request, reply) => {},
+    /**
+     * Returns a list from the database with names and id of all boards.
+     *
+     * @param request
+     * @param reply
+     * @returns {Promise<void>}
+     */
+    fetch: async (request, reply) => {
+        try {
+            await connect()
+
+            const Boards = await Board()
+
+            // No argument says get all.
+            // Second parameter define the fields output, here only _id and name
+            const output = await Boards.find({}, '_id name')
+
+            reply.code(201).send(output)
+        } catch (error) {
+            reply.code(500).send(error)
+        } finally {
+            disconnect()
+        }
+    },
 
     //#get a single noteNote
     get: async (request, reply) => {},
