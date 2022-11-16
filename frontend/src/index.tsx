@@ -10,6 +10,4 @@ import { createRoot } from 'react-dom/client'
 const container = document.getElementById('app')
 const root = container ? createRoot(container) : null
 
-console.log('test')
-
 root!.render(<App />)
