@@ -53,7 +53,12 @@ module.exports = {
 
             // No argument says get all.
             // Second parameter define the fields output, here only _id and name
-            const output = await BoardModel.find({}, '_id name')
+            const boardsList = await BoardModel.find({}, '_id name')
+
+            const output = {
+                list: boardsList,
+                quantity: boardsList.length,
+            }
 
             reply.code(200).send(output)
         } catch (error) {
