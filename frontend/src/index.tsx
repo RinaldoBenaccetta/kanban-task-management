@@ -5,7 +5,7 @@ import './assets/sass/styles.scss'
 
 import React from 'react'
 import { App } from './components/App'
-import { Sidebar } from './components/Sidebar'
+import { Sidebar } from './components/Sidebar/Sidebar'
 import { createRoot } from 'react-dom/client'
 
 const container = document.getElementById('app')
