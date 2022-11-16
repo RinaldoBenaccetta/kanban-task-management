@@ -4,10 +4,11 @@
 import './assets/sass/styles.scss'
 
 import React from 'react'
-import { App } from './assets/ts/App'
+import { App } from './components/App'
+import { Sidebar } from './components/Sidebar'
 import { createRoot } from 'react-dom/client'
 
 const container = document.getElementById('app')
 const root = container ? createRoot(container) : null
 
-root!.render(<App />)
+root!.render(<Sidebar />)
