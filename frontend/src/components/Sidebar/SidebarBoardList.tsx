@@ -1,11 +1,17 @@
 import React from 'react'
 
-export const SidebarBoardList = () => {
+export const SidebarBoardList = ({
+    boardList,
+}: {
+    boardList: { _id: string; name: string }[]
+}) => {
+    console.log(boardList)
+
+    const list = boardList.map((board) => <li key={board._id}>{board.name}</li>)
+
     return (
         <ul className={'sidebar__bords-list'}>
-            <li className={'selected'}>Platform Launch</li>
-            <li>Marketing Plan</li>
-            <li>Roadmap</li>
+            {list}
             <li>
                 <button>+ Create New Board</button>
             </li>
