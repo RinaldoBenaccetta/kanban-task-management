@@ -15,15 +15,10 @@ export const Sidebar = () => {
     const queryKey = ['boards']
     const { status, data, error } = useQuery(queryKey, fetchAllBoards)
 
-    // define default values
-    let boardsQuantity = 0
-    let boardsList = []
-
-    // when the promise is resolved, use the fetched data's
-    if (status === 'success') {
-        boardsQuantity = data.quantity || 0
-        boardsList = data.list || []
-    }
+    // set default values while fetching. When response, React will set the new value.
+    const boardsQuantity =
+        status === 'success' && data.quantity ? data.quantity : 0
+    const boardsList = status === 'success' && data.list ? data.list : []
 
     return (
         <div>
