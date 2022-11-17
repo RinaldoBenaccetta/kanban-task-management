@@ -32,7 +32,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "jsxFragmentFactory": "Fragment"
   },
   "include": ["src"],
   "exclude": [
