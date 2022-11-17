@@ -4,9 +4,9 @@
 import './assets/sass/styles.scss'
 
 import React from 'react'
-import { Sidebar } from './components/Sidebar/Sidebar'
 import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { App } from './components/App'
 
 const queryClient = new QueryClient()
 
@@ -15,6 +15,6 @@ const root = container ? createRoot(container) : null
 
 root!.render(
     <QueryClientProvider client={queryClient}>
-        <Sidebar />
+        <App />
     </QueryClientProvider>
 )
