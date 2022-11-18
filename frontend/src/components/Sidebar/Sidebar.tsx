@@ -11,7 +11,7 @@ import { fetchAllBoards } from '../../queries/fetchAllBoards'
  *
  * @constructor
  */
-export const Sidebar = () => {
+export default () => {
     const queryKey = ['boards']
     const { status, data, error } = useQuery(queryKey, fetchAllBoards)
 
