@@ -4,6 +4,7 @@
 export default {
     primary: {
         mainPurple: 'hsl(242,48%,58%)',
+        mainPurpleDisabled: 'hsla(242,48%,58%,0.25)',
         mainPurpleHover: 'hsl(243,100%,82%)',
     },
     grey: {
