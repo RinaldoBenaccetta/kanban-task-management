@@ -1,7 +1,9 @@
 /**
  * Add style to html.
  */
-import './assets/sass/styles.scss'
+// import './assets/sass/styles.scss'
+
+import './css/normalize.css'
 
 import React from 'react'
 import { createRoot } from 'react-dom/client'
