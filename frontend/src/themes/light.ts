@@ -1,3 +1,8 @@
+import Colors from './colors'
+
 export default {
-    colors: {},
+    colors: {
+        backBackground: Colors.grey.lightGrey,
+        frontBackground: Colors.grey.darkGrey,
+    },
 }
