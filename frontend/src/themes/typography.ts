@@ -6,26 +6,23 @@ export default {
             font-weight: 700;
             font-size: 24px;
             line-height: 30px;
-            color: ${colors.black};
         `,
         l: `            
             font-weight: 700;
             font-size: 18px;
             line-height: 23px;
-            color: ${colors.black};
             `,
         m: `
             font-weight: 700;
             font-size: 15px;
             line-height: 19px;
-            color: ${colors.black};
             `,
         s: `
             font-weight: 700;
             font-size: 12px;
             line-height: 15px;
             letter-spacing:2.4px;
-            color: ${colors.black};
+            color: ${colors.grey.mediumGrey};
             `,
     },
     paragraph: {
