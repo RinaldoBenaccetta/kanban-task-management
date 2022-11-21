@@ -8,7 +8,7 @@ import addTaskIcon from '../../assets/img/icon-add-task-mobile.svg'
 import editBoardIcon from '../../assets/img/icon-vertical-ellipsis.svg'
 
 import typography from '../../themes/typography'
-import colors from '../../themes/colors'
+import colors from '../../themes/variables/colors'
 
 // Create a Header component that'll render an <div> tag with some styles
 const Header = styled.div`
