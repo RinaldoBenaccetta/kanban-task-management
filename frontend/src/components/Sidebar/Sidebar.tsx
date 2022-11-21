@@ -1,10 +1,35 @@
 import React from 'react'
+import styled from 'styled-components'
+
 import { SidebarTitle } from './SidebarTitle'
 import { SidebarBoardList } from './SidebarBoardList'
-import { SidebarDarkmodeToggle } from './SidebarDarkmodeToggle'
 
+import { SidebarDarkmodeToggle } from './SidebarDarkmodeToggle'
 import { useQuery } from 'react-query'
 import { fetchAllBoards } from '../../queries/fetchAllBoards'
+import Colors from '../../themes/variables/colors'
+import Modal from '../../themes/elements/Modal'
+
+const SideBarBackdrop = styled.div`
+    background-color: ${Colors.modalBackground};
+
+    position: fixed;
+
+    top: 64px;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+`
+
+const BoardsPanel = styled(Modal)`
+    width: 264px;
+    //height: 322px;
+
+    margin: 16px auto auto;
+
+    box-sizing: border-box;
+`
 
 /**
  * The sidebar component.
@@ -21,10 +46,12 @@ export default () => {
     const boardsList = status === 'success' && data.list ? data.list : []
 
     return (
-        <div>
-            <SidebarTitle quantity={boardsQuantity}></SidebarTitle>
-            <SidebarBoardList boardList={boardsList}></SidebarBoardList>
-            <SidebarDarkmodeToggle></SidebarDarkmodeToggle>
-        </div>
+        <SideBarBackdrop>
+            <BoardsPanel>
+                <SidebarTitle quantity={boardsQuantity}></SidebarTitle>
+                <SidebarBoardList boardList={boardsList}></SidebarBoardList>
+                <SidebarDarkmodeToggle></SidebarDarkmodeToggle>
+            </BoardsPanel>
+        </SideBarBackdrop>
     )
 }

@@ -6,6 +6,11 @@ export default {
         width: auto;
         height: 48px;
         
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 19px;
+        text-align: center;
+        
         padding: 15px 24px 14px;
         
         background-color: ${colors.primary.mainPurple};

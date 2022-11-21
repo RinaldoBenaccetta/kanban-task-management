@@ -21,4 +21,5 @@ export default {
         red: 'hsl(0,78%,63%)',
         redHover: 'hsl(0,100%,80%)',
     },
+    modalBackground: 'hsla(0,0%,0%,0.5)',
 }
