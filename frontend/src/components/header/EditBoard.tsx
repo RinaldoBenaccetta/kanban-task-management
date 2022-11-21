@@ -8,19 +8,21 @@ import editBoardIcon from '../../assets/img/icon-vertical-ellipsis.svg'
 
 const EditBoardButton = styled.button`
     width: 36px;
-    height: 32px;
 
-    margin: 16px 0;
+    height: 100%;
+
+    padding: 24px 0;
 
     ${BreakPointMixin.tablet`
-        height: 48px;
         width: 53px;
+        
+        padding: 30px 0;
     `}
 
     ${BreakPointMixin.large`
         width: 61px;
         
-        margin: 20px auto 28px auto;
+        padding: 34px 0 42px;
     `}
   
     border-radius: 0;
