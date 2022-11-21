@@ -27,14 +27,14 @@ const Header = styled.div`
     height: 64px;
 
     ${BreakPointMixin.tablet`
-        height: 81px;
+        height: 80px;
         
         border-bottom: 1px solid ${(props: DarkLightTheme) =>
             props.theme.colors.accentLine}
     `}
 
     ${BreakPointMixin.large`
-        height: 97px;
+        height: 96px;
     `}
 
     left: 0;
@@ -136,7 +136,7 @@ const AddTaskButton = styled.button`
         margin: 16px auto;
     `}
 
-    ${BreakPointMixin.tablet`
+    ${BreakPointMixin.large`
         margin: 20px auto 28px auto;
     `}
 `
@@ -149,8 +149,8 @@ const AddTaskButtonCross = styled.img`
 
 const AddTaskButtonText = styled.div`
     // always visible for screen readers
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     overflow: hidden;
 
     ${BreakPointMixin.tablet`
