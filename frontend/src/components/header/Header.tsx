@@ -25,6 +25,12 @@ const Header = styled.div`
 
     ${BreakPointMixin.tablet`
         height: 81px;
+        
+        border-bottom: 1px solid ${(props) => props.theme.colors.accentLine}
+    `}
+
+    ${BreakPointMixin.large`
+        height: 97px;
     `}
 
     left: 0;
@@ -40,7 +46,11 @@ const LogoContainer = styled.div`
     ${BreakPointMixin.tablet`
         width: 261px;
         
-        border-right: 1px solid ${colors.grey.linesDark}
+        border-right: 1px solid ${(props) => props.theme.colors.accentLine}
+    `}
+
+    ${BreakPointMixin.large`
+        width: 300px;
     `}
 `
 
@@ -59,7 +69,11 @@ const Logo = styled.div`
         
         margin: 28px auto auto 24px;
         
-        background-image: url(${lightLogoIcon});
+        background-image: url(${(props) => props.theme.logo});
+    `}
+
+    ${BreakPointMixin.large`
+        margin: 33px auto auto 34px;
     `}
 `
 
@@ -74,10 +88,14 @@ const ActualBoard = styled.div`
 
     ${BreakPointMixin.tablet`
         font-size: 20px;
-        
         line-height: 25px;
         
         margin: 28px 0 27px 24px;
+    `}
+
+    ${BreakPointMixin.large`
+        line-height: 30px;
+        font-size: 24px;
     `}
 `
 
@@ -112,6 +130,10 @@ const AddTaskButton = styled.button`
         
         margin: 16px auto;
     `}
+
+    ${BreakPointMixin.tablet`
+        margin: 20px auto 28px auto;
+    `}
 `
 
 const AddTaskButtonCross = styled.img`
@@ -136,13 +158,19 @@ const EditBoardButton = styled.button`
     width: 36px;
     height: 32px;
 
+    margin: 16px 0;
+
     ${BreakPointMixin.tablet`
         height: 48px;
         width: 53px;
     `}
 
-    margin: 16px 0;
-
+    ${BreakPointMixin.large`
+        width: 61px;
+        
+        margin: 20px auto 28px auto;
+    `}
+  
     border-radius: 0;
 
     background: transparent;
@@ -168,7 +196,7 @@ export default () => {
                 <Logo />
             </LogoContainer>
             <ActualBoard>
-                Pactual board
+                Actual board
                 <ActualBoardChevron src={chevronDownIcon} alt="Show boards" />
             </ActualBoard>
             <AddTaskContainer>
