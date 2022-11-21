@@ -5,6 +5,7 @@ import mobileLogoIcon from '../../assets/img/logo-mobile.svg'
 import chevronDownIcon from '../../assets/img/icon-chevron-down.svg'
 import chevronUpIcon from '../../assets/img/icon-chevron-up.svg'
 import addTaskIcon from '../../assets/img/icon-add-task-mobile.svg'
+import editBoardIcon from '../../assets/img/icon-vertical-ellipsis.svg'
 
 import typography from '../../themes/typography'
 import colors from '../../themes/colors'
@@ -35,8 +36,7 @@ const Logo = styled.div`
 `
 
 const ActualBoard = styled.div`
-    //background-color: pink;
-    //outline: 1px solid green;
+    flex: 1;
 
     max-width: 100%;
 
@@ -77,6 +77,24 @@ const AddTaskButtonText = styled.div`
     overflow: hidden;
 `
 
+const EditBoardButton = styled.button`
+    width: 36px;
+    height: 32px;
+
+    margin: 16px 0;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+`
+
+const EditBoardButtonIcon = styled.img`
+    height: 16px;
+`
+
 export default () => {
     return (
         <Header>
@@ -91,6 +109,9 @@ export default () => {
                     <AddTaskButtonText>Add new task</AddTaskButtonText>
                 </AddTaskButton>
             </AddTaskContainer>
+            <EditBoardButton>
+                <EditBoardButtonIcon src={editBoardIcon} alt="Edit board" />
+            </EditBoardButton>
         </Header>
     )
 }
