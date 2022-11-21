@@ -1,22 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// @ts-ignore
 import mobileLogoIcon from '../../assets/img/logo-mobile.svg'
+// @ts-ignore
 import chevronDownIcon from '../../assets/img/icon-chevron-down.svg'
-import chevronUpIcon from '../../assets/img/icon-chevron-up.svg'
+// @ts-ignore
 import addTaskIcon from '../../assets/img/icon-add-task-mobile.svg'
+// @ts-ignore
 import editBoardIcon from '../../assets/img/icon-vertical-ellipsis.svg'
-import lightLogoIcon from '../../assets/img/logo-light.svg'
-import darkLogoIcon from '../../assets/img/logo-dark.svg'
 
 import typography from '../../themes/typography'
 import colors from '../../themes/variables/colors'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import buttons from '../../themes/elements/buttons'
+import { DarkLightTheme } from '../../types/DarkLightTheme'
 
 // Create a Header component that'll render an <div> tag with some styles
 const Header = styled.div`
-    background-color: ${(props) => props.theme.colors.frontBackground};
+    background-color: ${(props: DarkLightTheme) =>
+        props.theme.colors.frontBackground};
 
     position: absolute;
 
@@ -26,7 +29,8 @@ const Header = styled.div`
     ${BreakPointMixin.tablet`
         height: 81px;
         
-        border-bottom: 1px solid ${(props) => props.theme.colors.accentLine}
+        border-bottom: 1px solid ${(props: DarkLightTheme) =>
+            props.theme.colors.accentLine}
     `}
 
     ${BreakPointMixin.large`
@@ -46,7 +50,8 @@ const LogoContainer = styled.div`
     ${BreakPointMixin.tablet`
         width: 261px;
         
-        border-right: 1px solid ${(props) => props.theme.colors.accentLine}
+        border-right: 1px solid ${(props: DarkLightTheme) =>
+            props.theme.colors.accentLine}
     `}
 
     ${BreakPointMixin.large`
@@ -69,7 +74,7 @@ const Logo = styled.div`
         
         margin: 28px auto auto 24px;
         
-        background-image: url(${(props) => props.theme.logo});
+        background-image: url(${(props: DarkLightTheme) => props.theme.logo});
     `}
 
     ${BreakPointMixin.large`

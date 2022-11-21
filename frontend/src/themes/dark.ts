@@ -1,5 +1,6 @@
 import Colors from './variables/colors'
 
+// @ts-ignore
 import logo from '../assets/img/logo-light.svg'
 
 export default {
