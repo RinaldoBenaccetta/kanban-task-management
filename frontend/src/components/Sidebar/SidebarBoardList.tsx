@@ -1,12 +1,36 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import Colors from '../../themes/variables/colors'
 
 // @ts-ignore
 import boardIcon from '../../assets/img/icon-board.svg'
 
+/**
+ * The global shape of the button.
+ */
+const ButtonShape = css`
+    width: 240px;
+    height: 48px;
+
+    border-radius: 0 24px 24px 0;
+`
+
+const ButtonFont = css`
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 19px;
+`
+
+const ButtonLabelHeightFix = css`
+    position: relative;
+
+    bottom: 2px;
+`
+
 const RadioElement = styled.label`
+    ${ButtonShape};
+
     display: block;
 
     position: relative;
@@ -18,24 +42,18 @@ const RadioElement = styled.label`
 `
 
 const RadioButton = styled.div`
+    ${ButtonShape};
+
+    ${ButtonFont};
+
     display: block;
 
     position: absolute;
     top: 0;
 
-    width: 240px;
-    height: 48px;
-    //height: 16px;
-
     padding: 16px 0 16px 24px;
 
     box-sizing: border-box;
-
-    border-radius: 0 24px 24px 0;
-
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 19px;
 `
 
 const RadioInput = styled.input`
@@ -71,9 +89,42 @@ const RadioButtonIcon = styled.span`
 `
 
 const RadioButtonName = styled.span`
-    position: relative;
+    ${ButtonLabelHeightFix}//position: relative;
+    //
+    //bottom: 2px;
+`
 
-    bottom: 2px;
+const AddBoardButton = styled.button`
+    ${ButtonShape};
+
+    color: ${Colors.primary.mainPurple};
+
+    background: transparent;
+
+    margin: 0;
+    padding: 0;
+
+    display: block;
+
+    border: none;
+    outline: none;
+
+    //box-sizing: border-box;
+`
+
+const AddBoardButtonLabel = styled.div`
+    position: relative;
+    right: 6px;
+`
+
+const AddBoardText = styled.span`
+    ${ButtonLabelHeightFix}
+`
+
+const AddBoardIcon = styled(RadioButtonIcon)`
+    background: ${Colors.primary.mainPurple};
+
+    //box-sizing: border-box;
 `
 
 /**
@@ -110,7 +161,12 @@ export const SidebarBoardList = ({
     return (
         <div>
             <div>{list}</div>
-            <button>+ Create New Board</button>
+            <AddBoardButton>
+                <AddBoardButtonLabel>
+                    <AddBoardIcon />
+                    <AddBoardText>+ Create New Board</AddBoardText>
+                </AddBoardButtonLabel>
+            </AddBoardButton>
         </div>
     )
 }
