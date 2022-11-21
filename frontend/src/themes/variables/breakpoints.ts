@@ -1,4 +1,4 @@
 export default {
-    tablet: 768,
-    large: 1440,
+    tablet: '768px',
+    large: '1440px',
 }
