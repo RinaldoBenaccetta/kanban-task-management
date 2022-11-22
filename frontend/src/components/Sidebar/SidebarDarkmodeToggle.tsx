@@ -8,6 +8,7 @@ import Colors from '../../themes/variables/colors'
 import iconLight from '../../assets/img/icon-light-theme.svg'
 // @ts-ignore
 import iconDark from '../../assets/img/icon-dark-theme.svg'
+import hiddenMixin from '../../themes/mixins/HiddenMixin'
 
 const Icon = css`
     display: inline-block;
@@ -67,6 +68,8 @@ const SwitchInputContainer = styled.div`
 const SwitchInput = styled.input`
     appearance: none;
 
+    z-index: 10;
+
     outline: none;
 
     width: 40px;
@@ -99,13 +102,27 @@ const SwitchInput = styled.input`
     }
 `
 
+const SwitchLabel = styled.label`
+    // Visible only for screen readers
+    ${hiddenMixin};
+
+    // don't move the input
+    display: block;
+
+    // prevent to catch the click from the input
+    pointer-events: none;
+`
+
 export const SidebarDarkmodeToggle = () => {
     return (
         <DarkModeToggleContainer>
             <DarkModeToggle>
                 <LightIcon />
                 <SwitchInputContainer>
-                    <SwitchInput type="checkbox" />
+                    <SwitchLabel htmlFor="dark-mode-input">
+                        Dark mode
+                    </SwitchLabel>
+                    <SwitchInput id="dark-mode-input" type="checkbox" />
                 </SwitchInputContainer>
                 <DarkIcon />
             </DarkModeToggle>

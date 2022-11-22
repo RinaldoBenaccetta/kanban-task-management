@@ -8,6 +8,7 @@ import Sidebar from './Sidebar/Sidebar'
 import lightTheme from '../themes/light'
 import darkTheme from '../themes/dark'
 
+// https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
 export const App = () => {
     return (
         <ThemeProvider theme={darkTheme}>

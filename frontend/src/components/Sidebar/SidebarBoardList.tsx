@@ -5,6 +5,7 @@ import Colors from '../../themes/variables/colors'
 
 // @ts-ignore
 import boardIcon from '../../assets/img/icon-board.svg'
+import HiddenMixin from '../../themes/mixins/HiddenMixin'
 
 /**
  * The global shape of the button.
@@ -57,8 +58,7 @@ const RadioButton = styled.div`
 `
 
 const RadioInput = styled.input`
-    width: 0;
-    height: 0;
+    ${HiddenMixin}
 
     // change adjacent span when checked
     &:checked + div {
