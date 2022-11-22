@@ -29,6 +29,19 @@ const ButtonLabelHeightFix = css`
     bottom: 2px;
 `
 
+const RadioFieldset = styled.fieldset`
+    margin: 0;
+    padding: 0;
+
+    border: none;
+
+    legend {
+        ${HiddenMixin};
+
+        display: block;
+    }
+`
+
 const RadioElement = styled.label`
     ${ButtonShape};
 
@@ -58,7 +71,7 @@ const RadioButton = styled.div`
 `
 
 const RadioInput = styled.input`
-    ${HiddenMixin}
+    ${HiddenMixin};
 
     // change adjacent span when checked
     &:checked + div {
@@ -89,9 +102,7 @@ const RadioButtonIcon = styled.span`
 `
 
 const RadioButtonName = styled.span`
-    ${ButtonLabelHeightFix}//position: relative;
-    //
-    //bottom: 2px;
+    ${ButtonLabelHeightFix}
 `
 
 const AddBoardButton = styled.button`
@@ -116,7 +127,9 @@ const AddBoardButton = styled.button`
 
 const AddBoardButtonLabel = styled.div`
     position: relative;
-    right: 6px;
+
+    // correction: text appear shifted for unknown reason.
+    right: 8px;
 `
 
 const AddBoardText = styled.span`
@@ -153,7 +166,7 @@ export const SidebarBoardList = ({
                     // checked={board._id === selectedBoard}
                 />
                 <RadioButton>
-                    <RadioButtonIcon />
+                    <RadioButtonIcon aria-hidden="true" />
                     <RadioButtonName>{board.name}</RadioButtonName>
                 </RadioButton>
             </RadioElement>
@@ -162,7 +175,10 @@ export const SidebarBoardList = ({
 
     return (
         <div>
-            <div>{list}</div>
+            <RadioFieldset>
+                <legend>Choose a board :</legend>
+                {list}
+            </RadioFieldset>
             <AddBoardButton>
                 <AddBoardButtonLabel>
                     <AddBoardIcon />
