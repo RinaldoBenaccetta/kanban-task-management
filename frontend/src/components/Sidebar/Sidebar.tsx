@@ -27,7 +27,7 @@ const BoardsPanel = styled(Modal)`
 
     margin: 16px auto auto;
 
-    //box-sizing: border-box;
+    padding: 16px 0;
 `
 
 /**

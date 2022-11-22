@@ -19,10 +19,6 @@ const Icon = css`
     mask-size: cover;
 `
 
-const DarkModeToggleContainer = styled.div`
-    padding: 16px 0;
-`
-
 const DarkModeToggle = styled.div`
     width: 235px;
     height: 48px;
@@ -32,7 +28,7 @@ const DarkModeToggle = styled.div`
 
     border-radius: 6px;
 
-    margin: 0 auto;
+    margin: 16px auto 0;
 
     display: flex;
 `
@@ -115,17 +111,13 @@ const SwitchLabel = styled.label`
 
 export const SidebarDarkmodeToggle = () => {
     return (
-        <DarkModeToggleContainer>
-            <DarkModeToggle>
-                <LightIcon />
-                <SwitchInputContainer>
-                    <SwitchLabel htmlFor="dark-mode-input">
-                        Dark mode
-                    </SwitchLabel>
-                    <SwitchInput id="dark-mode-input" type="checkbox" />
-                </SwitchInputContainer>
-                <DarkIcon />
-            </DarkModeToggle>
-        </DarkModeToggleContainer>
+        <DarkModeToggle>
+            <LightIcon />
+            <SwitchInputContainer>
+                <SwitchLabel htmlFor="dark-mode-input">Dark mode</SwitchLabel>
+                <SwitchInput id="dark-mode-input" type="checkbox" />
+            </SwitchInputContainer>
+            <DarkIcon />
+        </DarkModeToggle>
     )
 }

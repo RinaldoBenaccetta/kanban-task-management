@@ -7,8 +7,6 @@ const Title = styled.div`
 
     margin: 16px auto 19px 24px;
 
-    padding-top: 16px;
-
     box-sizing: border-box;
 `
 
