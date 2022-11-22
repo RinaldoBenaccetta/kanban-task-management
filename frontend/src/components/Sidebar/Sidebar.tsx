@@ -24,11 +24,10 @@ const SideBarBackdrop = styled.div`
 
 const BoardsPanel = styled(Modal)`
     width: 264px;
-    //height: 322px;
 
     margin: 16px auto auto;
 
-    box-sizing: border-box;
+    //box-sizing: border-box;
 `
 
 /**

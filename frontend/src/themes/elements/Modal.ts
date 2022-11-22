@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import Colors from '../variables/colors'
+import { DarkLightTheme } from '../../types/DarkLightTheme'
 
 export default styled.div`
-    background-color: ${Colors.white};
+    background-color: ${(props: DarkLightTheme) =>
+        props.theme.colors.frontBackground};
 
     color: ${Colors.grey.mediumGrey};
 

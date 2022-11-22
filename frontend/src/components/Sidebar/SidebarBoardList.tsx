@@ -97,6 +97,8 @@ const RadioButtonName = styled.span`
 const AddBoardButton = styled.button`
     ${ButtonShape};
 
+    ${ButtonFont};
+
     color: ${Colors.primary.mainPurple};
 
     background: transparent;
