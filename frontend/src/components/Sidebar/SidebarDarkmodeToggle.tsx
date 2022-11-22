@@ -2,10 +2,12 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 import { DarkLightTheme } from '../../types/DarkLightTheme'
-
-import iconLight from '../../assets/img/icon-light-theme.svg'
-import iconDark from '../../assets/img/icon-dark-theme.svg'
 import Colors from '../../themes/variables/colors'
+
+// @ts-ignore
+import iconLight from '../../assets/img/icon-light-theme.svg'
+// @ts-ignore
+import iconDark from '../../assets/img/icon-dark-theme.svg'
 
 const Icon = css`
     display: inline-block;
@@ -30,6 +32,8 @@ const DarkModeToggle = styled.div`
     border-radius: 6px;
 
     margin: 0 auto;
+
+    display: flex;
 `
 
 const LightIcon = styled.span`
@@ -39,6 +43,8 @@ const LightIcon = styled.span`
     height: 18px;
 
     mask-image: url(${iconLight});
+
+    margin: auto 23px auto 57px;
 `
 
 const DarkIcon = styled.span`
@@ -48,10 +54,14 @@ const DarkIcon = styled.span`
     height: 15px;
 
     mask-image: url(${iconDark});
+
+    margin: auto 57px auto 23px;
 `
 
 const SwitchInputContainer = styled.div`
     position: relative;
+
+    margin: 14px auto;
 `
 
 const SwitchInput = styled.input`
@@ -84,15 +94,9 @@ const SwitchInput = styled.input`
         transition: transform 0.2s ease-in-out;
     }
 
-    //&:checked {
-    //}
-
     &:checked:before {
         transform: translateX(20px);
     }
-
-    //&:not(:checked):before {
-    //}
 `
 
 export const SidebarDarkmodeToggle = () => {
@@ -108,9 +112,3 @@ export const SidebarDarkmodeToggle = () => {
         </DarkModeToggleContainer>
     )
 }
-
-// <input type="checkbox" id="1">
-//     <label htmlFor="1">
-//         <span>Tidy the Car</span>
-//         <span></span>
-//     </label>
