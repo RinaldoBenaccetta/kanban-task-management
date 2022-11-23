@@ -5,27 +5,26 @@ import GlobalStyle from '../themes/GlobalStyles'
 import Header from './header/Header'
 import Sidebar from './Sidebar/Sidebar'
 
-import {
-    darkLightTheme,
-    defaultTheme,
-    ThemeContext,
-} from '../themes/darkLightTheme'
+import { darkLightTheme, ThemeContext } from '../themes/darkLightTheme'
 
+/**
+ * The root of the app.
+ *
+ * @constructor
+ */
 export const App = () => {
     const theme = darkLightTheme
 
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
-    const [windowTheme, setWindowTheme] = useState(defaultTheme)
+    const { windowTheme } = useContext(ThemeContext)
 
     return (
-        <ThemeContext.Provider value={{ windowTheme, setWindowTheme }}>
-            <ThemeProvider theme={theme[windowTheme]}>
-                <GlobalStyle />
-                <div>
-                    <Header></Header>
-                    <Sidebar></Sidebar>
-                </div>
-            </ThemeProvider>
-        </ThemeContext.Provider>
+        <ThemeProvider theme={theme[windowTheme]}>
+            <GlobalStyle />
+            <div>
+                <Header></Header>
+                <Sidebar></Sidebar>
+            </div>
+        </ThemeProvider>
     )
 }

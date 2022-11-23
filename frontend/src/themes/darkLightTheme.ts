@@ -14,6 +14,9 @@ import isBrowserIsDarkMode from '../helpers/isBrowserIsDarkMode'
  */
 export const defaultTheme = isBrowserIsDarkMode ? 'dark' : 'light'
 
+/**
+ * Settings for the dark and light themes.
+ */
 export const darkLightTheme = {
     dark: {
         type: 'dark',
@@ -37,4 +40,7 @@ export const darkLightTheme = {
     },
 }
 
+/**
+ * Returns the context for the theme.
+ */
 export const ThemeContext = createContext<string>(defaultTheme)

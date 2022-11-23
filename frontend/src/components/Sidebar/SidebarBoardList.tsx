@@ -23,6 +23,9 @@ const ButtonFont = css`
     line-height: 19px;
 `
 
+/**
+ * Fix the height of the label of the button that appear shifted.
+ */
 const ButtonLabelHeightFix = css`
     position: relative;
 
@@ -121,8 +124,6 @@ const AddBoardButton = styled.button`
 
     border: none;
     outline: none;
-
-    //box-sizing: border-box;
 `
 
 const AddBoardButtonLabel = styled.div`
@@ -138,8 +139,6 @@ const AddBoardText = styled.span`
 
 const AddBoardIcon = styled(RadioButtonIcon)`
     background: ${Colors.primary.mainPurple};
-
-    //box-sizing: border-box;
 `
 
 /**

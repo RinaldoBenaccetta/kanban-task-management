@@ -110,6 +110,12 @@ const SwitchLabel = styled.label`
     pointer-events: none;
 `
 
+/**
+ * The toggle for the dark mode.
+ * It is a styled checkbox.
+ *
+ * @constructor
+ */
 export const SidebarDarkModeToggle = () => {
     const { windowTheme, setWindowTheme } = useContext(ThemeContext)
 

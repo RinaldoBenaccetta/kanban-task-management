@@ -14,6 +14,9 @@ export type DarkLightTheme = {
     light: SubTheme
 }
 
+/**
+ * Type used in props by styled-components.
+ */
 export type Theme = {
     theme: SubTheme
 }
