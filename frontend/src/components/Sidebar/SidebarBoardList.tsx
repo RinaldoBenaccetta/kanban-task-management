@@ -161,6 +161,7 @@ export const SidebarBoardList = ({}: // boardList,
 
     const boards = boardList.list
 
+    // todo: put a default seleted in selectedboardprovider and remove this
     if (boards.length) {
         selectedBoard = selectedBoard._id ? selectedBoard : boards[0]
     }
