@@ -18,10 +18,13 @@ import ActualBoard from './ActualBoard'
 import AddTask from './AddTask'
 import Logo from './Logo'
 import EditBoard from './EditBoard'
+import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 
 // Create a Header component that'll render an <div> tag with some styles
 const Header = styled.div`
     background-color: ${(props: Theme) => props.theme.colors.frontBackground};
+
+    ${DarkModeTransition};
 
     position: absolute;
 

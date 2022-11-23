@@ -11,6 +11,7 @@ import iconLight from '../../assets/img/icon-light-theme.svg'
 // @ts-ignore
 import iconDark from '../../assets/img/icon-dark-theme.svg'
 import hiddenMixin from '../../themes/mixins/HiddenMixin'
+import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 
 const Icon = css`
     display: inline-block;
@@ -32,6 +33,8 @@ const DarkModeToggle = styled.div`
     margin: 16px auto 0;
 
     display: flex;
+
+    ${DarkModeTransition};
 `
 
 const LightIcon = styled.span`

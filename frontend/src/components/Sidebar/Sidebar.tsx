@@ -9,6 +9,7 @@ import { useQuery } from 'react-query'
 import { fetchAllBoards } from '../../queries/fetchAllBoards'
 import Colors from '../../themes/variables/colors'
 import Modal from '../../themes/elements/Modal'
+import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 
 const SideBarBackdrop = styled.div`
     background-color: ${Colors.modalBackground};
@@ -28,6 +29,8 @@ const BoardsPanel = styled(Modal)`
     margin: 16px auto auto;
 
     padding: 16px 0;
+
+    ${DarkModeTransition()};
 `
 
 /**
