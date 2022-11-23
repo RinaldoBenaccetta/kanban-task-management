@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { SidebarTitle } from './SidebarTitle'
 import { SidebarBoardList } from './SidebarBoardList'
 
-import { SidebarDarkmodeToggle } from './SidebarDarkmodeToggle'
+import { SidebarDarkModeToggle } from './SidebarDarkModeToggle'
 import { useQuery } from 'react-query'
 import { fetchAllBoards } from '../../queries/fetchAllBoards'
 import Colors from '../../themes/variables/colors'
@@ -49,7 +49,7 @@ export default () => {
             <BoardsPanel>
                 <SidebarTitle quantity={boardsQuantity}></SidebarTitle>
                 <SidebarBoardList boardList={boardsList}></SidebarBoardList>
-                <SidebarDarkmodeToggle></SidebarDarkmodeToggle>
+                <SidebarDarkModeToggle></SidebarDarkModeToggle>
             </BoardsPanel>
         </SideBarBackdrop>
     )

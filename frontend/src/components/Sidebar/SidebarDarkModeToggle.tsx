@@ -111,10 +111,10 @@ const SwitchLabel = styled.label`
     pointer-events: none;
 `
 
-export const SidebarDarkmodeToggle = () => {
-    const windowTheme = useContext(ThemeContext)
+export const SidebarDarkModeToggle = () => {
+    const { windowTheme, setWindowTheme } = useContext(ThemeContext)
 
-    console.log(windowTheme.theme.type)
+    const newWindowTheme = windowTheme === 'dark' ? 'light' : 'dark'
 
     return (
         <DarkModeToggle>
@@ -124,9 +124,9 @@ export const SidebarDarkmodeToggle = () => {
                 <SwitchInput
                     id="dark-mode-input"
                     type="checkbox"
-                    checked={windowTheme.theme.type === 'dark'}
+                    checked={windowTheme === 'dark'}
                     onChange={(e) => {
-                        windowTheme.switchTheme(windowTheme.theme.type)
+                        setWindowTheme(newWindowTheme)
                     }}
                 />
             </SwitchInputContainer>

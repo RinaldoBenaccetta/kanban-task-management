@@ -5,7 +5,8 @@ import DarkLogo from '../assets/img/logo-dark.svg'
 // @ts-ignore
 import lightLogo from '../assets/img/logo-light.svg'
 import { createContext } from 'react'
-import { Theme } from '../types/DarkLightTheme'
+
+export const defaultTheme = 'dark'
 
 export const darkLightTheme = {
     dark: {
@@ -30,6 +31,4 @@ export const darkLightTheme = {
     },
 }
 
-export const ThemeContext: React.Context<Theme> = createContext(
-    darkLightTheme.dark
-)
+export const ThemeContext: React.Context<string> = createContext(defaultTheme)
