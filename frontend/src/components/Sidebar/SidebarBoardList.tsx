@@ -8,6 +8,7 @@ import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 import { SelectedBoard } from '../../types/SelectedBoard'
+import { BoardListContext } from '../../hooks/BoardListProvider'
 
 /**
  * The global shape of the button.
@@ -149,18 +150,22 @@ const AddBoardIcon = styled(RadioButtonIcon)`
  * @param boardList
  * @constructor
  */
-export const SidebarBoardList = ({
-    boardList,
-}: {
+export const SidebarBoardList = ({}: // boardList,
+{
     boardList: { _id: string; name: string }[]
 }) => {
     let { selectedBoard } = useContext(SelectedBoardContext)
     const { setSelectedBoard } = useContext(SelectedBoardContext)
 
-    if (boardList.length)
-        selectedBoard = selectedBoard._id ? selectedBoard : boardList[0]
+    const { boardList, setBoardList } = useContext(BoardListContext)
 
-    const list = boardList.map((board) => {
+    const boards = boardList.list
+
+    if (boards.length) {
+        selectedBoard = selectedBoard._id ? selectedBoard : boards[0]
+    }
+
+    const list = boards.map((board: SelectedBoard) => {
         return (
             <RadioElement key={board._id}>
                 <RadioInput
