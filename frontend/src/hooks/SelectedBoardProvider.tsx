@@ -6,13 +6,13 @@ const defaultBoard = { _id: '', name: '' }
 export const SelectedBoardContext = createContext<SelectedBoard>(defaultBoard)
 
 export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
-    const ActualBoard = SelectedBoardContext
+    const SelectedBoard = SelectedBoardContext
 
     const [selectedBoard, setSelectedBoard] = useState(defaultBoard)
 
     return (
-        <ActualBoard.Provider value={{ selectedBoard, setSelectedBoard }}>
+        <SelectedBoard.Provider value={{ selectedBoard, setSelectedBoard }}>
             {children}
-        </ActualBoard.Provider>
+        </SelectedBoard.Provider>
     )
 }
