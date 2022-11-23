@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 import { ThemeContext } from '../../themes/darkLightTheme'
 
-import { DarkLightTheme } from '../../types/DarkLightTheme'
+import { Theme } from '../../types/DarkLightTheme'
 import Colors from '../../themes/variables/colors'
 
 // @ts-ignore
@@ -25,8 +25,7 @@ const DarkModeToggle = styled.div`
     width: 235px;
     height: 48px;
 
-    background-color: ${(props: DarkLightTheme) =>
-        props.theme.colors.backBackground};
+    background-color: ${(props: Theme) => props.theme.colors.backBackground};
 
     border-radius: 6px;
 

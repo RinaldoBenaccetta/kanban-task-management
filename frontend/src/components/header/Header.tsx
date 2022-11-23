@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { DarkLightTheme } from '../../types/DarkLightTheme'
+import { Theme } from '../../types/DarkLightTheme'
 
 // @ts-ignore
 import mobileLogoIcon from '../../assets/img/logo-mobile.svg'
@@ -21,8 +21,7 @@ import EditBoard from './EditBoard'
 
 // Create a Header component that'll render an <div> tag with some styles
 const Header = styled.div`
-    background-color: ${(props: DarkLightTheme) =>
-        props.theme.colors.frontBackground};
+    background-color: ${(props: Theme) => props.theme.colors.frontBackground};
 
     position: absolute;
 
@@ -32,7 +31,7 @@ const Header = styled.div`
     ${BreakPointMixin.tablet`
         height: 80px;
         
-        border-bottom: 1px solid ${(props: DarkLightTheme) =>
+        border-bottom: 1px solid ${(props: Theme) =>
             props.theme.colors.accentLine}
     `}
 
