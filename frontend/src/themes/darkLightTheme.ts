@@ -37,4 +37,4 @@ export const darkLightTheme = {
     },
 }
 
-export const ThemeContext: React.Context<string> = createContext(defaultTheme)
+export const ThemeContext = createContext<string>(defaultTheme)
