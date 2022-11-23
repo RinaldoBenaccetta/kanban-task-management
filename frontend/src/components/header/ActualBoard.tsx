@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
@@ -7,6 +7,7 @@ import typography from '../../themes/typography'
 
 // @ts-ignore
 import chevronDownIcon from '../../assets/img/icon-chevron-down.svg'
+import { ActualBoardContext } from '../../hooks/ActualBoardProvider'
 
 const ActualBoard = styled.div`
     flex: 1;
@@ -42,9 +43,13 @@ const ActualBoardChevron = styled.img`
 `
 
 export default () => {
+    const { actualBoard } = useContext(ActualBoardContext)
+
+    const boardName = actualBoard && actualBoard.name ? actualBoard.name : '...'
+
     return (
         <ActualBoard>
-            Actual board
+            {boardName}
             <ActualBoardChevron src={chevronDownIcon} alt="Show boards" />
         </ActualBoard>
     )

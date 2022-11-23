@@ -7,6 +7,7 @@ import Colors from '../../themes/variables/colors'
 import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { ActualBoardContext } from '../../hooks/ActualBoardProvider'
+import { ActualBoard } from '../../types/ActualBoard'
 
 /**
  * The global shape of the button.
@@ -155,13 +156,10 @@ export const SidebarBoardList = ({
 }) => {
     const { actualBoard, setActualBoard } = useContext(ActualBoardContext)
 
-    // set default selectedBoard as null, as boardList can be empty,
-    // and boardList is empty when the app starts running.
-    // It becomes filled and rerender by React after.
-    let selectedBoard = null as string | null
+    let selectedBoard = actualBoard
 
     if (boardList.length)
-        selectedBoard = actualBoard ? actualBoard : boardList[0]._id
+        selectedBoard = actualBoard._id ? selectedBoard : boardList[0]
 
     const list = boardList.map((board) => {
         return (
@@ -170,9 +168,9 @@ export const SidebarBoardList = ({
                     name="board"
                     type="radio"
                     value={board._id}
-                    checked={board._id === selectedBoard}
+                    checked={board._id === selectedBoard._id}
                     onChange={() => {
-                        setActualBoard(board._id)
+                        setActualBoard(board)
                     }}
                 />
                 <RadioButton>
