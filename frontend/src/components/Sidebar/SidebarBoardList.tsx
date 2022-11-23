@@ -6,8 +6,8 @@ import Colors from '../../themes/variables/colors'
 // @ts-ignore
 import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
-import { ActualBoardContext } from '../../hooks/ActualBoardProvider'
-import { ActualBoard } from '../../types/ActualBoard'
+import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
+import { SelectedBoard } from '../../types/SelectedBoard'
 
 /**
  * The global shape of the button.
@@ -154,12 +154,11 @@ export const SidebarBoardList = ({
 }: {
     boardList: { _id: string; name: string }[]
 }) => {
-    const { actualBoard, setActualBoard } = useContext(ActualBoardContext)
-
-    let selectedBoard = actualBoard
+    let { selectedBoard } = useContext(SelectedBoardContext)
+    const { setSelectedBoard } = useContext(SelectedBoardContext)
 
     if (boardList.length)
-        selectedBoard = actualBoard._id ? selectedBoard : boardList[0]
+        selectedBoard = selectedBoard._id ? selectedBoard : boardList[0]
 
     const list = boardList.map((board) => {
         return (
@@ -170,7 +169,7 @@ export const SidebarBoardList = ({
                     value={board._id}
                     checked={board._id === selectedBoard._id}
                     onChange={() => {
-                        setActualBoard(board)
+                        setSelectedBoard(board)
                     }}
                 />
                 <RadioButton>

@@ -7,7 +7,7 @@ import typography from '../../themes/typography'
 
 // @ts-ignore
 import chevronDownIcon from '../../assets/img/icon-chevron-down.svg'
-import { ActualBoardContext } from '../../hooks/ActualBoardProvider'
+import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 
 const ActualBoard = styled.div`
     flex: 1;
@@ -43,9 +43,10 @@ const ActualBoardChevron = styled.img`
 `
 
 export default () => {
-    const { actualBoard } = useContext(ActualBoardContext)
+    const { selectedBoard } = useContext(SelectedBoardContext)
 
-    const boardName = actualBoard && actualBoard.name ? actualBoard.name : '...'
+    const boardName =
+        selectedBoard && selectedBoard.name ? selectedBoard.name : '...'
 
     return (
         <ActualBoard>
