@@ -1,6 +1,6 @@
 export type Theme = {
     colors: {
-        type: 'string'
+        type: 'dark' | 'light'
         backBackground: string
         frontBackground: string
         text: string

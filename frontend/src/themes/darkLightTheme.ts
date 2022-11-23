@@ -1,12 +1,18 @@
+import { createContext } from 'react'
+
 import Colors from './variables/colors'
 
 // @ts-ignore
 import DarkLogo from '../assets/img/logo-dark.svg'
 // @ts-ignore
 import lightLogo from '../assets/img/logo-light.svg'
-import { createContext } from 'react'
 
-export const defaultTheme = 'dark'
+import isBrowserIsDarkMode from '../helpers/isBrowserIsDarkMode'
+
+/**
+ * Set default theme according to the user dark mode preference.
+ */
+export const defaultTheme = isBrowserIsDarkMode ? 'dark' : 'light'
 
 export const darkLightTheme = {
     dark: {
