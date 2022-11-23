@@ -5,13 +5,12 @@ import GlobalStyle from '../themes/GlobalStyles'
 import Header from './header/Header'
 import Sidebar from './Sidebar/Sidebar'
 
-import lightTheme from '../themes/light'
-import darkTheme from '../themes/dark'
+import darkLightTheme from '../themes/darkLightTheme'
 
 // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
 export const App = () => {
     return (
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={darkLightTheme.light}>
             <GlobalStyle />
             <div>
                 <Header></Header>
