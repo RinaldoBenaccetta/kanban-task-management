@@ -10,6 +10,7 @@ import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { App } from './components/App'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
+import { ActualBoardProvider } from './hooks/ActualBoardProvider'
 
 const queryClient = new QueryClient()
 
@@ -21,8 +22,10 @@ root!.render(
      * Nest the providers hooks here.
      */
     <QueryClientProvider client={queryClient}>
-        <ThemeContextProvider>
-            <App />
-        </ThemeContextProvider>
+        <ActualBoardProvider>
+            <ThemeContextProvider>
+                <App />
+            </ThemeContextProvider>
+        </ActualBoardProvider>
     </QueryClientProvider>
 )

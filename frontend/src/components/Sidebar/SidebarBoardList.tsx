@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled, { css } from 'styled-components'
 
 import Colors from '../../themes/variables/colors'
@@ -6,6 +6,7 @@ import Colors from '../../themes/variables/colors'
 // @ts-ignore
 import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
+import { ActualBoardContext } from '../../hooks/ActualBoardProvider'
 
 /**
  * The global shape of the button.
@@ -152,8 +153,15 @@ export const SidebarBoardList = ({
 }: {
     boardList: { _id: string; name: string }[]
 }) => {
-    // todo: make this dynamic
-    // const selectedBoard = '6373af4ff9ad6ddbc86bfaa9'
+    const { actualBoard, setActualBoard } = useContext(ActualBoardContext)
+
+    // set default selectedBoard as null, as boardList can be empty,
+    // and boardList is empty when the app starts running.
+    // It becomes filled and rerender by React after.
+    let selectedBoard = null as string | null
+
+    if (boardList.length)
+        selectedBoard = actualBoard ? actualBoard : boardList[0]._id
 
     const list = boardList.map((board) => {
         return (
@@ -162,7 +170,10 @@ export const SidebarBoardList = ({
                     name="board"
                     type="radio"
                     value={board._id}
-                    // checked={board._id === selectedBoard}
+                    checked={board._id === selectedBoard}
+                    onChange={() => {
+                        setActualBoard(board._id)
+                    }}
                 />
                 <RadioButton>
                     <RadioButtonIcon aria-hidden="true" />
