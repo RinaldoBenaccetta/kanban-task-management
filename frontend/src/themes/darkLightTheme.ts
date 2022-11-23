@@ -4,9 +4,12 @@ import Colors from './variables/colors'
 import DarkLogo from '../assets/img/logo-dark.svg'
 // @ts-ignore
 import lightLogo from '../assets/img/logo-light.svg'
+import { createContext } from 'react'
+import { Theme } from '../types/DarkLightTheme'
 
-export default {
+export const darkLightTheme = {
     dark: {
+        type: 'dark',
         colors: {
             backBackground: Colors.grey.veryDarkGrey,
             frontBackground: Colors.grey.darkGrey,
@@ -16,6 +19,7 @@ export default {
         logo: lightLogo,
     },
     light: {
+        type: 'light',
         colors: {
             backBackground: Colors.grey.lightGrey,
             frontBackground: Colors.white,
@@ -25,3 +29,7 @@ export default {
         logo: DarkLogo,
     },
 }
+
+export const ThemeContext: React.Context<Theme> = createContext(
+    darkLightTheme.dark
+)

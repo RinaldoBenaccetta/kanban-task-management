@@ -1,11 +1,15 @@
-export type DarkLightTheme = {
-    theme: {
-        colors: {
-            backBackground: string
-            frontBackground: string
-            text: string
-            accentLine: string
-        }
-        logo: string
+export type Theme = {
+    colors: {
+        type: 'string'
+        backBackground: string
+        frontBackground: string
+        text: string
+        accentLine: string
     }
+    logo: string
+}
+
+export type DarkLightTheme = {
+    dark: Theme
+    light: Theme
 }

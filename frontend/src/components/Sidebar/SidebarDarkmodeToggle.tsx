@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled, { css } from 'styled-components'
+
+import { ThemeContext } from '../../themes/darkLightTheme'
 
 import { DarkLightTheme } from '../../types/DarkLightTheme'
 import Colors from '../../themes/variables/colors'
@@ -110,12 +112,23 @@ const SwitchLabel = styled.label`
 `
 
 export const SidebarDarkmodeToggle = () => {
+    const windowTheme = useContext(ThemeContext)
+
+    console.log(windowTheme.theme.type)
+
     return (
         <DarkModeToggle>
             <LightIcon />
             <SwitchInputContainer>
                 <SwitchLabel htmlFor="dark-mode-input">Dark mode</SwitchLabel>
-                <SwitchInput id="dark-mode-input" type="checkbox" />
+                <SwitchInput
+                    id="dark-mode-input"
+                    type="checkbox"
+                    checked={windowTheme.theme.type === 'dark'}
+                    onChange={(e) => {
+                        windowTheme.switchTheme(windowTheme.theme.type)
+                    }}
+                />
             </SwitchInputContainer>
             <DarkIcon />
         </DarkModeToggle>
