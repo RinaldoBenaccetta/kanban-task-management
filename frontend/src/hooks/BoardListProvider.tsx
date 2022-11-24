@@ -18,8 +18,6 @@ export const BoardListProvider = ({ children }: PropsWithChildren) => {
     const queryKey = ['boards']
     const { status, data, error } = useQuery(queryKey, fetchAllBoards)
 
-    const BoardList = BoardListContext
-
     // set default values while fetching.
     // When response, React will set the new value with useEffect.
     const quantity = status === 'success' && data.quantity ? data.quantity : 0
@@ -38,8 +36,8 @@ export const BoardListProvider = ({ children }: PropsWithChildren) => {
     }, [status])
 
     return (
-        <BoardList.Provider value={{ boardList, setBoardList }}>
+        <BoardListContext.Provider value={{ boardList, setBoardList }}>
             {children}
-        </BoardList.Provider>
+        </BoardListContext.Provider>
     )
 }

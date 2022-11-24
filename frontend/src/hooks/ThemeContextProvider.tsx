@@ -1,6 +1,11 @@
-import React, { PropsWithChildren, useState } from 'react'
+import React, { createContext, PropsWithChildren, useState } from 'react'
 
-import { defaultTheme, ThemeContext } from '../themes/darkLightTheme'
+import { defaultTheme } from '../themes/darkLightTheme'
+
+/**
+ * Returns the context for the theme.
+ */
+export const ThemeContext = createContext<string>(defaultTheme)
 
 /**
  * Provider of the theme.

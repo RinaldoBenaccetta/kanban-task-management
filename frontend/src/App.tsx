@@ -6,6 +6,7 @@ import Header from './components/header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 
 import { darkLightTheme, ThemeContext } from './themes/darkLightTheme'
+import { ThemeContext } from './hooks/ThemeContextProvider'
 
 /**
  * The root of the app.

@@ -12,6 +12,7 @@ import iconLight from '../../assets/img/icon-light-theme.svg'
 import iconDark from '../../assets/img/icon-dark-theme.svg'
 import hiddenMixin from '../../themes/mixins/HiddenMixin'
 import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
+import { ThemeContext } from '../../hooks/ThemeContextProvider'
 
 const Icon = css`
     display: inline-block;

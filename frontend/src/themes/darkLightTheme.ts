@@ -39,8 +39,3 @@ export const darkLightTheme = {
         logo: DarkLogo,
     },
 }
-
-/**
- * Returns the context for the theme.
- */
-export const ThemeContext = createContext<string>(defaultTheme)

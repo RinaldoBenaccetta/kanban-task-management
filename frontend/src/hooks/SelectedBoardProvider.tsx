@@ -24,8 +24,6 @@ export const SelectedBoardContext =
  * @constructor
  */
 export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
-    const SelectedBoard = SelectedBoardContext
-
     const { boardList } = useContext(BoardListContext)
 
     const boards = boardList.list
@@ -37,14 +35,16 @@ export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
     // UseEffect because at first boardList is empty, so we need
     // to change the value while the boardList is not loaded.
     // When the boardList change, useEffect is triggered and
-    // select the first board.
+    // select the first board, if there is boards inside the list.
     useEffect(() => {
         if (boards.length) setSelectedBoard(boards[0])
     }, [boardList])
 
     return (
-        <SelectedBoard.Provider value={{ selectedBoard, setSelectedBoard }}>
+        <SelectedBoardContext.Provider
+            value={{ selectedBoard, setSelectedBoard }}
+        >
             {children}
-        </SelectedBoard.Provider>
+        </SelectedBoardContext.Provider>
     )
 }
