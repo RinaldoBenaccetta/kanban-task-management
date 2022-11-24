@@ -1,7 +1,7 @@
-import { BoardInBoardListType } from './BoardListType'
+import { BoardInBoardsType } from './BoardsType'
 
 // https://felixgerschau.com/react-typescript-context/
 export type SelectBoardContextType = {
-    selectedBoard: BoardInBoardListType
-    selectBoard?: (board: BoardInBoardListType) => void
+    selectedBoard: BoardInBoardsType
+    selectBoard?: (board: BoardInBoardsType) => void
 }

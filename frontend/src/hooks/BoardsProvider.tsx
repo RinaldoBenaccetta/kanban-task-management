@@ -6,14 +6,17 @@ import React, {
 } from 'react'
 import { useQuery } from 'react-query'
 import { fetchAllBoards } from '../queries/fetchAllBoards'
-import { BoardListType } from '../@types/BoardListType'
+import { BoardsType } from '../@types/BoardsType'
+import { BoardsContextType } from '../@types/BoardsContextType'
 
 const defaultBoardList = {
     quantity: 0,
     list: [],
 }
 
-export const BoardsContext = createContext<BoardListType>(defaultBoardList)
+export const BoardsContext = createContext<BoardsContextType>({
+    boardList: defaultBoardList,
+})
 
 export const BoardsProvider = ({ children }: PropsWithChildren) => {
     const queryKey = ['boards']
@@ -24,20 +27,22 @@ export const BoardsProvider = ({ children }: PropsWithChildren) => {
     const quantity = status === 'success' && data.quantity ? data.quantity : 0
     const list = status === 'success' && data.list ? data.list : []
 
-    const [boardList, setBoardList] = useState({
+    const [boardList, setBoards] = useState({
         quantity: quantity,
         list: list,
-    } as BoardListType)
+    } as BoardsType)
+
+    const setBoardsList = (board: BoardsType) => setBoards(board)
 
     useEffect(() => {
-        setBoardList({
+        setBoardsList({
             quantity: quantity,
             list: list,
         })
     }, [status])
 
     return (
-        <BoardsContext.Provider value={{ boardList, setBoardList }}>
+        <BoardsContext.Provider value={{ boardList }}>
             {children}
         </BoardsContext.Provider>
     )

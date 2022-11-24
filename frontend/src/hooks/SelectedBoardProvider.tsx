@@ -5,7 +5,7 @@ import React, {
     useEffect,
     useState,
 } from 'react'
-import { BoardInBoardListType } from '../@types/BoardListType'
+import { BoardInBoardsType } from '../@types/BoardsType'
 import { SelectBoardContextType } from '../@types/SelectBoardContextType'
 import { BoardsContext } from './BoardsProvider'
 
@@ -35,7 +35,7 @@ export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
     const [selectedBoard, setSelectedBoard] = useState(board)
 
     // https://felixgerschau.com/react-typescript-context/
-    const selectBoard = (board: BoardInBoardListType) => {
+    const selectBoard = (board: BoardInBoardsType) => {
         setSelectedBoard(board)
     }
 
