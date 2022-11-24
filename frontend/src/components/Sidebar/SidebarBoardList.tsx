@@ -157,14 +157,9 @@ export const SidebarBoardList = ({}: // boardList,
     let { selectedBoard } = useContext(SelectedBoardContext)
     const { setSelectedBoard } = useContext(SelectedBoardContext)
 
-    const { boardList, setBoardList } = useContext(BoardListContext)
+    const { boardList } = useContext(BoardListContext)
 
     const boards = boardList.list
-
-    // todo: put a default seleted in selectedboardprovider and remove this
-    if (boards.length) {
-        selectedBoard = selectedBoard._id ? selectedBoard : boards[0]
-    }
 
     const list = boards.map((board: SelectedBoard) => {
         return (
