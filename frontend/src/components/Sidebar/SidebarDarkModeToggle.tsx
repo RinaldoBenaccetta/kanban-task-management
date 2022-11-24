@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 import { ThemeContext } from '../../themes/darkLightTheme'
 
-import { Theme } from '../../types/DarkLightTheme'
+import { Theme } from '../../@types/DarkLightThemeType'
 import Colors from '../../themes/variables/colors'
 
 // @ts-ignore

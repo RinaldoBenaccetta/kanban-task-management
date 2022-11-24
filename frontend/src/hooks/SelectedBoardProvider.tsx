@@ -5,7 +5,7 @@ import React, {
     useEffect,
     useState,
 } from 'react'
-import { BoardInBoardList } from '../types/BoardInBoardList'
+import { BoardInBoardListType } from '../@types/BoardInBoardListType'
 import { BoardListContext } from './BoardListProvider'
 
 const defaultBoard = { _id: '', name: '' }
@@ -14,7 +14,7 @@ const defaultBoard = { _id: '', name: '' }
  * Usable with useContext.
  */
 export const SelectedBoardContext =
-    createContext<BoardInBoardList>(defaultBoard)
+    createContext<BoardInBoardListType>(defaultBoard)
 
 /**
  * Provide the selected board.
@@ -31,6 +31,8 @@ export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
     const board = boards.length ? boards[0] : defaultBoard
 
     const [selectedBoard, setSelectedBoard] = useState(board)
+
+    console.log(selectedBoard)
 
     // UseEffect because at first boardList is empty, so we need
     // to change the value while the boardList is not loaded.

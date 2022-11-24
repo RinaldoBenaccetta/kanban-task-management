@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Theme } from '../../types/DarkLightTheme'
+import { Theme } from '../../@types/DarkLightThemeType'
 
 // @ts-ignore
 import mobileLogoIcon from '../../assets/img/logo-mobile.svg'

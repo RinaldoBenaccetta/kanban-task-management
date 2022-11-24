@@ -1,4 +1,4 @@
-export type SubTheme = {
+type SubTheme = {
     colors: {
         type: 'dark' | 'light'
         backBackground: string
@@ -9,7 +9,7 @@ export type SubTheme = {
     logo: string
 }
 
-export type DarkLightTheme = {
+export type DarkLightThemeType = {
     dark: SubTheme
     light: SubTheme
 }
