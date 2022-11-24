@@ -6,7 +6,7 @@ import { SidebarBoardList } from './SidebarBoardList'
 import { SidebarDarkModeToggle } from './SidebarDarkModeToggle'
 
 import Colors from '../../themes/variables/colors'
-import Modal from '../../themes/elements/Modal'
+import Modal from '../../themes/mixins/Modal'
 
 import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 
@@ -22,14 +22,16 @@ const SideBarBackdrop = styled.div`
     height: 100%;
 `
 
-const BoardsPanel = styled(Modal)`
+const BoardsPanel = styled.div`
+    ${Modal};
+
     width: 264px;
 
     margin: 16px auto auto;
 
     padding: 16px 0;
 
-    ${DarkModeTransition()};
+    ${DarkModeTransition};
 `
 
 /**

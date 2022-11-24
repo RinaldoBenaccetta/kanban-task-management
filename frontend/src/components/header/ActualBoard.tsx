@@ -45,6 +45,7 @@ const ActualBoardChevron = styled.img`
 export default () => {
     const { selectedBoard } = useContext(SelectedBoardContext)
 
+    // if there is no board name : place ... instead
     const boardName =
         selectedBoard && selectedBoard.name ? selectedBoard.name : '...'
 
