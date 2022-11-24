@@ -7,14 +7,16 @@ import React, {
 } from 'react'
 import { BoardInBoardListType } from '../@types/BoardListType'
 import { BoardListContext } from './BoardListProvider'
+import { SelectBoardContextType } from '../@types/SelectBoardContextType'
 
 const defaultBoard = { _id: '', name: '' }
 
 /**
  * Usable with useContext.
  */
-export const SelectedBoardContext =
-    createContext<BoardInBoardListType>(defaultBoard)
+export const SelectedBoardContext = createContext<SelectBoardContextType>({
+    selectedBoard: defaultBoard,
+})
 
 /**
  * Provide the selected board.
@@ -32,7 +34,10 @@ export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
 
     const [selectedBoard, setSelectedBoard] = useState(board)
 
-    console.log(selectedBoard)
+    // https://felixgerschau.com/react-typescript-context/
+    const selectBoard = (board: BoardInBoardListType) => {
+        setSelectedBoard(board)
+    }
 
     // UseEffect because at first boardList is empty, so we need
     // to change the value while the boardList is not loaded.
@@ -43,9 +48,7 @@ export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
     }, [boardList])
 
     return (
-        <SelectedBoardContext.Provider
-            value={{ selectedBoard, setSelectedBoard }}
-        >
+        <SelectedBoardContext.Provider value={{ selectedBoard, selectBoard }}>
             {children}
         </SelectedBoardContext.Provider>
     )
