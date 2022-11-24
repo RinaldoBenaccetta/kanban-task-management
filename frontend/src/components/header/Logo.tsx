@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { DarkLightThemeType } from '../../@types/DarkLightThemeType'
+import { Theme } from '../../@types/DarkLightThemeType'
 
 // @ts-ignore
 import mobileLogoIcon from '../../assets/img/logo-mobile.svg'
@@ -15,7 +15,7 @@ const LogoContainer = styled.div`
     ${BreakPointMixin.tablet`
         width: 261px;
         
-        border-right: 1px solid ${(props: DarkLightThemeType) =>
+        border-right: 1px solid ${(props: Theme) =>
             props.theme.colors.accentLine}
     `}
 
@@ -39,8 +39,7 @@ const Logo = styled.div`
         
         margin: 28px auto auto 24px;
         
-        background-image: url(${(props: DarkLightThemeType) =>
-            props.theme.logo});
+        background-image: url(${(props: Theme) => props.theme.logo});
     `}
 
     ${BreakPointMixin.large`
