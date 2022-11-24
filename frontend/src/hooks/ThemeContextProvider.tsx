@@ -15,6 +15,7 @@ export const ThemeContext = createContext<ThemeContextType>({
  * The default theme is set according to the user dark mode preference in darkLightTheme.ts file
  *
  * The children type is found here : https://www.youtube.com/watch?v=UAf37Ph_AB8
+ * The structure and type found here : https://felixgerschau.com/react-typescript-context/
  *
  * @param children
  * @constructor
@@ -23,6 +24,7 @@ export const ThemeContextProvider = ({ children }: PropsWithChildren) => {
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
     const [windowTheme, setWindowTheme] = useState(defaultTheme)
 
+    // https://felixgerschau.com/react-typescript-context/
     const toggleDarkMode = () => {
         setWindowTheme(windowTheme === 'dark' ? 'light' : 'dark')
     }
