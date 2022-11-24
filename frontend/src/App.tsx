@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import GlobalStyle from '../themes/GlobalStyles'
-import Header from './header/Header'
-import Sidebar from './Sidebar/Sidebar'
+import GlobalStyle from './themes/GlobalStyles'
+import Header from './components/header/Header'
+import Sidebar from './components/Sidebar/Sidebar'
 
-import { darkLightTheme, ThemeContext } from '../themes/darkLightTheme'
+import { darkLightTheme, ThemeContext } from './themes/darkLightTheme'
 
 /**
  * The root of the app.
