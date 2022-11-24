@@ -147,13 +147,9 @@ const AddBoardIcon = styled(RadioButtonIcon)`
 /**
  * The list of boards.
  *
- * @param boardList
  * @constructor
  */
-export const SidebarBoardList = ({}: // boardList,
-{
-    boardList: { _id: string; name: string }[]
-}) => {
+export const SidebarBoardList = () => {
     let { selectedBoard } = useContext(SelectedBoardContext)
     const { setSelectedBoard } = useContext(SelectedBoardContext)
 

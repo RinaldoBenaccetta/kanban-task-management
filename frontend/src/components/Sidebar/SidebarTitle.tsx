@@ -10,9 +10,13 @@ const Title = styled.div`
 
     box-sizing: border-box;
 `
-
+/**
+ * The sidebar title with the number of boards.
+ *
+ * @constructor
+ */
 export const SidebarTitle = () => {
-    const { boardList, setBoardList } = useContext(BoardListContext)
+    const { boardList } = useContext(BoardListContext)
 
     return <Title>ALL BOARDS ({boardList.quantity})</Title>
 }
