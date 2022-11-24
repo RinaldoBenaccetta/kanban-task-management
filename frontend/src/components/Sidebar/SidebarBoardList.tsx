@@ -7,7 +7,7 @@ import Colors from '../../themes/variables/colors'
 import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
-import { BoardInBoardListType } from '../../@types/BoardInBoardListType'
+import { BoardInBoardListType } from '../../@types/BoardListType'
 import { BoardListContext } from '../../hooks/BoardListProvider'
 
 /**

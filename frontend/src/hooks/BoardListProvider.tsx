@@ -6,13 +6,14 @@ import React, {
 } from 'react'
 import { useQuery } from 'react-query'
 import { fetchAllBoards } from '../queries/fetchAllBoards'
+import { BoardListType } from '../@types/BoardListType'
 
 const defaultBoardList = {
     quantity: 0,
     list: [],
 }
 
-export const BoardListContext = createContext(defaultBoardList)
+export const BoardListContext = createContext<BoardListType>(defaultBoardList)
 
 export const BoardListProvider = ({ children }: PropsWithChildren) => {
     const queryKey = ['boards']
@@ -26,7 +27,7 @@ export const BoardListProvider = ({ children }: PropsWithChildren) => {
     const [boardList, setBoardList] = useState({
         quantity: quantity,
         list: list,
-    })
+    } as BoardListType)
 
     useEffect(() => {
         setBoardList({

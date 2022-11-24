@@ -5,7 +5,7 @@ import React, {
     useEffect,
     useState,
 } from 'react'
-import { BoardInBoardListType } from '../@types/BoardInBoardListType'
+import { BoardInBoardListType } from '../@types/BoardListType'
 import { BoardListContext } from './BoardListProvider'
 
 const defaultBoard = { _id: '', name: '' }
