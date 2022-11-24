@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import typography from '../../themes/typography'
-import { BoardListContext } from '../../hooks/BoardsProvider'
+import { BoardsContext } from '../../hooks/BoardsProvider'
 
 const Title = styled.div`
     ${typography.heading.s}
@@ -16,7 +16,7 @@ const Title = styled.div`
  * @constructor
  */
 export const SidebarTitle = () => {
-    const { boardList } = useContext(BoardListContext)
+    const { boardList } = useContext(BoardsContext)
 
     return <Title>ALL BOARDS ({boardList.quantity})</Title>
 }

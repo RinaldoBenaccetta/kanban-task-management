@@ -7,7 +7,7 @@ import React, {
 } from 'react'
 import { BoardInBoardListType } from '../@types/BoardListType'
 import { SelectBoardContextType } from '../@types/SelectBoardContextType'
-import { BoardListContext } from './BoardsProvider'
+import { BoardsContext } from './BoardsProvider'
 
 const defaultBoard = { _id: '', name: '' }
 
@@ -26,7 +26,7 @@ export const SelectedBoardContext = createContext<SelectBoardContextType>({
  * @constructor
  */
 export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
-    const { boardList } = useContext(BoardListContext)
+    const { boardList } = useContext(BoardsContext)
 
     const boards = boardList.list
 

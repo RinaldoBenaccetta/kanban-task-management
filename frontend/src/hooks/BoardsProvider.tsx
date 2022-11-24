@@ -13,9 +13,9 @@ const defaultBoardList = {
     list: [],
 }
 
-export const BoardListContext = createContext<BoardListType>(defaultBoardList)
+export const BoardsContext = createContext<BoardListType>(defaultBoardList)
 
-export const BoardListProvider = ({ children }: PropsWithChildren) => {
+export const BoardsProvider = ({ children }: PropsWithChildren) => {
     const queryKey = ['boards']
     const { status, data, error } = useQuery(queryKey, fetchAllBoards)
 
@@ -37,8 +37,8 @@ export const BoardListProvider = ({ children }: PropsWithChildren) => {
     }, [status])
 
     return (
-        <BoardListContext.Provider value={{ boardList, setBoardList }}>
+        <BoardsContext.Provider value={{ boardList, setBoardList }}>
             {children}
-        </BoardListContext.Provider>
+        </BoardsContext.Provider>
     )
 }

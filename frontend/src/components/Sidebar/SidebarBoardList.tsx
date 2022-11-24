@@ -8,7 +8,7 @@ import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 import { BoardInBoardListType } from '../../@types/BoardListType'
-import { BoardListContext } from '../../hooks/BoardsProvider'
+import { BoardsContext } from '../../hooks/BoardsProvider'
 
 /**
  * The global shape of the button.
@@ -153,7 +153,7 @@ export const SidebarBoardList = () => {
     // let { selectedBoard } = useContext(SelectedBoardContext)
     const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
 
-    const { boardList } = useContext(BoardListContext)
+    const { boardList } = useContext(BoardsContext)
 
     const boards = boardList.list
 

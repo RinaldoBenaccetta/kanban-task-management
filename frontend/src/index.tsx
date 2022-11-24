@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { App } from './App'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { SelectedBoardProvider } from './hooks/SelectedBoardProvider'
-import { BoardListProvider } from './hooks/BoardsProvider'
+import { BoardsProvider } from './hooks/BoardsProvider'
 
 const queryClient = new QueryClient()
 
@@ -23,12 +23,12 @@ root!.render(
      * Nest the providers hooks here.
      */
     <QueryClientProvider client={queryClient}>
-        <BoardListProvider>
+        <BoardsProvider>
             <SelectedBoardProvider>
                 <ThemeContextProvider>
                     <App />
                 </ThemeContextProvider>
             </SelectedBoardProvider>
-        </BoardListProvider>
+        </BoardsProvider>
     </QueryClientProvider>
 )
