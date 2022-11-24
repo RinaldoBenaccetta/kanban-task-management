@@ -150,7 +150,6 @@ const AddBoardIcon = styled(RadioButtonIcon)`
  * @constructor
  */
 export const SidebarBoardList = () => {
-    // let { selectedBoard } = useContext(SelectedBoardContext)
     const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
 
     const { boardList } = useContext(BoardsContext)
@@ -166,7 +165,7 @@ export const SidebarBoardList = () => {
                     value={board._id}
                     checked={board._id === selectedBoard._id}
                     onChange={() => {
-                        selectBoard(board)
+                        if (selectBoard) selectBoard(board)
                     }}
                 />
                 <RadioButton>

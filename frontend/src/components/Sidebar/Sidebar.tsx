@@ -3,12 +3,11 @@ import styled from 'styled-components'
 
 import { SidebarTitle } from './SidebarTitle'
 import { SidebarBoardList } from './SidebarBoardList'
-
 import { SidebarDarkModeToggle } from './SidebarDarkModeToggle'
-import { useQuery } from 'react-query'
-import { fetchAllBoards } from '../../queries/fetchAllBoards'
+
 import Colors from '../../themes/variables/colors'
 import Modal from '../../themes/elements/Modal'
+
 import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 
 const SideBarBackdrop = styled.div`

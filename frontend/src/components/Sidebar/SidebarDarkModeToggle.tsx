@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import styled, { css } from 'styled-components'
 
-import { ThemeContext } from '../../themes/darkLightTheme'
-
 import { Theme } from '../../@types/DarkLightThemeType'
 import Colors from '../../themes/variables/colors'
 
@@ -132,8 +130,8 @@ export const SidebarDarkModeToggle = () => {
                     id="dark-mode-input"
                     type="checkbox"
                     checked={windowTheme === 'dark'}
-                    onChange={(e) => {
-                        toggleDarkMode()
+                    onChange={() => {
+                        if (toggleDarkMode) toggleDarkMode()
                     }}
                 />
             </SwitchInputContainer>
