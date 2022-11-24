@@ -1,5 +1,3 @@
-import { createContext } from 'react'
-
 import Colors from './variables/colors'
 
 // @ts-ignore
@@ -17,7 +15,7 @@ export const defaultTheme = isBrowserIsDarkMode ? 'dark' : 'light'
 /**
  * Settings for the dark and light themes.
  */
-export const darkLightTheme = {
+export const themes = {
     dark: {
         type: 'dark',
         colors: {

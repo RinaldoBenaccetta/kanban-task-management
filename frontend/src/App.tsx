@@ -5,7 +5,7 @@ import GlobalStyle from './themes/GlobalStyles'
 import Header from './components/header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
 
-import { darkLightTheme } from './themes/darkLightTheme'
+import { themes } from './themes/themes'
 import { ThemeContext } from './hooks/ThemeContextProvider'
 import { DarkLightThemeType } from './@types/DarkLightThemeType'
 
@@ -15,7 +15,7 @@ import { DarkLightThemeType } from './@types/DarkLightThemeType'
  * @constructor
  */
 export const App = () => {
-    const theme = darkLightTheme
+    const theme = themes
 
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
     const { selectedTheme } = useContext(ThemeContext)

@@ -1,6 +1,6 @@
 import React, { createContext, PropsWithChildren, useState } from 'react'
 
-import { defaultTheme } from '../themes/darkLightTheme'
+import { defaultTheme } from '../themes/themes'
 import { ThemeContextType } from '../@types/ThemeContextType'
 
 /**
