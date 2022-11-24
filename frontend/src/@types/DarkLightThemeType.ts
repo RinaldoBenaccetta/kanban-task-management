@@ -1,6 +1,6 @@
 type SubTheme = {
+    type: 'dark' | 'light'
     colors: {
-        type: 'dark' | 'light'
         backBackground: string
         frontBackground: string
         text: string

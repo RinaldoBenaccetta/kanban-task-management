@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from './themes/GlobalStyles'
@@ -7,6 +7,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 import { darkLightTheme } from './themes/darkLightTheme'
 import { ThemeContext } from './hooks/ThemeContextProvider'
+import { DarkLightThemeType } from './@types/DarkLightThemeType'
 
 /**
  * The root of the app.
@@ -20,7 +21,9 @@ export const App = () => {
     const { windowTheme } = useContext(ThemeContext)
 
     return (
-        <ThemeProvider theme={theme[windowTheme]}>
+        // typescript need the code that is in bracket to don't have errors
+        // when access object property with string.
+        <ThemeProvider theme={theme[windowTheme as keyof DarkLightThemeType]}>
             <GlobalStyle />
             <div>
                 <Header></Header>
