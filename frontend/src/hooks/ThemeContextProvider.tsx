@@ -1,11 +1,14 @@
 import React, { createContext, PropsWithChildren, useState } from 'react'
 
 import { defaultTheme } from '../themes/darkLightTheme'
+import { ThemeContextType } from '../@types/ThemeContextType'
 
 /**
  * Returns the context for the theme.
  */
-export const ThemeContext = createContext<string>(defaultTheme)
+export const ThemeContext = createContext<ThemeContextType>({
+    windowTheme: defaultTheme,
+})
 
 /**
  * Provider of the theme.
@@ -20,8 +23,12 @@ export const ThemeContextProvider = ({ children }: PropsWithChildren) => {
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
     const [windowTheme, setWindowTheme] = useState(defaultTheme)
 
+    const toggleDarkMode = () => {
+        setWindowTheme(windowTheme === 'dark' ? 'light' : 'dark')
+    }
+
     return (
-        <ThemeContext.Provider value={{ windowTheme, setWindowTheme }}>
+        <ThemeContext.Provider value={{ windowTheme, toggleDarkMode }}>
             {children}
         </ThemeContext.Provider>
     )
