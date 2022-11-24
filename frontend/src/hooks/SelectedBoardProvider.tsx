@@ -5,7 +5,7 @@ import React, {
     useEffect,
     useState,
 } from 'react'
-import { SelectedBoard } from '../types/SelectedBoard'
+import { BoardInBoardList } from '../types/BoardInBoardList'
 import { BoardListContext } from './BoardListProvider'
 
 const defaultBoard = { _id: '', name: '' }
@@ -13,7 +13,8 @@ const defaultBoard = { _id: '', name: '' }
 /**
  * Usable with useContext.
  */
-export const SelectedBoardContext = createContext<SelectedBoard>(defaultBoard)
+export const SelectedBoardContext =
+    createContext<BoardInBoardList>(defaultBoard)
 
 /**
  * Provide the selected board.

@@ -1,4 +1,4 @@
-export type SelectedBoard = {
+export type BoardInBoardList = {
     _id: string
     name: string
 }

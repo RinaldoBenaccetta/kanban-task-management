@@ -7,7 +7,7 @@ import Colors from '../../themes/variables/colors'
 import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
-import { SelectedBoard } from '../../types/SelectedBoard'
+import { BoardInBoardList } from '../../types/BoardInBoardList'
 import { BoardListContext } from '../../hooks/BoardListProvider'
 
 /**
@@ -161,7 +161,7 @@ export const SidebarBoardList = ({}: // boardList,
 
     const boards = boardList.list
 
-    const list = boards.map((board: SelectedBoard) => {
+    const list = boards.map((board: BoardInBoardList) => {
         return (
             <RadioElement key={board._id}>
                 <RadioInput
