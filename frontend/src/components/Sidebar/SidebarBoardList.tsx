@@ -8,7 +8,7 @@ import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 import { BoardInBoardListType } from '../../@types/BoardListType'
-import { BoardListContext } from '../../hooks/BoardListProvider'
+import { BoardListContext } from '../../hooks/BoardsProvider'
 
 /**
  * The global shape of the button.

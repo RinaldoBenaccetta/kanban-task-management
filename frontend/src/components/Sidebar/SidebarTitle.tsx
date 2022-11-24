@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import typography from '../../themes/typography'
-import { BoardListContext } from '../../hooks/BoardListProvider'
+import { BoardListContext } from '../../hooks/BoardsProvider'
 
 const Title = styled.div`
     ${typography.heading.s}

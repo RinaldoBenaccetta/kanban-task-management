@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { App } from './App'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { SelectedBoardProvider } from './hooks/SelectedBoardProvider'
-import { BoardListProvider } from './hooks/BoardListProvider'
+import { BoardListProvider } from './hooks/BoardsProvider'
 
 const queryClient = new QueryClient()
 
