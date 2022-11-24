@@ -1,5 +1,5 @@
 // https://felixgerschau.com/react-typescript-context/
 export type ThemeContextType = {
-    windowTheme: string
+    selectedTheme: string
     toggleDarkMode?: () => void
 }

@@ -7,7 +7,7 @@ import { ThemeContextType } from '../@types/ThemeContextType'
  * Returns the context for the theme.
  */
 export const ThemeContext = createContext<ThemeContextType>({
-    windowTheme: defaultTheme,
+    selectedTheme: defaultTheme,
 })
 
 /**
@@ -30,7 +30,9 @@ export const ThemeContextProvider = ({ children }: PropsWithChildren) => {
     }
 
     return (
-        <ThemeContext.Provider value={{ windowTheme, toggleDarkMode }}>
+        <ThemeContext.Provider
+            value={{ selectedTheme: windowTheme, toggleDarkMode }}
+        >
             {children}
         </ThemeContext.Provider>
     )

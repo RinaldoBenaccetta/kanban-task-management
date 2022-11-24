@@ -119,7 +119,7 @@ const SwitchLabel = styled.label`
  * @constructor
  */
 export const SidebarDarkModeToggle = () => {
-    const { windowTheme, toggleDarkMode } = useContext(ThemeContext)
+    const { selectedTheme, toggleDarkMode } = useContext(ThemeContext)
 
     return (
         <DarkModeToggle>
@@ -129,7 +129,7 @@ export const SidebarDarkModeToggle = () => {
                 <SwitchInput
                     id="dark-mode-input"
                     type="checkbox"
-                    checked={windowTheme === 'dark'}
+                    checked={selectedTheme === 'dark'}
                     onChange={() => {
                         if (toggleDarkMode) toggleDarkMode()
                     }}
