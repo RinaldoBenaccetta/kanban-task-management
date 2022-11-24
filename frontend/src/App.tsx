@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar/Sidebar'
 
 import { themes } from './themes/themes'
 import { ThemeContext } from './hooks/ThemeContextProvider'
-import { DarkLightThemeType } from './@types/DarkLightThemeType'
+import { ThemesType } from './@types/ThemesType'
 
 /**
  * The root of the app.
@@ -23,7 +23,7 @@ export const App = () => {
     return (
         // typescript need the code that is in bracket to don't have errors
         // when access object property with string.
-        <ThemeProvider theme={theme[selectedTheme as keyof DarkLightThemeType]}>
+        <ThemeProvider theme={theme[selectedTheme as keyof ThemesType]}>
             <GlobalStyle />
             <div>
                 <Header></Header>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Theme } from '../../@types/DarkLightThemeType'
+import { PropsThemeType } from '../../@types/ThemesType'
 
 // @ts-ignore
 import mobileLogoIcon from '../../assets/img/logo-mobile.svg'
@@ -22,7 +22,8 @@ import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 
 // Create a Header component that'll render an <div> tag with some styles
 const Header = styled.div`
-    background-color: ${(props: Theme) => props.theme.colors.frontBackground};
+    background-color: ${(props: PropsThemeType) =>
+        props.theme.colors.frontBackground};
 
     ${DarkModeTransition};
 
@@ -34,7 +35,7 @@ const Header = styled.div`
     ${BreakPointMixin.tablet`
         height: 80px;
         
-        border-bottom: 1px solid ${(props: Theme) =>
+        border-bottom: 1px solid ${(props: PropsThemeType) =>
             props.theme.colors.accentLine}
     `}
 

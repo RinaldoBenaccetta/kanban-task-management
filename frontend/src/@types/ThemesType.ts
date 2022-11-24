@@ -1,4 +1,4 @@
-type SubTheme = {
+type ThemeType = {
     type: 'dark' | 'light'
     colors: {
         backBackground: string
@@ -9,14 +9,14 @@ type SubTheme = {
     logo: string
 }
 
-export type DarkLightThemeType = {
-    dark: SubTheme
-    light: SubTheme
+export type ThemesType = {
+    dark: ThemeType
+    light: ThemeType
 }
 
 /**
  * Type used in props by styled-components.
  */
-export type Theme = {
-    theme: SubTheme
+export type PropsThemeType = {
+    theme: ThemeType
 }
