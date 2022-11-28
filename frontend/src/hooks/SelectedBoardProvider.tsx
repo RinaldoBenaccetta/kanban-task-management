@@ -26,25 +26,22 @@ export const SelectedBoardContext = createContext<SelectBoardContextType>({
  * @constructor
  */
 export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
-    const { boardList } = useContext(BoardsContext)
-
-    const boards = boardList.list
-
-    const board = boards.length ? boards[0] : defaultBoard
-
-    const [selectedBoard, setSelectedBoard] = useState(board)
+    const [selectedBoard, setSelectedBoard] = useState(defaultBoard)
 
     // https://felixgerschau.com/react-typescript-context/
     const selectBoard = (board: BoardInBoardsType) => {
         setSelectedBoard(board)
     }
 
+    const { boardList } = useContext(BoardsContext)
+    const boards = boardList.list
+
     // UseEffect because at first boardList is empty, so we need
     // to change the value while the boardList is not loaded.
     // When the boardList change, useEffect is triggered and
     // select the first board, if there is boards inside the list.
     useEffect(() => {
-        if (boards.length) setSelectedBoard(boards[0])
+        if (boards.length) selectBoard(boards[0])
     }, [boardList])
 
     return (
