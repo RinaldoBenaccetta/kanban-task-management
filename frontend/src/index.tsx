@@ -12,6 +12,7 @@ import { App } from './App'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { SelectedBoardProvider } from './hooks/SelectedBoardProvider'
 import { BoardsProvider } from './hooks/BoardsProvider'
+import { BoardProvider } from './hooks/BoardProvider'
 
 const queryClient = new QueryClient()
 
@@ -25,9 +26,11 @@ root!.render(
     <QueryClientProvider client={queryClient}>
         <BoardsProvider>
             <SelectedBoardProvider>
-                <ThemeContextProvider>
-                    <App />
-                </ThemeContextProvider>
+                <BoardProvider>
+                    <ThemeContextProvider>
+                        <App />
+                    </ThemeContextProvider>
+                </BoardProvider>
             </SelectedBoardProvider>
         </BoardsProvider>
     </QueryClientProvider>
