@@ -29,6 +29,7 @@ export const BoardProvider = ({ children }: PropsWithChildren) => {
     const id = selectedBoard._id
 
     const { status, data, error } = useQuery(
+        // when id change : re fetch
         ['board', id],
         async () => await getBoard(id)
     )
