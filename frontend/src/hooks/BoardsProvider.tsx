@@ -19,23 +19,19 @@ export const BoardsContext = createContext<BoardsContextType>({
 })
 
 export const BoardsProvider = ({ children }: PropsWithChildren) => {
+    const [boardList, setBoards] = useState(defaultBoardList)
+
     const queryKey = ['boards']
     const { status, data, error } = useQuery(queryKey, fetchAllBoards)
 
-    // set default values while fetching.
-    // When response, React will set the new value with useEffect.
-    const quantity = status === 'success' && data.quantity ? data.quantity : 0
-    const list = status === 'success' && data.list ? data.list : []
-
-    const [boardList, setBoards] = useState({
-        quantity: quantity,
-        list: list,
-    } as BoardsType)
-
-    const setBoardsList = (board: BoardsType) => setBoards(board)
-
     useEffect(() => {
-        setBoardsList({
+        // set default values while fetching.
+        // When response, React will set the new value with useEffect.
+        const quantity =
+            status === 'success' && data.quantity ? data.quantity : 0
+        const list = status === 'success' && data.list ? data.list : []
+
+        setBoards({
             quantity: quantity,
             list: list,
         })

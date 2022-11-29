@@ -20,29 +20,26 @@ export const BoardContext = createContext<BoardContextType>({
 })
 
 export const BoardProvider = ({ children }: PropsWithChildren) => {
-    const queryKey = ['boards']
-    const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
-
-    console.log(selectedBoard)
-
-    // fetch only if there is an id.
-    const { status, data, error } = selectedBoard.id
-        ? useQuery(queryKey, getBoard(selectedBoard.id))
-        : {
-              status: null,
-              data: null,
-              error: null,
-          }
-
-    const actualBoard = status === 'success' && data ? data : defaultBoard
-
-    const [board, setBoard] = useState(actualBoard)
+    const [board, setBoard] = useState(defaultBoard)
 
     const setNewBoard = (board: BoardType) => setBoard(board)
 
+    const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
+
+    const id = selectedBoard._id
+
+    const { status, data, error } = useQuery(
+        ['board', id],
+        async () => await getBoard(id)
+    )
+
     useEffect(() => {
-        setNewBoard(actualBoard)
+        if (status === 'success' && data) {
+            setNewBoard(data)
+        }
     }, [status])
+
+    // console.log(board)
 
     return (
         <BoardContext.Provider value={{ board, setNewBoard }}>
