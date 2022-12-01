@@ -29,7 +29,7 @@ export const App = () => {
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
     const { selectedTheme } = useContext(ThemeContext)
 
-    const { boardList, setBoardsList } = useContext(BoardsContext)
+    const { setBoardsList } = useContext(BoardsContext)
 
     useEffect(() => {
         if (setBoardsList) {
