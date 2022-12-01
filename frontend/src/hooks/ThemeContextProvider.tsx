@@ -22,17 +22,15 @@ export const ThemeContext = createContext<ThemeContextType>({
  */
 export const ThemeContextProvider = ({ children }: PropsWithChildren) => {
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
-    const [windowTheme, setWindowTheme] = useState(defaultTheme)
+    const [selectedTheme, setSelectedTheme] = useState(defaultTheme)
 
     // https://felixgerschau.com/react-typescript-context/
     const toggleDarkMode = () => {
-        setWindowTheme(windowTheme === 'dark' ? 'light' : 'dark')
+        setSelectedTheme(selectedTheme === 'dark' ? 'light' : 'dark')
     }
 
     return (
-        <ThemeContext.Provider
-            value={{ selectedTheme: windowTheme, toggleDarkMode }}
-        >
+        <ThemeContext.Provider value={{ selectedTheme, toggleDarkMode }}>
             {children}
         </ThemeContext.Provider>
     )
