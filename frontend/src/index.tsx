@@ -10,6 +10,7 @@ import { Routes } from './Routes'
 import { RouterProvider } from 'react-router-dom'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { BoardsProvider } from './hooks/BoardsProvider'
+import { SelectedBoardProvider } from './hooks/SelectedBoardProvider'
 
 const queryClient = new QueryClient()
 
@@ -22,9 +23,11 @@ root!.render(
      */
     <QueryClientProvider client={queryClient}>
         <BoardsProvider>
-            <ThemeContextProvider>
-                <RouterProvider router={Routes} />
-            </ThemeContextProvider>
+            <SelectedBoardProvider>
+                <ThemeContextProvider>
+                    <RouterProvider router={Routes} />
+                </ThemeContextProvider>
+            </SelectedBoardProvider>
         </BoardsProvider>
     </QueryClientProvider>
 )

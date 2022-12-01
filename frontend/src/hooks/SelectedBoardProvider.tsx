@@ -33,17 +33,6 @@ export const SelectedBoardProvider = ({ children }: PropsWithChildren) => {
         setSelectedBoard(board)
     }
 
-    const { boardList } = useContext(BoardsContext)
-    const boards = boardList.list
-
-    // UseEffect because at first boardList is empty, so we need
-    // to change the value while the boardList is not loaded.
-    // When the boardList change, useEffect is triggered and
-    // select the first board, if there is boards inside the list.
-    useEffect(() => {
-        if (boards.length) selectBoard(boards[0])
-    }, [boardList])
-
     return (
         <SelectedBoardContext.Provider value={{ selectedBoard, selectBoard }}>
             {children}

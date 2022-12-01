@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 
 import Colors from '../../themes/variables/colors'
@@ -156,6 +156,26 @@ export const SidebarBoardList = () => {
 
     const boards = boardList.list
 
+    /**
+     * This set the first board as default selected one.
+     *
+     * UseEffect because at first boardList is empty, so we need
+     * to change the value when the boardList is not loaded.
+     * When the boardList change, useEffect is triggered and
+     * select the first board, if there is boards inside the list.
+     */
+    useEffect(() => {
+        if (boards.length) selectBoard(boards[0])
+    }, [boardList])
+
+    const getBoard = (id) => {
+        return boards.filter((board) => board._id === id)[0]
+    }
+
+    const handleChange = (event) => {
+        if (selectBoard) selectBoard(getBoard(event.target.value))
+    }
+
     const list = boards.map((board: BoardInBoardsType) => {
         return (
             <RadioElement key={board._id}>
@@ -164,9 +184,7 @@ export const SidebarBoardList = () => {
                     type="radio"
                     value={board._id}
                     checked={board._id === selectedBoard._id}
-                    onChange={() => {
-                        if (selectBoard) selectBoard(board)
-                    }}
+                    onChange={(event) => handleChange(event)}
                 />
                 <RadioButton>
                     <RadioButtonIcon aria-hidden="true" />

@@ -40,9 +40,6 @@ export const App = () => {
         }
     }, [boards])
 
-    console.log(boardList)
-    // console.log(boards)
-
     return (
         // typescript need the code that is in bracket to don't have errors
         // when access object property with string.
