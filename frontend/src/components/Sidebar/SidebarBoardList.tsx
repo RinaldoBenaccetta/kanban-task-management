@@ -165,14 +165,14 @@ export const SidebarBoardList = () => {
      * select the first board, if there is boards inside the list.
      */
     useEffect(() => {
-        if (boards.length) selectBoard(boards[0])
+        if (boards.length && selectBoard) selectBoard(boards[0])
     }, [boardList])
 
-    const getBoard = (id) => {
+    const getBoard = (id: string) => {
         return boards.filter((board) => board._id === id)[0]
     }
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (selectBoard) selectBoard(getBoard(event.target.value))
     }
 

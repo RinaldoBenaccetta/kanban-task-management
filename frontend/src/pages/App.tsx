@@ -11,13 +11,10 @@ import { ThemesType } from '../@types/ThemesType'
 import { fetchAllBoards } from '../queries/fetchAllBoards'
 import { useLoaderData } from 'react-router-dom'
 import { BoardsType } from '../@types/BoardsType'
-import { BoardContext } from '../hooks/BoardProvider'
 import { BoardsContext } from '../hooks/BoardsProvider'
 
-export async function loader(): BoardsType {
-    const boards = await fetchAllBoards()
-
-    return { boards }
+export async function loader(): Promise<BoardsType> {
+    return await fetchAllBoards()
 }
 
 /**
@@ -27,7 +24,7 @@ export async function loader(): BoardsType {
  */
 export const App = () => {
     const theme = themes
-    const { boards } = useLoaderData()
+    const boards = useLoaderData()
 
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
     const { selectedTheme } = useContext(ThemeContext)
