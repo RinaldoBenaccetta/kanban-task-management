@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import GlobalStyle from './themes/GlobalStyles'
-import Header from './components/header/Header'
-import Sidebar from './components/Sidebar/Sidebar'
+import GlobalStyle from '../themes/GlobalStyles'
+import Header from '../components/header/Header'
+import Sidebar from '../components/Sidebar/Sidebar'
 
-import { themes } from './themes/themes'
-import { ThemeContext } from './hooks/ThemeContextProvider'
-import { ThemesType } from './@types/ThemesType'
+import { themes } from '../themes/themes'
+import { ThemeContext } from '../hooks/ThemeContextProvider'
+import { ThemesType } from '../@types/ThemesType'
 
 /**
  * The root of the app.
