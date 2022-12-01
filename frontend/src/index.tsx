@@ -9,6 +9,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { Routes } from './Routes'
 import { RouterProvider } from 'react-router-dom'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
+import { BoardsProvider } from './hooks/BoardsProvider'
 
 const queryClient = new QueryClient()
 
@@ -20,9 +21,11 @@ root!.render(
      * Nest the providers hooks here.
      */
     <QueryClientProvider client={queryClient}>
-        <ThemeContextProvider>
-            <RouterProvider router={Routes} />
-        </ThemeContextProvider>
+        <BoardsProvider>
+            <ThemeContextProvider>
+                <RouterProvider router={Routes} />
+            </ThemeContextProvider>
+        </BoardsProvider>
     </QueryClientProvider>
 )
 
