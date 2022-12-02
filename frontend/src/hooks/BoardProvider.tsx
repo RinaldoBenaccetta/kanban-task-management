@@ -40,8 +40,6 @@ export const BoardProvider = ({ children }: PropsWithChildren) => {
         }
     }, [status])
 
-    // console.log(board)
-
     return (
         <BoardContext.Provider value={{ board, setNewBoard }}>
             {children}

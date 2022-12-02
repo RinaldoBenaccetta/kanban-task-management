@@ -156,6 +156,8 @@ export const SidebarBoardList = () => {
 
     const boards = boardList.list
 
+    console.log(boards)
+
     /**
      * This set the first board as default selected one.
      *

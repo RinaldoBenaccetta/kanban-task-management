@@ -1,6 +1,8 @@
-import { defineConfig } from "vite"
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+    plugins: [react()],
     // https://vitejs.dev/guide/backend-integration.html
     server: {
         origin: 'http://127.0.0.1:3001',
@@ -11,9 +13,9 @@ export default defineConfig({
         },
     },
     build: {
-        outDir: '../../dist/public',// output directory
+        outDir: '../../dist/public', // output directory
     },
-    root: './src',// source folder
-    // publicDir: '../../backend',// backend/backend folder
-    base: './',// base backend path : add ./ before url, otherwise vite make this : /url
+    // root: './src', // source folder
+    // // publicDir: '../../backend',// backend/backend folder
+    // base: './', // base backend path : add ./ before url, otherwise vite make this : /url
 })

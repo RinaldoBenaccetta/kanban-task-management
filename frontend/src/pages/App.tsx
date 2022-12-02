@@ -9,7 +9,7 @@ import { themes } from '../themes/themes'
 import { ThemeContext } from '../hooks/ThemeContextProvider'
 import { ThemesType } from '../@types/ThemesType'
 import { fetchAllBoards } from '../queries/fetchAllBoards'
-import { useLoaderData } from 'react-router-dom'
+import { Outlet, useLoaderData } from 'react-router-dom'
 import { BoardsType } from '../@types/BoardsType'
 import { BoardsContext } from '../hooks/BoardsProvider'
 
@@ -44,6 +44,9 @@ export const App = () => {
             <GlobalStyle />
             <div>
                 <Header></Header>
+                <Outlet
+                // This is where the called page is rendered
+                />
                 <Sidebar></Sidebar>
             </div>
         </ThemeProvider>
