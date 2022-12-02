@@ -10,45 +10,21 @@ import Board from './components/board/Board'
 import { loader as boardLoader } from './components/board/Board'
 import ErrorPage from './pages/ErrorPage'
 
-// export const Routes = createBrowserRouter(
-//     createRoutesFromElements(
-//         <Route
-//             path="/"
-//             element={<App />}
-//             loader={appLoader}
-//             // action={rootAction}
-//             errorElement={<ErrorPage />}
-//         >
-//             <Route errorElement={<ErrorPage />}>
-//                 {/*<Route index element={<Index />} />*/}
-//                 <Route
-//                     path="board/:boardId"
-//                     element={<Board />}
-//                     loader={boardLoader}
-//                     // action={contactAction}
-//                 />
-//             </Route>
-//         </Route>
-//     )
-// )
-
 export const Routes = createBrowserRouter([
     {
         path: '/',
         element: <App />,
         errorElement: <ErrorPage />,
         loader: appLoader,
-        // action: rootAction,
 
         children: [
             {
                 errorElement: <ErrorPage />,
                 children: [
                     {
-                        path: ':boardId',
+                        path: ':boardId', // this work : base path level
                         element: <Board />,
                         loader: boardLoader,
-                        // action: contactAction,
                     },
                 ],
             },
@@ -56,19 +32,17 @@ export const Routes = createBrowserRouter([
                 errorElement: <ErrorPage />,
                 children: [
                     {
-                        path: 'board/:boardId',
+                        path: 'board/:boardId', // this will not work : 1 level from base
                         element: <Board />,
                         loader: boardLoader,
-                        // action: contactAction,
                     },
                 ],
             },
         ],
     },
     {
-        path: 'board/test',
+        path: 'board/test', // this will not work : 1 level from base
         element: <Board />,
         loader: boardLoader,
-        // action: contactAction,
     },
 ])
