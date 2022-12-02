@@ -41,7 +41,7 @@ const BoardsPanel = styled.div`
  */
 export default () => {
     return (
-        <SideBarBackdrop>
+        <SideBarBackdrop data-visibility={true}>
             <BoardsPanel>
                 <SidebarTitle></SidebarTitle>
                 <SidebarBoardList></SidebarBoardList>

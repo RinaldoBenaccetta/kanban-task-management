@@ -174,8 +174,15 @@ export const SidebarBoardList = () => {
         return boards.filter((board) => board._id === id)[0]
     }
 
+    const hideBoard = () => {
+        // set sidebar to hide in an app state context
+    }
+
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (selectBoard) selectBoard(getBoard(event.target.value))
+        if (selectBoard) {
+            // hideBoard()
+            selectBoard(getBoard(event.target.value))
+        }
     }
 
     const list = boards.map((board: BoardInBoardsType) => {

@@ -25,6 +25,7 @@ root!.render(
      * Nest the providers hooks here.
      */
     <QueryClientProvider client={queryClient}>
+        {/*todo: add a provider for app like sidebar toggle and others.*/}
         <BoardsProvider>
             <SelectedBoardProvider>
                 <ThemeContextProvider>
