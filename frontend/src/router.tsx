@@ -10,7 +10,7 @@ import Board from './components/board/Board'
 import { loader as boardLoader } from './components/board/Board'
 import ErrorPage from './pages/ErrorPage'
 
-export const Routes = createBrowserRouter([
+export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
@@ -22,16 +22,6 @@ export const Routes = createBrowserRouter([
                 errorElement: <ErrorPage />,
                 children: [
                     {
-                        path: ':boardId', // this work : base path level
-                        element: <Board />,
-                        loader: boardLoader,
-                    },
-                ],
-            },
-            {
-                errorElement: <ErrorPage />,
-                children: [
-                    {
                         path: 'board/:boardId', // this will not work : 1 level from base
                         element: <Board />,
                         loader: boardLoader,
@@ -39,10 +29,5 @@ export const Routes = createBrowserRouter([
                 ],
             },
         ],
-    },
-    {
-        path: 'board/test', // this will not work : 1 level from base
-        element: <Board />,
-        loader: boardLoader,
     },
 ])

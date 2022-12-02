@@ -1,6 +1,6 @@
-# Routes Folder
+# Router Folder
 
-Routes define routes within your application. Fastify provides an
+Router define routes within your application. Fastify provides an
 easy path to a microservice architecture, in the future you might want
 to independently deploy some of those.
 

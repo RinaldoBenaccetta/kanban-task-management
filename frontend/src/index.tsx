@@ -6,7 +6,7 @@ import './css/normalize.css'
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
-// import { Routes } from './Routes'
+import { router } from './router'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { BoardsProvider } from './hooks/BoardsProvider'
@@ -19,38 +19,6 @@ const queryClient = new QueryClient()
 
 const container = document.getElementById('app')
 const root = container ? createRoot(container) : null
-
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <App />,
-        errorElement: <ErrorPage />,
-        loader: appLoader,
-
-        children: [
-            {
-                path: ':boardId', // this work : base path level
-                element: <Board />,
-                loader: boardLoader,
-            },
-            {
-                path: 'board/:boardId', // this will not work : 1 level from base
-                element: <Board />,
-                loader: boardLoader,
-            },
-            {
-                path: ':boardId/board', // this will not work : 1 level from base
-                element: <Board />,
-                loader: boardLoader,
-            },
-        ],
-    },
-    {
-        path: 'board/test', // this will not work : 1 level from base
-        element: <Board />,
-        loader: boardLoader,
-    },
-])
 
 root!.render(
     /**
