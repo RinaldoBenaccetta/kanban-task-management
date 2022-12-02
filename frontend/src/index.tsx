@@ -24,7 +24,6 @@ root!.render(
     /**
      * Nest the providers hooks here.
      */
-
     <QueryClientProvider client={queryClient}>
         <BoardsProvider>
             <SelectedBoardProvider>
