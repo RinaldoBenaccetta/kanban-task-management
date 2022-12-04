@@ -5,5 +5,5 @@ export type BoardInBoardsType = {
 
 export type BoardsType = {
     quantity: number
-    list: BoardInBoardsType[] | []
+    list: BoardInBoardsType[]
 }

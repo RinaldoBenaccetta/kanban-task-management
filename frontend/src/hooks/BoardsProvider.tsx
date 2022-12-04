@@ -13,10 +13,10 @@ export const BoardsContext = createContext<BoardsContextType>({
 })
 
 export const BoardsProvider = ({ children }: PropsWithChildren) => {
-    const [boardList, setBoards] = useState(defaultBoardList)
+    const [boardList, setBoards] = useState<BoardsType>(defaultBoardList)
 
-    const setBoardsList = (boardList: BoardsType) => {
-        setBoards(boardList)
+    const setBoardsList = (boardList: BoardsType | unknown) => {
+        if (boardList) setBoards(boardList)
     }
 
     return (

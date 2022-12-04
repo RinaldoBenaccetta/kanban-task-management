@@ -1,12 +1,11 @@
 import React from 'react'
-import Logo from '../header/Logo'
-import AddTask from '../header/AddTask'
-import EditBoard from '../header/EditBoard'
-import { getBoard } from '../../queries/getBoard'
-import { useLoaderData } from 'react-router-dom'
 
-export async function loader({ params }) {
+import { getBoard } from '../../queries/getBoard'
+import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
+
+export async function loader({ params }: LoaderFunctionArgs) {
     const board = await getBoard(params.boardId)
+
     console.log(board)
 
     // If contact does not exist, throw an error
@@ -15,7 +14,7 @@ export async function loader({ params }) {
     if (!board) {
         throw new Response('', {
             status: 404,
-            statusText: 'Not Found test',
+            statusText: 'Board not found',
         })
     }
     return board

@@ -3,7 +3,7 @@ import getURL from '../helpers/getURL'
 /**
  * Get all boards and quantity of boards from the API.
  */
-export const getBoard = async (id: string) => {
+export const getBoard = async (id: string | undefined) => {
     if (id) {
         const boards = await fetch(`${getURL()}/api/board/${id}`)
 
