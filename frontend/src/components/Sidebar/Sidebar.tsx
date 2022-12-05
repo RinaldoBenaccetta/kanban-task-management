@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { SidebarTitle } from './SidebarTitle'
 import { SidebarBoardList } from './SidebarBoardList'
@@ -25,6 +25,13 @@ const SideBarBackdrop = styled.div`
     width: 100%;
     height: 100%;
 
+    ${({ $visibility }) =>
+        $visibility
+            ? css``
+            : css`
+                  opacity: 0;
+              `}
+
     ${BreakPointMixin.tablet`
       width: 0;
       left: 0;
@@ -44,7 +51,16 @@ const BoardsPanel = styled.div`
 
     ${DarkModeTransition};
 
+    ${({ $visibility }) =>
+        $visibility
+            ? css``
+            : css`
+                  opacity: 0;
+              `}
+
     ${BreakPointMixin.tablet`
+    
+      position: absolute;
     
       box-shadow: none;
       
@@ -55,11 +71,29 @@ const BoardsPanel = styled.div`
       
       border-right: 1px solid ${(props: PropsThemeType) =>
           props.theme.colors.accentLine}
+          
+      ${({ $visibility }) =>
+          $visibility
+              ? css``
+              : css`
+                    // ?????? need to put another properties to make transform???
+                    background-color: red;
+                    transform: translateX(-261px);
+                `}
     `}
 
     ${BreakPointMixin.large`
         width: 300px;
         height: calc(100vh - 96px);
+        
+        ${({ $visibility }) =>
+            $visibility
+                ? css``
+                : css`
+                      // ?????? need to put another properties to make transform???
+                      background-color: red;
+                      transform: translateX(-300px);
+                  `}
     `}
 `
 
@@ -85,8 +119,8 @@ const BottomButtons = styled.div`
  */
 export default () => {
     return (
-        <SideBarBackdrop data-visibility={true}>
-            <BoardsPanel>
+        <SideBarBackdrop $visibility={true}>
+            <BoardsPanel $visibility={true}>
                 <SidebarTitle />
                 <SidebarBoardList />
                 <BottomButtons>
