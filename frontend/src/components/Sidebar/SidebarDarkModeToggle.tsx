@@ -11,15 +11,8 @@ import iconDark from '../../assets/img/icon-dark-theme.svg'
 import hiddenMixin from '../../themes/mixins/HiddenMixin'
 import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 import { ThemeContext } from '../../hooks/ThemeContextProvider'
-
-const Icon = css`
-    display: inline-block;
-
-    background: ${Colors.grey.mediumGrey};
-
-    -webkit-mask-size: cover;
-    mask-size: cover;
-`
+import IconMixin from '../../themes/mixins/IconMixin'
+import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 
 const DarkModeToggle = styled.div`
     width: 235px;
@@ -35,10 +28,14 @@ const DarkModeToggle = styled.div`
     display: flex;
 
     ${DarkModeTransition};
+
+    ${BreakPointMixin.large`
+        width: 251px;
+    `}
 `
 
 const LightIcon = styled.span`
-    ${Icon};
+    ${IconMixin};
 
     width: 18px;
     height: 18px;
@@ -49,7 +46,7 @@ const LightIcon = styled.span`
 `
 
 const DarkIcon = styled.span`
-    ${Icon};
+    ${IconMixin};
 
     width: 15px;
     height: 15px;

@@ -9,6 +9,7 @@ import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 import { BoardInBoardsType } from '../../@types/BoardsType'
 import { BoardsContext } from '../../hooks/BoardsProvider'
+import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 
 /**
  * The global shape of the button.
@@ -16,6 +17,10 @@ import { BoardsContext } from '../../hooks/BoardsProvider'
 const ButtonShape = css`
     width: 240px;
     height: 48px;
+
+    ${BreakPointMixin.large`
+        width: 276px;
+    `}
 
     border-radius: 0 24px 24px 0;
 `
@@ -116,6 +121,8 @@ const AddBoardButton = styled.button`
 
     ${ButtonFont};
 
+    text-align: left;
+
     color: ${Colors.primary.mainPurple};
 
     background: transparent;
@@ -130,10 +137,7 @@ const AddBoardButton = styled.button`
 `
 
 const AddBoardButtonLabel = styled.div`
-    position: relative;
-
-    // correction: text appear shifted for unknown reason.
-    right: 8px;
+    padding-left: 24px;
 `
 
 const AddBoardText = styled.span`
