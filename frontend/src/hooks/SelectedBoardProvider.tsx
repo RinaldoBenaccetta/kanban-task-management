@@ -1,13 +1,6 @@
-import React, {
-    createContext,
-    PropsWithChildren,
-    useContext,
-    useEffect,
-    useState,
-} from 'react'
+import React, { createContext, PropsWithChildren, useState } from 'react'
 import { BoardInBoardsType } from '../@types/BoardsType'
 import { SelectBoardContextType } from '../@types/SelectBoardContextType'
-import { BoardsContext } from './BoardsProvider'
 
 const defaultBoard = { _id: '', name: '' }
 

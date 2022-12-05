@@ -8,6 +8,7 @@ import IconMixin from '../../themes/mixins/IconMixin'
 
 import Colors from '../../themes/variables/colors'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
+import { AppValuesContext } from '../../hooks/AppValuesProvider'
 
 const HideIcon = styled.span`
     ${IconMixin};
@@ -63,8 +64,10 @@ const HideButton = styled.button`
 `
 
 export const SidebarHideButton = () => {
+    const { toggleSidePanel } = useContext(AppValuesContext)
+
     return (
-        <HideButton>
+        <HideButton onClick={toggleSidePanel}>
             <HideIcon />
             Hide Sidebar
         </HideButton>

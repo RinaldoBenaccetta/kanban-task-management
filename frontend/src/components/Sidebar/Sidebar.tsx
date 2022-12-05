@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 
 import { SidebarTitle } from './SidebarTitle'
@@ -13,6 +13,7 @@ import hiddenMixin from '../../themes/mixins/HiddenMixin'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { SidebarHideButton } from './SidebarHideButton'
 import { PropsThemeType } from '../../@types/ThemesType'
+import { AppValuesContext } from '../../hooks/AppValuesProvider'
 
 const SideBarBackdrop = styled.div`
     background-color: ${Colors.modalBackground};
@@ -118,9 +119,15 @@ const BottomButtons = styled.div`
  * @constructor
  */
 export default () => {
+    const { appValues } = useContext(AppValuesContext)
+
+    const panelVisibility = !!(appValues && appValues.sidePanelVisibility)
+
+    // console.log(panelVisibility)
+
     return (
-        <SideBarBackdrop $visibility={true}>
-            <BoardsPanel $visibility={true}>
+        <SideBarBackdrop $visibility={panelVisibility}>
+            <BoardsPanel id={'boards-panel'} $visibility={panelVisibility}>
                 <SidebarTitle />
                 <SidebarBoardList />
                 <BottomButtons>

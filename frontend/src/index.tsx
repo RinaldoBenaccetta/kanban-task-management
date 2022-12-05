@@ -7,13 +7,11 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { router } from './router'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { BoardsProvider } from './hooks/BoardsProvider'
 import { SelectedBoardProvider } from './hooks/SelectedBoardProvider'
-import { App, loader as appLoader } from './pages/App'
-import ErrorPage from './pages/ErrorPage'
-import Board, { loader as boardLoader } from './components/board/Board'
+import { AppValuesProvider } from './hooks/AppValuesProvider'
 
 const queryClient = new QueryClient()
 
@@ -26,12 +24,14 @@ root!.render(
      */
     <QueryClientProvider client={queryClient}>
         {/*todo: add a provider for app like sidebar toggle and others.*/}
-        <BoardsProvider>
-            <SelectedBoardProvider>
-                <ThemeContextProvider>
-                    <RouterProvider router={router}></RouterProvider>
-                </ThemeContextProvider>
-            </SelectedBoardProvider>
-        </BoardsProvider>
+        <AppValuesProvider>
+            <BoardsProvider>
+                <SelectedBoardProvider>
+                    <ThemeContextProvider>
+                        <RouterProvider router={router}></RouterProvider>
+                    </ThemeContextProvider>
+                </SelectedBoardProvider>
+            </BoardsProvider>
+        </AppValuesProvider>
     </QueryClientProvider>
 )
