@@ -16,7 +16,7 @@ export const BoardsProvider = ({ children }: PropsWithChildren) => {
     const [boardList, setBoards] = useState<BoardsType>(defaultBoardList)
 
     const setBoardsList = (boardList: BoardsType | unknown) => {
-        if (boardList) setBoards(boardList)
+        if (boardList) setBoards(boardList as BoardsType)
     }
 
     return (
