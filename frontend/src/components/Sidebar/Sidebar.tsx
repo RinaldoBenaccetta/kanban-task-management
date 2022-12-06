@@ -14,6 +14,7 @@ import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { SidebarHideButton } from './SidebarHideButton'
 import { PropsThemeType } from '../../@types/ThemesType'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
+import { VisibilityType } from '../../@types/VisibilityType'
 
 const SideBarBackdrop = styled.div`
     background-color: ${Colors.modalBackground};
@@ -26,7 +27,7 @@ const SideBarBackdrop = styled.div`
     width: 100%;
     height: 100%;
 
-    ${({ $visibility }) =>
+    ${({ $visibility }: VisibilityType) =>
         $visibility
             ? css``
             : css`
@@ -52,7 +53,7 @@ const BoardsPanel = styled.div`
 
     ${DarkModeTransition};
 
-    ${({ $visibility }) =>
+    ${({ $visibility }: VisibilityType) =>
         $visibility
             ? css``
             : css`
@@ -73,7 +74,7 @@ const BoardsPanel = styled.div`
       border-right: 1px solid ${(props: PropsThemeType) =>
           props.theme.colors.accentLine}
           
-      ${({ $visibility }) =>
+      ${({ $visibility }: VisibilityType) =>
           $visibility
               ? css``
               : css`
@@ -87,7 +88,7 @@ const BoardsPanel = styled.div`
         width: 300px;
         height: calc(100vh - 96px);
         
-        ${({ $visibility }) =>
+        ${({ $visibility }: VisibilityType) =>
             $visibility
                 ? css``
                 : css`
@@ -121,7 +122,7 @@ const BottomButtons = styled.div`
 export default () => {
     const { appValues } = useContext(AppValuesContext)
 
-    const panelVisibility = !!(appValues && appValues.sidePanelVisibility)
+    const panelVisibility = appValues && appValues.sidePanelVisibility
 
     // console.log(panelVisibility)
 
