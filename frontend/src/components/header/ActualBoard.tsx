@@ -3,7 +3,13 @@ import React, { useContext } from 'react'
 // @ts-ignore
 import chevronDownIcon from '../../assets/img/icon-chevron-down.svg'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
-import { ActualBoard, ActualBoardChevron } from './styles/ActualBoard'
+import {
+    ActualBoard,
+    ActualBoardButton,
+    ActualBoardChevron,
+    ActualBoardContainer,
+    ActualBoardLabel,
+} from './styles/ActualBoard'
 
 export default () => {
     const { selectedBoard } = useContext(SelectedBoardContext)
@@ -13,9 +19,12 @@ export default () => {
         selectedBoard && selectedBoard.name ? selectedBoard.name : '...'
 
     return (
-        <ActualBoard>
-            {boardName}
-            <ActualBoardChevron src={chevronDownIcon} alt="Show boards" />
-        </ActualBoard>
+        <ActualBoardContainer>
+            <ActualBoard>{boardName}</ActualBoard>
+            <ActualBoardButton aria-hidden={true}>
+                <ActualBoardLabel>{boardName}</ActualBoardLabel>
+                <ActualBoardChevron src={chevronDownIcon} alt="Show boards" />
+            </ActualBoardButton>
+        </ActualBoardContainer>
     )
 }
