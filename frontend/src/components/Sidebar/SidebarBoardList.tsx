@@ -11,6 +11,7 @@ import { BoardInBoardsType } from '../../@types/BoardsType'
 import { BoardsContext } from '../../hooks/BoardsProvider'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
+import isPhoneScreen from '../../helpers/isPhoneScreen'
 
 /**
  * The global shape of the button.
@@ -181,7 +182,8 @@ export const SidebarBoardList = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (selectBoard && hideSidePanel) {
-            setTimeout(hideSidePanel, 1000)
+            if (isPhoneScreen()) setTimeout(hideSidePanel, 1000)
+
             selectBoard(getBoard(event.target.value))
         }
     }
