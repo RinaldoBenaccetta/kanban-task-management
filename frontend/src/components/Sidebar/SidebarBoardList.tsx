@@ -176,7 +176,7 @@ export const SidebarBoardList = () => {
         if (boards.length && selectBoard) selectBoard(boards[0])
     }, [boardList])
 
-    const getBoard = (id: string) => {
+    const getBoardIdAndName = (id: string) => {
         return boards.filter((board) => board._id === id)[0]
     }
 
@@ -184,7 +184,7 @@ export const SidebarBoardList = () => {
         if (selectBoard && hideSidePanel) {
             if (isPhoneScreen()) setTimeout(hideSidePanel, 1000)
 
-            selectBoard(getBoard(event.target.value))
+            selectBoard(getBoardIdAndName(event.target.value))
         }
     }
 
