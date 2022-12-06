@@ -80,7 +80,12 @@ export const ActualBoardChevron = styled.img`
 
     margin: 8px 0 8px 6px;
 
+    transition: transform 0.25s;
+
     ${BreakPointMixin.tablet`
         display: none;
     `};
+
+    ${({ $panelVisibility }: { $panelVisibility: boolean }) =>
+        $panelVisibility && `transform: rotate(-180deg);`};
 `

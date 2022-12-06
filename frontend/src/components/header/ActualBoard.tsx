@@ -10,9 +10,12 @@ import {
     ActualBoardContainer,
     ActualBoardLabel,
 } from './styles/ActualBoard'
+import { AppValuesContext } from '../../hooks/AppValuesProvider'
 
 export default () => {
     const { selectedBoard } = useContext(SelectedBoardContext)
+    const { appValues, toggleSidePanel } = useContext(AppValuesContext)
+    const sidePanelVisibility = appValues.sidePanelVisibility
 
     // if there is no board name : place ... instead
     const boardName =
@@ -21,9 +24,12 @@ export default () => {
     return (
         <ActualBoardContainer>
             <ActualBoard>{boardName}</ActualBoard>
-            <ActualBoardButton aria-hidden={true}>
+            <ActualBoardButton aria-hidden={true} onClick={toggleSidePanel}>
                 <ActualBoardLabel>{boardName}</ActualBoardLabel>
-                <ActualBoardChevron src={chevronDownIcon} alt="Show boards" />
+                <ActualBoardChevron
+                    src={chevronDownIcon}
+                    $panelVisibility={sidePanelVisibility}
+                />
             </ActualBoardButton>
         </ActualBoardContainer>
     )
