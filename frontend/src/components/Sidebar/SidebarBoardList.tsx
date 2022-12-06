@@ -10,6 +10,7 @@ import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 import { BoardInBoardsType } from '../../@types/BoardsType'
 import { BoardsContext } from '../../hooks/BoardsProvider'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
+import { AppValuesContext } from '../../hooks/AppValuesProvider'
 
 /**
  * The global shape of the button.
@@ -156,11 +157,11 @@ const AddBoardIcon = styled(RadioButtonIcon)`
 export const SidebarBoardList = () => {
     const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
 
+    const { hideSidePanel } = useContext(AppValuesContext)
+
     const { boardList } = useContext(BoardsContext)
 
     const boards = boardList.list
-
-    console.log(boards)
 
     /**
      * This set the first board as default selected one.
@@ -178,13 +179,9 @@ export const SidebarBoardList = () => {
         return boards.filter((board) => board._id === id)[0]
     }
 
-    const hideBoard = () => {
-        // set sidebar to hide in an app state context
-    }
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (selectBoard) {
-            // hideBoard()
+        if (selectBoard && hideSidePanel) {
+            setTimeout(hideSidePanel, 1000)
             selectBoard(getBoard(event.target.value))
         }
     }
