@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../../hooks/ThemeContextProvider'
 import styled from 'styled-components'
 
 // @ts-ignore
@@ -64,10 +63,10 @@ const HideButton = styled.button`
 `
 
 export const SidebarHideButton = () => {
-    const { toggleSidePanel } = useContext(AppValuesContext)
+    const { hideSidePanel } = useContext(AppValuesContext)
 
     return (
-        <HideButton onClick={toggleSidePanel}>
+        <HideButton onClick={hideSidePanel}>
             <HideIcon />
             Hide Sidebar
         </HideButton>

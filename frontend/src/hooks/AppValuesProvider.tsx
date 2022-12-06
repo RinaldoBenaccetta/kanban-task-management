@@ -33,8 +33,24 @@ export const AppValuesProvider = ({ children }: PropsWithChildren) => {
         // setAppValues(values)
     }
 
+    const hideSidePanel = () => {
+        setAppValues({
+            ...appValues,
+            sidePanelVisibility: false,
+        })
+    }
+
+    const showSidePanel = () => {
+        setAppValues({
+            ...appValues,
+            sidePanelVisibility: true,
+        })
+    }
+
     return (
-        <AppValuesContext.Provider value={{ appValues, toggleSidePanel }}>
+        <AppValuesContext.Provider
+            value={{ appValues, toggleSidePanel, hideSidePanel, showSidePanel }}
+        >
             {children}
         </AppValuesContext.Provider>
     )
