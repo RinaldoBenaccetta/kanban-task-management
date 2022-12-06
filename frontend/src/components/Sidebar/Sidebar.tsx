@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import styled, { css } from 'styled-components'
 
 import { SidebarTitle } from './SidebarTitle'
@@ -9,7 +9,6 @@ import Colors from '../../themes/variables/colors'
 import Modal from '../../themes/mixins/Modal'
 
 import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
-import hiddenMixin from '../../themes/mixins/HiddenMixin'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { SidebarHideButton } from './SidebarHideButton'
 import { PropsThemeType } from '../../@types/ThemesType'
