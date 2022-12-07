@@ -61,7 +61,9 @@ const BoardsPanel = styled.div`
 
     ${BreakPointMixin.tablet`
     
-      position: absolute;
+      box-sizing: border-box;
+    
+      position: fixed;
     
       box-shadow: none;
       
@@ -69,6 +71,10 @@ const BoardsPanel = styled.div`
       
       width: 261px;
       height: calc(100vh - 80px);
+      
+      bottom: 0;
+      
+      padding-top: 15px;
       
       border-right: 1px solid ${(props: PropsThemeType) =>
           props.theme.colors.accentLine}
