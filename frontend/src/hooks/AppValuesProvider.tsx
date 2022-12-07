@@ -13,7 +13,7 @@ export const AppValuesContext = createContext<AppValuesContextType>({
 })
 
 /**
- * Provider of the .
+ * Provider of the global app values.
  *
  * @param children
  * @constructor

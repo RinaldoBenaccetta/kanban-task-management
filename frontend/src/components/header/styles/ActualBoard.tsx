@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components'
 import typography from '../../../themes/typography'
 import BreakPointMixin from '../../../themes/mixins/BreakPointMixin'
 import hiddenMixin from '../../../themes/mixins/HiddenMixin'
+import { PropsThemeType } from '../../../@types/ThemesType'
+import DarkModeTransition from '../../../themes/mixins/DarkModeTransition'
 
 const ActualBoardStyle = css`
     ${typography.heading.l};
@@ -50,7 +52,6 @@ export const ActualBoardButton = styled.button`
 
     background: transparent;
 
-    //width: 159px;
     height: 23px;
 
     margin: 0;
@@ -66,12 +67,15 @@ export const ActualBoardButton = styled.button`
 `
 
 export const ActualBoardLabel = styled.span`
-    //width: 143px;
     height: 23px;
 
     margin-bottom: 4px;
 
     display: block;
+
+    color: ${(props: PropsThemeType) => props.theme.colors.text};
+
+    ${DarkModeTransition};
 `
 
 export const ActualBoardChevron = styled.img`
