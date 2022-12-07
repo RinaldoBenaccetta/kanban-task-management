@@ -12,6 +12,8 @@ const LogoContainer = styled.div`
     width: 56px;
     height: 100%;
 
+    box-sizing: border-box;
+
     ${BreakPointMixin.tablet`
         width: 261px;
         
