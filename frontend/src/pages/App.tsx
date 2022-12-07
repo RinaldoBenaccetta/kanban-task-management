@@ -12,6 +12,7 @@ import { fetchAllBoards } from '../queries/fetchAllBoards'
 import { Outlet, useLoaderData } from 'react-router-dom'
 import { BoardsType } from '../@types/BoardsType'
 import { BoardsContext } from '../hooks/BoardsProvider'
+import { SidebarShowButton } from '../components/Sidebar/SidebarShowButton'
 
 export async function loader(): Promise<BoardsType> {
     return await fetchAllBoards()
@@ -44,6 +45,7 @@ export const App = () => {
             <GlobalStyle />
             <div>
                 <Header></Header>
+                <SidebarShowButton />
                 <Outlet
                 // This is where the called page is rendered
                 />
