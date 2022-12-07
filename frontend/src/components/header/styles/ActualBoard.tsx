@@ -50,7 +50,7 @@ export const ActualBoardButton = styled.button`
 
     background: transparent;
 
-    width: 159px;
+    //width: 159px;
     height: 23px;
 
     margin: 0;
@@ -66,7 +66,7 @@ export const ActualBoardButton = styled.button`
 `
 
 export const ActualBoardLabel = styled.span`
-    width: 143px;
+    //width: 143px;
     height: 23px;
 
     margin-bottom: 4px;
