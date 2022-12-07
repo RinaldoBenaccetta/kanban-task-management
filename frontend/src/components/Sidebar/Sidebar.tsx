@@ -78,7 +78,7 @@ const BoardsPanel = styled.div`
               ? css``
               : css`
                     // ?????? need to put another properties to make transform???
-                    background-color: red;
+                    background: none; // this do nothing
                     transform: translateX(-261px);
                 `}
     `}
@@ -91,8 +91,6 @@ const BoardsPanel = styled.div`
             $visibility
                 ? css``
                 : css`
-                      // ?????? need to put another properties to make transform???
-                      background-color: red;
                       transform: translateX(-300px);
                   `}
     `}
