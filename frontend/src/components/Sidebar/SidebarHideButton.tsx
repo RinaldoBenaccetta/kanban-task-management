@@ -42,6 +42,24 @@ const HideButton = styled.button`
         height: 48px;
         
         text-align: left;
+        
+        transition: background-color 0.15s, color 0.15s;
+        
+        @media (hover: hover) {
+            &:hover {
+                background-color: ${Colors.grey.lightGrey};
+
+                color: ${Colors.primary.mainPurple};
+
+                cursor: pointer;
+
+                span:first-child {
+                    transition: background-color 0.15s;
+    
+                    background: ${Colors.primary.mainPurple};
+                }
+            }
+        }
     `}
 
     ${BreakPointMixin.large`
@@ -53,7 +71,7 @@ const HideButton = styled.button`
 
     padding: 8px;
 
-    border-radius: 0;
+    border-radius: 0 24px 24px 0;
 
     color: ${Colors.grey.mediumGrey};
 
