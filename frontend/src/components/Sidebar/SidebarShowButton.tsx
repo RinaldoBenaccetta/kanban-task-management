@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
 
 // @ts-ignore
@@ -23,12 +23,24 @@ const ShowButton = styled.button`
 
     ${hiddenMixin};
 
-    ${BreakPointMixin.tablet`
-       
-    width: 56px;
-    height: 48px;
+    ${BreakPointMixin.tablet`      
+        width: 56px;
+        height: 48px;
+        
+        opacity: 1;
+        
+        &.hidden {
+            transition: transform 0.15s ease-out;
     
-    opacity: 1;
+            transform: translateX(-56px);
+        }
+
+        &.visible {
+            transition: transform 0.15s ease-out;
+            transition-delay: .2s;
+    
+            transform: translateX((56px));
+        }
     `}
 `
 
@@ -44,10 +56,24 @@ const ShowIcon = styled.span`
 `
 
 export const SidebarShowButton = () => {
-    const { showSidePanel } = useContext(AppValuesContext)
+    const { appValues, showSidePanel } = useContext(AppValuesContext)
+
+    // Use useState to manage the visibility of BoardsPanel
+    const [buttonVisibility, setButtonVisibility] = useState(
+        appValues && appValues.sidePanelVisibility
+    )
+
+    // Retrieve the classes to add based on the value of buttonVisibility
+    const buttonClass = buttonVisibility ? 'visible' : 'hidden'
+
+    // Use useEffect to update the value of buttonVisibility
+    // when appValues.sidePanelVisibility changes
+    useEffect(() => {
+        setButtonVisibility(!(appValues && appValues.sidePanelVisibility))
+    }, [appValues.sidePanelVisibility])
 
     return (
-        <ShowButton onClick={showSidePanel}>
+        <ShowButton onClick={showSidePanel} className={buttonClass}>
             <ShowIcon />
         </ShowButton>
     )
