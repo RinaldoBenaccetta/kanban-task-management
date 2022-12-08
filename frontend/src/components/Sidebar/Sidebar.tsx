@@ -65,14 +65,16 @@ const BoardsPanel = styled.div`
 
     &.hidden {
         // add background color for the transition of dark mode
-        transition: background-color 0.5s, transform 0.3s ease-out;
+        transition: background-color 0.5s, transform 0.3s ease-out, color 0.25s,
+            border-color 1s;
 
         transform: translateY(100vh);
     }
 
     &.visible {
         // add background color for the transition of dark mode
-        transition: background-color 0.5s, transform 0.3s ease-out;
+        transition: background-color 0.5s, transform 0.3s ease-out, color 0.25s,
+            border-color 1s;
 
         transform: translateY(80px);
     }
@@ -100,12 +102,12 @@ const BoardsPanel = styled.div`
       transform: translateX(-100%);
   
       &.hidden {
-          transition: transform 0.2s ease-out;
+          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s, border-color 1s;
           transform: translateX(-100%);
       }
   
       &.visible {
-          transition: transform 0.2s ease-out;
+          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s, border-color 1s;
           transform: translateX(0);
           
           border-right: 1px solid ${(props: PropsThemeType) =>

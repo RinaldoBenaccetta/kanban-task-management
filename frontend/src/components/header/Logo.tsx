@@ -7,12 +7,15 @@ import { PropsThemeType } from '../../@types/ThemesType'
 import mobileLogoIcon from '../../assets/img/logo-mobile.svg'
 
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
+import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 
 const LogoContainer = styled.div`
     width: 56px;
     height: 100%;
 
     box-sizing: border-box;
+
+    ${DarkModeTransition};
 
     ${BreakPointMixin.tablet`
         width: 261px;
