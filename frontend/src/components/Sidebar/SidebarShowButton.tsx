@@ -29,15 +29,21 @@ const ShowButton = styled.button`
         
         opacity: 1;
         
+          @media (hover: hover) {
+            &:hover {
+              background-color: ${Colors.primary.mainPurpleHover};
+              cursor: pointer;
+            }
+          }
+        
         &.hidden {
-            transition: transform 0.15s ease-out;
+            transition: transform 0.4s ease-out, background-color 0.15s, color 0.15s;
     
             transform: translateX(-56px);
         }
 
         &.visible {
-            transition: transform 0.15s ease-out;
-            transition-delay: .2s;
+            transition: transform 0.4s ease-out, background-color 0.15s, color 0.15s;
     
             transform: translateX((56px));
         }

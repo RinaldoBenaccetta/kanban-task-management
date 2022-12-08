@@ -81,6 +81,24 @@ const RadioButton = styled.div`
     padding: 16px 0 16px 24px;
 
     box-sizing: border-box;
+
+    transition: background-color 0.15s, color 0.15s;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: ${Colors.grey.lightGrey};
+
+            color: ${Colors.primary.mainPurple};
+
+            cursor: pointer;
+
+            span:first-child {
+                transition: background-color 0.15s;
+
+                background: ${Colors.primary.mainPurple};
+            }
+        }
+    }
 `
 
 const RadioInput = styled.input`
@@ -136,6 +154,24 @@ const AddBoardButton = styled.button`
 
     border: none;
     outline: none;
+
+    transition: background-color 0.15s, color 0.15s;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: ${Colors.primary.mainPurpleHover};
+
+            color: ${Colors.white};
+
+            cursor: pointer;
+
+            span:first-child {
+                transition: background-color 0.15s;
+
+                background: ${Colors.white};
+            }
+        }
+    }
 `
 
 const AddBoardButtonLabel = styled.div`

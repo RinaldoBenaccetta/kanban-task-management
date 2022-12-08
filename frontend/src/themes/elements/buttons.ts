@@ -24,9 +24,12 @@ export default {
         
         border-radius: 24px;
         
+        transition: background-color 0.15s, color 0.15s;
+        
           @media (hover: hover) {
             &:hover {
               background-color: ${colors.primary.mainPurpleHover};
+              cursor: pointer;
             }
           }
         `,
