@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { SidebarTitle } from './SidebarTitle'
 import { SidebarBoardList } from './SidebarBoardList'
@@ -13,10 +13,11 @@ import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { SidebarHideButton } from './SidebarHideButton'
 import { PropsThemeType } from '../../@types/ThemesType'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
-import { VisibilityType } from '../../@types/VisibilityType'
 
 const SideBarBackdrop = styled.div`
     background-color: ${Colors.modalBackground};
+
+    z-index: -1;
 
     position: fixed;
 
@@ -25,6 +26,16 @@ const SideBarBackdrop = styled.div`
 
     width: 100%;
     height: 100%;
+
+    &.hidden {
+        transition: opacity 0.2s ease-out;
+        opacity: 0;
+    }
+
+    &.visible {
+        transition: opacity 0.2s ease-out;
+        opacity: 1;
+    }
 
     ${BreakPointMixin.tablet`
       width: 0;
@@ -43,7 +54,9 @@ const BoardsPanel = styled.div`
 
     padding: 16px 0;
 
-    ${DarkModeTransition};
+    background-color: ${(props: PropsThemeType) =>
+            props.theme.colors.backBackground}
+        ${DarkModeTransition};
 
     ${BreakPointMixin.tablet`
     
@@ -122,7 +135,8 @@ export default () => {
     }, [appValues.sidePanelVisibility])
 
     return (
-        <SideBarBackdrop>
+        <div>
+            <SideBarBackdrop className={panelClass} />
             <BoardsPanel id={'boards-panel'} className={panelClass}>
                 <SidebarTitle />
                 <SidebarBoardList />
@@ -131,6 +145,6 @@ export default () => {
                     <SidebarHideButton />
                 </BottomButtons>
             </BoardsPanel>
-        </SideBarBackdrop>
+        </div>
     )
 }
