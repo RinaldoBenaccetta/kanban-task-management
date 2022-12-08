@@ -48,25 +48,26 @@ const SideBarBackdrop = styled.div`
 const BoardsPanel = styled.div`
     ${Modal};
 
+    background-color: ${(props: PropsThemeType) =>
+        props.theme.colors.frontBackground};
+
     width: 264px;
 
     margin: 16px auto auto;
 
     padding: 16px 0;
 
-    background-color: ${(props: PropsThemeType) =>
-            props.theme.colors.backBackground}
-        ${DarkModeTransition};
-
-    transform: translateY(80px);
+    ${DarkModeTransition};
 
     &.hidden {
-        transition: transform 0.15s ease-out;
-        transform: translateY(calc(-100% - 80px));
+        transition: transform 0.3s ease-out;
+
+        transform: translateY(100vh);
     }
 
     &.visible {
-        transition: transform 0.15s ease-out;
+        transition: transform 0.3s ease-out;
+
         transform: translateY(80px);
     }
 
