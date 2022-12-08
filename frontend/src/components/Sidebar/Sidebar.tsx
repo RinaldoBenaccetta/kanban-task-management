@@ -58,6 +58,18 @@ const BoardsPanel = styled.div`
             props.theme.colors.backBackground}
         ${DarkModeTransition};
 
+    transform: translateY(80px);
+
+    &.hidden {
+        transition: transform 0.15s ease-out;
+        transform: translateY(calc(-100% - 80px));
+    }
+
+    &.visible {
+        transition: transform 0.15s ease-out;
+        transform: translateY(80px);
+    }
+
     ${BreakPointMixin.tablet`
     
       box-sizing: border-box;
