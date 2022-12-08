@@ -14,6 +14,13 @@ import { SidebarHideButton } from './SidebarHideButton'
 import { PropsThemeType } from '../../@types/ThemesType'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
 
+const SidebarContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+`
+
 const SideBarBackdrop = styled.div`
     background-color: ${Colors.modalBackground};
 
@@ -148,7 +155,7 @@ export default () => {
     }, [appValues.sidePanelVisibility])
 
     return (
-        <div>
+        <SidebarContainer>
             <SideBarBackdrop className={panelClass} />
             <BoardsPanel id={'boards-panel'} className={panelClass}>
                 <SidebarTitle />
@@ -158,6 +165,6 @@ export default () => {
                     <SidebarHideButton />
                 </BottomButtons>
             </BoardsPanel>
-        </div>
+        </SidebarContainer>
     )
 }
