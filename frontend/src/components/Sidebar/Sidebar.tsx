@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 
 import { SidebarTitle } from './SidebarTitle'
@@ -26,13 +26,6 @@ const SideBarBackdrop = styled.div`
     width: 100%;
     height: 100%;
 
-    ${({ $visibility }: VisibilityType) =>
-        $visibility
-            ? css``
-            : css`
-                  opacity: 0;
-              `}
-
     ${BreakPointMixin.tablet`
       width: 0;
       left: 0;
@@ -52,13 +45,6 @@ const BoardsPanel = styled.div`
 
     ${DarkModeTransition};
 
-    ${({ $visibility }: VisibilityType) =>
-        $visibility
-            ? css``
-            : css`
-                  opacity: 0;
-              `}
-
     ${BreakPointMixin.tablet`
     
       box-sizing: border-box;
@@ -75,30 +61,26 @@ const BoardsPanel = styled.div`
       bottom: 0;
       
       padding-top: 15px;
-      
-      border-right: 1px solid ${(props: PropsThemeType) =>
-          props.theme.colors.accentLine}
           
-      ${({ $visibility }: VisibilityType) =>
-          $visibility
-              ? css``
-              : css`
-                    // ?????? need to put another properties to make transform???
-                    background: none; // this do nothing
-                    transform: translateX(-261px);
-                `}
+      transform: translateX(-100%);
+  
+      &.hidden {
+          transition: transform 0.2s ease-out;
+          transform: translateX(-100%);
+      }
+  
+      &.visible {
+          transition: transform 0.2s ease-out;
+          transform: translateX(0);
+          
+          border-right: 1px solid ${(props: PropsThemeType) =>
+              props.theme.colors.accentLine}
+      }
     `}
 
     ${BreakPointMixin.large`
         width: 300px;
         height: calc(100vh - 96px);
-        
-        ${({ $visibility }: VisibilityType) =>
-            $visibility
-                ? css``
-                : css`
-                      transform: translateX(-300px);
-                  `}
     `}
 `
 
@@ -125,13 +107,23 @@ const BottomButtons = styled.div`
 export default () => {
     const { appValues } = useContext(AppValuesContext)
 
-    const panelVisibility = appValues && appValues.sidePanelVisibility
+    // Use useState to manage the visibility of BoardsPanel
+    const [panelVisibility, setPanelVisibility] = useState(
+        appValues && appValues.sidePanelVisibility
+    )
 
-    // console.log(panelVisibility)
+    // Retrieve the classes to add based on the value of panelVisibility
+    const panelClass = panelVisibility ? 'visible' : 'hidden'
+
+    // Use useEffect to update the value of panelVisibility
+    // when appValues.sidePanelVisibility changes
+    useEffect(() => {
+        setPanelVisibility(appValues && appValues.sidePanelVisibility)
+    }, [appValues.sidePanelVisibility])
 
     return (
-        <SideBarBackdrop $visibility={panelVisibility}>
-            <BoardsPanel id={'boards-panel'} $visibility={panelVisibility}>
+        <SideBarBackdrop>
+            <BoardsPanel id={'boards-panel'} className={panelClass}>
                 <SidebarTitle />
                 <SidebarBoardList />
                 <BottomButtons>
