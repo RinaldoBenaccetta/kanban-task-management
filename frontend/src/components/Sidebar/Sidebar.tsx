@@ -103,7 +103,7 @@ const BoardsPanel = styled.div`
           props.theme.colors.accentLine};
   
       &.hidden {
-          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s;
+          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s, border-color 1s;
           
           transform: translateX(-100%);
           
@@ -112,7 +112,7 @@ const BoardsPanel = styled.div`
       }
   
       &.visible {
-          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s;
+          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s, border-color 1s;
           
           transform: translateX(0);
           
