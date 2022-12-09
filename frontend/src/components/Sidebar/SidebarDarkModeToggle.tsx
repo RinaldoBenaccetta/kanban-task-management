@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { PropsThemeType } from '../../@types/ThemesType'
 import Colors from '../../themes/variables/colors'
@@ -73,6 +73,16 @@ const SwitchInput = styled.input`
     height: 20px;
 
     background-color: ${Colors.primary.mainPurple};
+
+    transition: background-color 0.15s;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: ${Colors.primary.mainPurpleHover};
+
+            cursor: pointer;
+        }
+    }
 
     border-radius: 10px;
 
