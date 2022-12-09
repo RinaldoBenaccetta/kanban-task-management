@@ -8,7 +8,6 @@ import {
     ActualBoardButton,
     ActualBoardChevron,
     ActualBoardContainer,
-    ActualBoardLabel,
 } from './styles/ActualBoard'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
 
@@ -25,7 +24,7 @@ export default () => {
         <ActualBoardContainer>
             <ActualBoard>{boardName}</ActualBoard>
             <ActualBoardButton aria-hidden={true} onClick={toggleSidePanel}>
-                <ActualBoardLabel>{boardName}</ActualBoardLabel>
+                {boardName}
                 <ActualBoardChevron
                     src={chevronDownIcon}
                     $panelVisibility={sidePanelVisibility}

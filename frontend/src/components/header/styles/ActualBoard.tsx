@@ -38,6 +38,8 @@ export const ActualBoard = styled.div`
 
     margin: 0;
 
+    pointer-events: none;
+
     ${BreakPointMixin.tablet`
         width: auto;
         height: auto;
@@ -61,21 +63,13 @@ export const ActualBoardButton = styled.button`
 
     border: 0;
 
-    ${BreakPointMixin.tablet`
-        ${hiddenMixin};
-  `}
-`
-
-export const ActualBoardLabel = styled.span`
-    height: 23px;
-
-    margin-bottom: 4px;
-
-    display: block;
-
     color: ${(props: PropsThemeType) => props.theme.colors.text};
 
     ${DarkModeTransition};
+
+    ${BreakPointMixin.tablet`
+        ${hiddenMixin};
+  `}
 `
 
 export const ActualBoardChevron = styled.img`
