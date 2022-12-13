@@ -12,6 +12,8 @@ import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { BoardsProvider } from './hooks/BoardsProvider'
 import { SelectedBoardProvider } from './hooks/SelectedBoardProvider'
 import { AppValuesProvider } from './hooks/AppValuesProvider'
+import { Provider } from 'react-redux'
+import store from './app/store'
 
 const queryClient = new QueryClient()
 
@@ -28,7 +30,9 @@ root!.render(
             <BoardsProvider>
                 <SelectedBoardProvider>
                     <ThemeContextProvider>
-                        <RouterProvider router={router}></RouterProvider>
+                        <Provider store={store}>
+                            <RouterProvider router={router}></RouterProvider>
+                        </Provider>
                     </ThemeContextProvider>
                 </SelectedBoardProvider>
             </BoardsProvider>
