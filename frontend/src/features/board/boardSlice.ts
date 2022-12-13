@@ -10,6 +10,7 @@ export const boardSlice = createSlice({
                 data: {},
             },
             boards: {
+                quantity: 0,
                 list: {},
             },
             theme: {},
@@ -21,6 +22,9 @@ export const boardSlice = createSlice({
         },
         setListOfBoards: (state, action) => {
             if (action.payload) state.value.boards.list = action.payload
+        },
+        setBoardsQuantity: (state, action) => {
+            if (action.payload) state.value.boards.quantity = action.payload
         },
         // increment: state => {
         //     // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -39,6 +43,7 @@ export const boardSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setBoardData, setListOfBoards } = boardSlice.actions
+export const { setBoardData, setListOfBoards, setBoardsQuantity } =
+    boardSlice.actions
 
 export default boardSlice.reducer

@@ -15,7 +15,10 @@ import { BoardsContext } from '../hooks/BoardsProvider'
 import { SidebarShowButton } from '../components/Sidebar/SidebarShowButton'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { setListOfBoards } from '../features/board/boardSlice'
+import {
+    setBoardsQuantity,
+    setListOfBoards,
+} from '../features/board/boardSlice'
 
 export async function loader(): Promise<BoardsType> {
     return await fetchAllBoards()
@@ -34,7 +37,8 @@ export const App = () => {
     const boardGlobal = useSelector((state) => state.board.value)
     const dispatch = useDispatch()
 
-    dispatch(setListOfBoards(boards))
+    dispatch(setListOfBoards(boards.list))
+    dispatch(setBoardsQuantity(boards.quantity))
 
     console.log(boardGlobal.boards.list)
     // use redux to store the list of boards

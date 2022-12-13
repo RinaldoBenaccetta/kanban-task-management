@@ -8,12 +8,10 @@ import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 import { BoardInBoardsType } from '../../@types/BoardsType'
-import { BoardsContext } from '../../hooks/BoardsProvider'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
 import isPhoneScreen from '../../helpers/isPhoneScreen'
-import { useDispatch, useSelector } from 'react-redux'
-import { setBoardsList } from '../../features/board/boardSlice'
+import { useSelector } from 'react-redux'
 
 /**
  * The global shape of the button.
@@ -198,9 +196,13 @@ export const SidebarBoardList = () => {
 
     const { hideSidePanel } = useContext(AppValuesContext)
 
-    const { boardList } = useContext(BoardsContext)
+    // const { boardList } = useContext(BoardsContext)
 
-    const boards = boardList.list
+    // const boards = boardList.list
+
+    const boards = useSelector((state) => state.board.value.boards)
+
+    const boardList = boards.list
 
     /**
      * This set the first board as default selected one.
@@ -211,33 +213,27 @@ export const SidebarBoardList = () => {
      * select the first board, if there is boards inside the list.
      */
     useEffect(() => {
-        if (boards.length && selectBoard) selectBoard(boards[0])
+        if (boardList.length && selectBoard) selectBoard(boardList[0])
     }, [boardList])
 
     const getBoardIdAndName = (id: string) => {
-        return boards.filter((board) => board._id === id)[0]
+        return boardList.filter((board) => board._id === id)[0]
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (selectBoard && hideSidePanel) {
             if (isPhoneScreen()) setTimeout(hideSidePanel, 1000)
 
-            // const board = useSelector((state) => state.board.value)
-            // const dispatch = useDispatch()
-
-            // dispatch(setBoardsList(getBoardIdAndName(event.target.value)))
-
-            // console.log(board.boards.list)
-
             selectBoard(getBoardIdAndName(event.target.value))
         }
     }
 
-    const list = boards.map((board: BoardInBoardsType) => {
-        // const boardGlobal = useSelector((state) => state.board.value)
+    // const list = boards.map((board: BoardInBoardsType) => {
+    const list = boardList.map((board: BoardInBoardsType) => {
+        // const boards = useSelector((state) => state.board.value)
         // const dispatch = useDispatch()
         //
-        // console.log(boardGlobal.boards.list)
+        // console.log(boards.boards.list)
 
         return (
             <RadioElement key={board._id}>
