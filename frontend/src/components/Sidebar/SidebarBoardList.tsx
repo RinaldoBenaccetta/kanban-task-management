@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled, { css } from 'styled-components'
 
 import Colors from '../../themes/variables/colors'
@@ -8,10 +8,10 @@ import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
 import { BoardInBoardsType } from '../../@types/BoardsType'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
-import { AppValuesContext } from '../../hooks/AppValuesProvider'
 import isPhoneScreen from '../../helpers/isPhoneScreen'
 import { useDispatch, useSelector } from 'react-redux'
 import { setActualBoard } from '../../features/board/boardSlice'
+import { hideSidePanel } from '../../features/interface/sidePanelSlice'
 
 /**
  * The global shape of the button.
@@ -192,9 +192,8 @@ const AddBoardIcon = styled(RadioButtonIcon)`
  * @constructor
  */
 export const SidebarBoardList = () => {
-    const { hideSidePanel } = useContext(AppValuesContext)
-
     const appData = useSelector((state) => state.board.value)
+    const sidePanel = useSelector((state) => state.sidePanel.value)
     const dispatch = useDispatch()
 
     const boardList = appData.boards.list
@@ -217,8 +216,8 @@ export const SidebarBoardList = () => {
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (hideSidePanel) {
-            if (isPhoneScreen()) setTimeout(hideSidePanel, 1000)
+        if (sidePanel) {
+            if (isPhoneScreen()) setTimeout(dispatch(hideSidePanel()), 1000)
 
             if (boardList.length)
                 dispatch(setActualBoard(getBoardIdAndName(event.target.value)))

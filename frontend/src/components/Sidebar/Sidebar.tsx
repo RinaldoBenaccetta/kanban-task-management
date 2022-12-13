@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import { SidebarTitle } from './SidebarTitle'
@@ -12,7 +12,7 @@ import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { SidebarHideButton } from './SidebarHideButton'
 import { PropsThemeType } from '../../@types/ThemesType'
-import { AppValuesContext } from '../../hooks/AppValuesProvider'
+import { useSelector } from 'react-redux'
 
 const SidebarContainer = styled.div`
     width: 100vw;
@@ -148,21 +148,10 @@ const BottomButtons = styled.div`
  * @constructor
  */
 export default () => {
-    const { appValues } = useContext(AppValuesContext)
-
-    // Use useState to manage the visibility of BoardsPanel
-    const [panelVisibility, setPanelVisibility] = useState(
-        appValues && appValues.sidePanelVisibility
-    )
+    const sidePanel = useSelector((state) => state.sidePanel.value)
 
     // Retrieve the classes to add based on the value of panelVisibility
-    const panelClass = panelVisibility ? 'visible' : 'hidden'
-
-    // Use useEffect to update the value of panelVisibility
-    // when appValues.sidePanelVisibility changes
-    useEffect(() => {
-        setPanelVisibility(appValues && appValues.sidePanelVisibility)
-    }, [appValues.sidePanelVisibility])
+    const panelClass = sidePanel ? 'visible' : 'hidden'
 
     return (
         <SidebarContainer>

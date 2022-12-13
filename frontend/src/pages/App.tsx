@@ -33,26 +33,13 @@ export const App = () => {
     const theme = themes
     const boards = useLoaderData()
 
-    // use redux to store the list of boards
-    const boardGlobal = useSelector((state) => state.board.value)
     const dispatch = useDispatch()
 
     dispatch(setListOfBoards(boards.list))
     dispatch(setBoardsQuantity(boards.quantity))
 
-    console.log(boardGlobal.boards.list)
-    // use redux to store the list of boards
-
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
     const { selectedTheme } = useContext(ThemeContext)
-
-    const { setBoardsList } = useContext(BoardsContext)
-
-    useEffect(() => {
-        if (setBoardsList) {
-            setBoardsList(boards)
-        }
-    }, [boards])
 
     return (
         // typescript need the code that is in bracket to don't have errors

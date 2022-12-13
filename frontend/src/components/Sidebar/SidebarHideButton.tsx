@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 // @ts-ignore
@@ -7,7 +7,8 @@ import IconMixin from '../../themes/mixins/IconMixin'
 
 import Colors from '../../themes/variables/colors'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
-import { AppValuesContext } from '../../hooks/AppValuesProvider'
+import { useDispatch } from 'react-redux'
+import { hideSidePanel } from '../../features/interface/sidePanelSlice'
 
 const HideIcon = styled.span`
     ${IconMixin};
@@ -81,10 +82,10 @@ const HideButton = styled.button`
 `
 
 export const SidebarHideButton = () => {
-    const { hideSidePanel } = useContext(AppValuesContext)
+    const dispatch = useDispatch()
 
     return (
-        <HideButton onClick={hideSidePanel}>
+        <HideButton onClick={() => dispatch(hideSidePanel())}>
             <HideIcon />
             Hide Sidebar
         </HideButton>

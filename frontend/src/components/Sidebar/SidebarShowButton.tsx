@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { AppValuesContext } from '../../hooks/AppValuesProvider'
+import React from 'react'
 
 // @ts-ignore
 import iconShow from '../../assets/img/icon-show-sidebar.svg'
@@ -8,6 +7,8 @@ import IconMixin from '../../themes/mixins/IconMixin'
 import Colors from '../../themes/variables/colors'
 import hiddenMixin from '../../themes/mixins/HiddenMixin'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
+import { useDispatch, useSelector } from 'react-redux'
+import { showSidePanel } from '../../features/interface/sidePanelSlice'
 
 const ShowButton = styled.button`
     position: fixed;
@@ -62,24 +63,17 @@ const ShowIcon = styled.span`
 `
 
 export const SidebarShowButton = () => {
-    const { appValues, showSidePanel } = useContext(AppValuesContext)
-
-    // Use useState to manage the visibility of BoardsPanel
-    const [buttonVisibility, setButtonVisibility] = useState(
-        appValues && appValues.sidePanelVisibility
-    )
+    const sidePanel = useSelector((state) => state.sidePanel.value)
+    const dispatch = useDispatch()
 
     // Retrieve the classes to add based on the value of buttonVisibility
-    const buttonClass = buttonVisibility ? 'visible' : 'hidden'
-
-    // Use useEffect to update the value of buttonVisibility
-    // when appValues.sidePanelVisibility changes
-    useEffect(() => {
-        setButtonVisibility(!(appValues && appValues.sidePanelVisibility))
-    }, [appValues.sidePanelVisibility])
+    const buttonClass = sidePanel ? 'hidden' : 'visible'
 
     return (
-        <ShowButton onClick={showSidePanel} className={buttonClass}>
+        <ShowButton
+            onClick={() => dispatch(showSidePanel())}
+            className={buttonClass}
+        >
             <ShowIcon />
         </ShowButton>
     )

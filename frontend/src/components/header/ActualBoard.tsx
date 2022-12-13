@@ -9,11 +9,18 @@ import {
     ActualBoardContainer,
 } from './styles/ActualBoard'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleSidePanel } from '../../features/interface/sidePanelSlice'
 
 export default () => {
-    const { appValues, toggleSidePanel } = useContext(AppValuesContext)
-    const sidePanelVisibility = appValues.sidePanelVisibility
+    // const { appValues, toggleSidePanel } = useContext(AppValuesContext)
+
+    const sidePanel = useSelector((state) => state.sidePanel.value)
+    const dispatch = useDispatch()
+
+    // const sidePanelVisibility = appValues.sidePanelVisibility
+
+    const sidePanelVisibility = sidePanel
 
     const appData = useSelector((state) => state.board.value)
 
@@ -26,7 +33,10 @@ export default () => {
     return (
         <ActualBoardContainer>
             <ActualBoard>{boardName}</ActualBoard>
-            <ActualBoardButton aria-hidden={true} onClick={toggleSidePanel}>
+            <ActualBoardButton
+                aria-hidden={true}
+                onClick={() => dispatch(toggleSidePanel())}
+            >
                 {boardName}
                 <ActualBoardChevron
                     src={chevronDownIcon}
