@@ -13,6 +13,9 @@ import { Outlet, useLoaderData } from 'react-router-dom'
 import { BoardsType } from '../@types/BoardsType'
 import { BoardsContext } from '../hooks/BoardsProvider'
 import { SidebarShowButton } from '../components/Sidebar/SidebarShowButton'
+import { useDispatch, useSelector } from 'react-redux'
+
+import { setListOfBoards } from '../features/board/boardSlice'
 
 export async function loader(): Promise<BoardsType> {
     return await fetchAllBoards()
@@ -26,6 +29,15 @@ export async function loader(): Promise<BoardsType> {
 export const App = () => {
     const theme = themes
     const boards = useLoaderData()
+
+    // use redux to store the list of boards
+    const boardGlobal = useSelector((state) => state.board.value)
+    const dispatch = useDispatch()
+
+    dispatch(setListOfBoards(boards))
+
+    console.log(boardGlobal.boards.list)
+    // use redux to store the list of boards
 
     // https://beta.reactjs.org/apis/react/useContext#updating-data-passed-via-context
     const { selectedTheme } = useContext(ThemeContext)

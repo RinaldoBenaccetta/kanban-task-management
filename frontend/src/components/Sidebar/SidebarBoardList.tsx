@@ -12,6 +12,8 @@ import { BoardsContext } from '../../hooks/BoardsProvider'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
 import isPhoneScreen from '../../helpers/isPhoneScreen'
+import { useDispatch, useSelector } from 'react-redux'
+import { setBoardsList } from '../../features/board/boardSlice'
 
 /**
  * The global shape of the button.
@@ -220,19 +222,34 @@ export const SidebarBoardList = () => {
         if (selectBoard && hideSidePanel) {
             if (isPhoneScreen()) setTimeout(hideSidePanel, 1000)
 
+            // const board = useSelector((state) => state.board.value)
+            // const dispatch = useDispatch()
+
+            // dispatch(setBoardsList(getBoardIdAndName(event.target.value)))
+
+            // console.log(board.boards.list)
+
             selectBoard(getBoardIdAndName(event.target.value))
         }
     }
 
     const list = boards.map((board: BoardInBoardsType) => {
+        // const boardGlobal = useSelector((state) => state.board.value)
+        // const dispatch = useDispatch()
+        //
+        // console.log(boardGlobal.boards.list)
+
         return (
             <RadioElement key={board._id}>
                 <RadioInput
                     name="board"
                     type="radio"
                     value={board._id}
+                    // checked={board._id === selectedBoard._id}
                     checked={board._id === selectedBoard._id}
-                    onChange={(event) => handleChange(event)}
+                    onChange={(event) => {
+                        handleChange(event)
+                    }}
                 />
                 <RadioButton>
                     <RadioButtonIcon aria-hidden="true" />
