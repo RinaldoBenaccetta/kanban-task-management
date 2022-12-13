@@ -11,7 +11,8 @@ import { BoardInBoardsType } from '../../@types/BoardsType'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
 import isPhoneScreen from '../../helpers/isPhoneScreen'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setActualBoard, setBoardData } from '../../features/board/boardSlice'
 
 /**
  * The global shape of the button.
@@ -192,7 +193,7 @@ const AddBoardIcon = styled(RadioButtonIcon)`
  * @constructor
  */
 export const SidebarBoardList = () => {
-    const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
+    // const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
 
     const { hideSidePanel } = useContext(AppValuesContext)
 
@@ -200,9 +201,15 @@ export const SidebarBoardList = () => {
 
     // const boards = boardList.list
 
-    const boards = useSelector((state) => state.board.value.boards)
+    // const boards = useSelector((state) => state.board.value.boards)
 
-    const boardList = boards.list
+    const appData = useSelector((state) => state.board.value)
+
+    const dispatch = useDispatch()
+
+    const boardList = appData.boards.list
+
+    const selectedBoard = appData.board.selected
 
     /**
      * This set the first board as default selected one.
@@ -213,7 +220,8 @@ export const SidebarBoardList = () => {
      * select the first board, if there is boards inside the list.
      */
     useEffect(() => {
-        if (boardList.length && selectBoard) selectBoard(boardList[0])
+        // if (boardList.length && selectBoard) selectBoard(boardList[0])
+        if (boardList.length) dispatch(setActualBoard(boardList[0]))
     }, [boardList])
 
     const getBoardIdAndName = (id: string) => {
@@ -221,10 +229,13 @@ export const SidebarBoardList = () => {
     }
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (selectBoard && hideSidePanel) {
+        if (hideSidePanel) {
             if (isPhoneScreen()) setTimeout(hideSidePanel, 1000)
 
-            selectBoard(getBoardIdAndName(event.target.value))
+            if (boardList.length)
+                dispatch(setActualBoard(getBoardIdAndName(event.target.value)))
+
+            // selectBoard(getBoardIdAndName(event.target.value))
         }
     }
 

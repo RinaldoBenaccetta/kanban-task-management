@@ -6,7 +6,10 @@ export const boardSlice = createSlice({
     initialState: {
         value: {
             board: {
-                selected: {},
+                selected: {
+                    name: '',
+                    _id: '',
+                },
                 data: {},
             },
             boards: {
@@ -26,6 +29,9 @@ export const boardSlice = createSlice({
         setBoardsQuantity: (state, action) => {
             if (action.payload) state.value.boards.quantity = action.payload
         },
+        setActualBoard: (state, action) => {
+            if (action.payload) state.value.board.selected = action.payload
+        },
         // increment: state => {
         //     // Redux Toolkit allows us to write "mutating" logic in reducers. It
         //     // doesn't actually mutate the state because it uses the Immer library,
@@ -43,7 +49,11 @@ export const boardSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setBoardData, setListOfBoards, setBoardsQuantity } =
-    boardSlice.actions
+export const {
+    setBoardData,
+    setListOfBoards,
+    setBoardsQuantity,
+    setActualBoard,
+} = boardSlice.actions
 
 export default boardSlice.reducer

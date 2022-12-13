@@ -9,7 +9,6 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { router } from './router'
 import { RouterProvider } from 'react-router-dom'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
-import { BoardsProvider } from './hooks/BoardsProvider'
 import { SelectedBoardProvider } from './hooks/SelectedBoardProvider'
 import { AppValuesProvider } from './hooks/AppValuesProvider'
 import { Provider } from 'react-redux'
@@ -27,15 +26,13 @@ root!.render(
     <QueryClientProvider client={queryClient}>
         {/*todo: add a provider for app like sidebar toggle and others.*/}
         <AppValuesProvider>
-            <BoardsProvider>
-                <SelectedBoardProvider>
-                    <ThemeContextProvider>
-                        <Provider store={store}>
-                            <RouterProvider router={router}></RouterProvider>
-                        </Provider>
-                    </ThemeContextProvider>
-                </SelectedBoardProvider>
-            </BoardsProvider>
+            <SelectedBoardProvider>
+                <ThemeContextProvider>
+                    <Provider store={store}>
+                        <RouterProvider router={router}></RouterProvider>
+                    </Provider>
+                </ThemeContextProvider>
+            </SelectedBoardProvider>
         </AppValuesProvider>
     </QueryClientProvider>
 )
