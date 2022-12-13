@@ -3,7 +3,7 @@ import React from 'react'
 import { getBoard } from '../../queries/getBoard'
 import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { setBoard } from '../../features/board/boardSlice'
+import { setBoardData } from '../../features/board/boardSlice'
 
 export async function loader({ params }: LoaderFunctionArgs) {
     const board = await getBoard(params.boardId)
@@ -30,7 +30,7 @@ export default () => {
     const selectedBoard = useSelector((state) => state.board.value)
     const dispatch = useDispatch()
 
-    dispatch(setBoard(board))
+    dispatch(setBoardData(board))
 
     console.log(selectedBoard)
 

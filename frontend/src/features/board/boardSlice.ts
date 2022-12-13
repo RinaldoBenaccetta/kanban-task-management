@@ -6,7 +6,7 @@ export const boardSlice = createSlice({
         value: {},
     },
     reducers: {
-        setBoard: (state, action) => {
+        setBoardData: (state, action) => {
             state.value = action.payload
         },
         // increment: state => {
@@ -26,6 +26,6 @@ export const boardSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setBoard } = boardSlice.actions
+export const { setBoardData } = boardSlice.actions
 
 export default boardSlice.reducer

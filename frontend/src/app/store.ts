@@ -5,5 +5,6 @@ import boardReducer from '../features/board/boardSlice'
 export default configureStore({
     reducer: {
         board: boardReducer,
+        // boards: boardsReducer
     },
 })
