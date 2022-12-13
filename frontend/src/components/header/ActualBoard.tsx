@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 // @ts-ignore
 import chevronDownIcon from '../../assets/img/icon-chevron-down.svg'
@@ -8,23 +8,16 @@ import {
     ActualBoardChevron,
     ActualBoardContainer,
 } from './styles/ActualBoard'
-import { AppValuesContext } from '../../hooks/AppValuesProvider'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleSidePanel } from '../../features/interface/sidePanelSlice'
 
 export default () => {
-    // const { appValues, toggleSidePanel } = useContext(AppValuesContext)
-
-    const sidePanel = useSelector((state) => state.sidePanel.value)
+    const sidePanelVisibility = useSelector((state) => state.sidePanel.value)
     const dispatch = useDispatch()
 
-    // const sidePanelVisibility = appValues.sidePanelVisibility
+    const board = useSelector((state) => state.board.value.board)
 
-    const sidePanelVisibility = sidePanel
-
-    const appData = useSelector((state) => state.board.value)
-
-    const selectedBoard = appData.board.selected
+    const selectedBoard = board.selected
 
     // if there is no board name : place ... instead
     const boardName =
