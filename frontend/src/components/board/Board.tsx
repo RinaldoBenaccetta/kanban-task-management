@@ -8,8 +8,6 @@ import { setBoardData } from '../../features/board/boardSlice'
 export async function loader({ params }: LoaderFunctionArgs) {
     const board = await getBoard(params.boardId)
 
-    // console.log(board)
-
     // If board does not exist, throw an error
     // prevent render an error page with cannot read property of null
     // and give a custom message to the error page. Here : Not Found.
@@ -25,14 +23,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default () => {
     const board = useLoaderData()
 
-    // const selectedBoard = useSelector((state) => state.board.value)
-
-    const selectedBoard = useSelector((state) => state.board.value)
+    const boardData = useSelector((state) => state.board.value.board.data)
     const dispatch = useDispatch()
 
     dispatch(setBoardData(board))
 
-    console.log(selectedBoard)
+    console.log(boardData)
 
     return <div>Hello</div>
 }

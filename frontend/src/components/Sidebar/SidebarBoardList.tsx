@@ -6,13 +6,12 @@ import Colors from '../../themes/variables/colors'
 // @ts-ignore
 import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
-import { SelectedBoardContext } from '../../hooks/SelectedBoardProvider'
 import { BoardInBoardsType } from '../../@types/BoardsType'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { AppValuesContext } from '../../hooks/AppValuesProvider'
 import isPhoneScreen from '../../helpers/isPhoneScreen'
 import { useDispatch, useSelector } from 'react-redux'
-import { setActualBoard, setBoardData } from '../../features/board/boardSlice'
+import { setActualBoard } from '../../features/board/boardSlice'
 
 /**
  * The global shape of the button.
@@ -193,22 +192,12 @@ const AddBoardIcon = styled(RadioButtonIcon)`
  * @constructor
  */
 export const SidebarBoardList = () => {
-    // const { selectedBoard, selectBoard } = useContext(SelectedBoardContext)
-
     const { hideSidePanel } = useContext(AppValuesContext)
 
-    // const { boardList } = useContext(BoardsContext)
-
-    // const boards = boardList.list
-
-    // const boards = useSelector((state) => state.board.value.boards)
-
     const appData = useSelector((state) => state.board.value)
-
     const dispatch = useDispatch()
 
     const boardList = appData.boards.list
-
     const selectedBoard = appData.board.selected
 
     /**
@@ -220,7 +209,6 @@ export const SidebarBoardList = () => {
      * select the first board, if there is boards inside the list.
      */
     useEffect(() => {
-        // if (boardList.length && selectBoard) selectBoard(boardList[0])
         if (boardList.length) dispatch(setActualBoard(boardList[0]))
     }, [boardList])
 
@@ -234,25 +222,16 @@ export const SidebarBoardList = () => {
 
             if (boardList.length)
                 dispatch(setActualBoard(getBoardIdAndName(event.target.value)))
-
-            // selectBoard(getBoardIdAndName(event.target.value))
         }
     }
 
-    // const list = boards.map((board: BoardInBoardsType) => {
     const list = boardList.map((board: BoardInBoardsType) => {
-        // const boards = useSelector((state) => state.board.value)
-        // const dispatch = useDispatch()
-        //
-        // console.log(boards.boards.list)
-
         return (
             <RadioElement key={board._id}>
                 <RadioInput
                     name="board"
                     type="radio"
                     value={board._id}
-                    // checked={board._id === selectedBoard._id}
                     checked={board._id === selectedBoard._id}
                     onChange={(event) => {
                         handleChange(event)
