@@ -217,7 +217,8 @@ export const SidebarBoardList = () => {
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (sidePanel) {
-            if (isPhoneScreen()) setTimeout(dispatch(hideSidePanel()), 1000)
+            if (isPhoneScreen())
+                setTimeout(() => dispatch(hideSidePanel()), 1000)
 
             if (boardList.length)
                 dispatch(setActualBoard(getBoardIdAndName(event.target.value)))
