@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import typography from '../../themes/typography'
-import { BoardsContext } from '../../hooks/BoardsProvider'
+import { useSelector } from 'react-redux'
 
 const Title = styled.div`
     ${typography.heading.s}
@@ -16,7 +16,7 @@ const Title = styled.div`
  * @constructor
  */
 export const SidebarTitle = () => {
-    const { boardList } = useContext(BoardsContext)
+    const boards = useSelector((state) => state.board.value.boards)
 
-    return <Title>ALL BOARDS ({boardList.quantity})</Title>
+    return <Title>ALL BOARDS ({boards.quantity || ''})</Title>
 }
