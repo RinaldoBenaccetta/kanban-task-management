@@ -10,7 +10,7 @@ import { router } from './router'
 import { RouterProvider } from 'react-router-dom'
 import { ThemeContextProvider } from './hooks/ThemeContextProvider'
 import { Provider } from 'react-redux'
-import store from './app/store'
+import { store } from './app/store'
 
 const queryClient = new QueryClient()
 

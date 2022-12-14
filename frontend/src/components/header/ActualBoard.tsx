@@ -8,14 +8,17 @@ import {
     ActualBoardChevron,
     ActualBoardContainer,
 } from './styles/ActualBoard'
-import { useDispatch, useSelector } from 'react-redux'
 import { toggleSidePanel } from '../../features/interface/sidePanelSlice'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 
 export default () => {
-    const sidePanelVisibility = useSelector((state) => state.sidePanel.value)
-    const dispatch = useDispatch()
+    // Use the appSelector instead of the redux useSelectorOne because the app one is typed.
+    const sidePanelVisibility = useAppSelector((state) => state.sidePanel.value)
+    // Use the appDispatch instead of the redux useDispatch because the app one is typed.
+    const dispatch = useAppDispatch()
 
-    const board = useSelector((state) => state.board.value.board)
+    // Use the appSelector instead of the redux useSelectorOne because the app one is typed.
+    const board = useAppSelector((state) => state.board.value.board)
 
     const selectedBoard = board.selected
 
