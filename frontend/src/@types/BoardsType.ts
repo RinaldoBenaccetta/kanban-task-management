@@ -3,7 +3,9 @@ export type BoardInBoardsType = {
     name: string
 }
 
+export type BoardsListType = BoardInBoardsType[]
+
 export type BoardsType = {
     quantity: number
-    list: BoardInBoardsType[]
+    list: BoardsListType
 }

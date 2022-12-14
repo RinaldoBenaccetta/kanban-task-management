@@ -12,7 +12,8 @@ import DarkModeTransition from '../../themes/mixins/DarkModeTransition'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import { SidebarHideButton } from './SidebarHideButton'
 import { PropsThemeType } from '../../@types/ThemesType'
-import { useSelector } from 'react-redux'
+
+import { useAppSelector } from '../../app/hooks'
 
 const SidebarContainer = styled.div`
     width: 100vw;
@@ -148,7 +149,7 @@ const BottomButtons = styled.div`
  * @constructor
  */
 export default () => {
-    const sidePanel = useSelector((state) => state.sidePanel.value)
+    const sidePanel = useAppSelector((state) => state.sidePanel.value)
 
     // Retrieve the classes to add based on the value of panelVisibility
     const panelClass = sidePanel ? 'visible' : 'hidden'

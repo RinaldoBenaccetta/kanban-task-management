@@ -6,12 +6,12 @@ import Colors from '../../themes/variables/colors'
 // @ts-ignore
 import boardIcon from '../../assets/img/icon-board.svg'
 import HiddenMixin from '../../themes/mixins/HiddenMixin'
-import { BoardInBoardsType } from '../../@types/BoardsType'
+import { BoardInBoardsType, BoardsListType } from '../../@types/BoardsType'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
 import isPhoneScreen from '../../helpers/isPhoneScreen'
-import { useDispatch, useSelector } from 'react-redux'
 import { setActualBoard } from '../../features/board/boardSlice'
 import { hideSidePanel } from '../../features/interface/sidePanelSlice'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 
 /**
  * The global shape of the button.
@@ -192,11 +192,11 @@ const AddBoardIcon = styled(RadioButtonIcon)`
  * @constructor
  */
 export const SidebarBoardList = () => {
-    const appData = useSelector((state) => state.board.value)
-    const sidePanel = useSelector((state) => state.sidePanel.value)
-    const dispatch = useDispatch()
+    const appData = useAppSelector((state) => state.board.value)
+    const sidePanel = useAppSelector((state) => state.sidePanel.value)
+    const dispatch = useAppDispatch()
 
-    const boardList = appData.boards.list
+    const boardList = appData.boards.list as BoardsListType
     const selectedBoard = appData.board.selected
 
     /**

@@ -30,7 +30,7 @@ export async function loader(): Promise<BoardsType> {
  */
 export const App = () => {
     const theme = themes
-    const boards: BoardsType = useLoaderData()
+    const boards = useLoaderData() as BoardsType
 
     const dispatch = useDispatch()
 

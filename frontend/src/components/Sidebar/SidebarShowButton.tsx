@@ -7,8 +7,8 @@ import IconMixin from '../../themes/mixins/IconMixin'
 import Colors from '../../themes/variables/colors'
 import hiddenMixin from '../../themes/mixins/HiddenMixin'
 import BreakPointMixin from '../../themes/mixins/BreakPointMixin'
-import { useDispatch, useSelector } from 'react-redux'
 import { showSidePanel } from '../../features/interface/sidePanelSlice'
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
 
 const ShowButton = styled.button`
     position: fixed;
@@ -63,8 +63,8 @@ const ShowIcon = styled.span`
 `
 
 export const SidebarShowButton = () => {
-    const sidePanel = useSelector((state) => state.sidePanel.value)
-    const dispatch = useDispatch()
+    const sidePanel = useAppSelector((state) => state.sidePanel.value)
+    const dispatch = useAppDispatch()
 
     // Retrieve the classes to add based on the value of buttonVisibility
     const buttonClass = sidePanel ? 'hidden' : 'visible'

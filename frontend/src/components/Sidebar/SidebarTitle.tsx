@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import typography from '../../themes/typography'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../app/hooks'
 
 const Title = styled.div`
     ${typography.heading.s}
@@ -16,7 +16,7 @@ const Title = styled.div`
  * @constructor
  */
 export const SidebarTitle = () => {
-    const boards = useSelector((state) => state.board.value.boards)
+    const boards = useAppSelector((state) => state.board.value.boards)
 
     return <Title>ALL BOARDS ({boards.quantity || ''})</Title>
 }
