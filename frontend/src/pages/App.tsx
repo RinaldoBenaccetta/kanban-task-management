@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '../themes/GlobalStyles'
@@ -11,9 +11,8 @@ import { ThemesType } from '../@types/ThemesType'
 import { fetchAllBoards } from '../queries/fetchAllBoards'
 import { Outlet, useLoaderData } from 'react-router-dom'
 import { BoardsType } from '../@types/BoardsType'
-import { BoardsContext } from '../hooks/BoardsProvider'
 import { SidebarShowButton } from '../components/Sidebar/SidebarShowButton'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import {
     setBoardsQuantity,
@@ -31,7 +30,7 @@ export async function loader(): Promise<BoardsType> {
  */
 export const App = () => {
     const theme = themes
-    const boards = useLoaderData()
+    const boards: BoardsType = useLoaderData()
 
     const dispatch = useDispatch()
 
