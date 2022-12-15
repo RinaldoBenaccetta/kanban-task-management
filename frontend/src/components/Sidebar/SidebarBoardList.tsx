@@ -196,12 +196,13 @@ const AddBoardIcon = styled(RadioButtonIcon)`
 export const SidebarBoardList = () => {
     const appData = useAppSelector((state) => state.board.value)
     const sidePanel = useAppSelector((state) => state.sidePanel.value)
+
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const boardList = appData.boards.list as BoardsListType
-    const selectedBoard = appData.board.selected
 
-    const navigate = useNavigate()
+    const selectedBoard = appData.board.selected
 
     /**
      * This set the first board as default selected one.
