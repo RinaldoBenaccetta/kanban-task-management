@@ -6,7 +6,7 @@ import Header from '../components/header/Header'
 import Sidebar from '../components/Sidebar/Sidebar'
 
 import { themes } from '../themes/themes'
-import { ThemeContext } from '../hooks/ThemeContextProvider'
+import { ThemeContext } from '../contexts/ThemeContextProvider'
 import { ThemesType } from '../@types/ThemesType'
 import { fetchAllBoards } from '../queries/fetchAllBoards'
 import { Outlet, useLoaderData } from 'react-router-dom'
