@@ -7,7 +7,7 @@ export const BoardContainer = styled.main`
     ${DarkModeTransition};
 
     background-color: ${(props: PropsThemeType) =>
-        props.theme.colors.frontBackground};
+        props.theme.colors.backBackground};
 
     position: fixed;
 

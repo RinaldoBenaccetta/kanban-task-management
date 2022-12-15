@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
-const Column = styled.div`
+const Column = styled.article`
     outline: 1px solid red;
 
     width: 280px;
