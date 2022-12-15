@@ -3,7 +3,7 @@ import { PropsThemeType } from '../../../@types/ThemesType'
 import DarkModeTransition from '../../../themes/mixins/DarkModeTransition'
 import BreakPointMixin from '../../../themes/mixins/BreakPointMixin'
 
-export const BoardContainer = styled.div`
+export const BoardContainer = styled.main`
     ${DarkModeTransition};
 
     background-color: ${(props: PropsThemeType) =>
