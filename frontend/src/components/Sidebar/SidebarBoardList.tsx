@@ -13,6 +13,8 @@ import { setActualBoard } from '../../features/board/boardSlice'
 import { hideSidePanel } from '../../features/interface/sidePanelSlice'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 
+import { useNavigate } from 'react-router-dom'
+
 /**
  * The global shape of the button.
  */
@@ -199,6 +201,8 @@ export const SidebarBoardList = () => {
     const boardList = appData.boards.list as BoardsListType
     const selectedBoard = appData.board.selected
 
+    const navigate = useNavigate()
+
     /**
      * This set the first board as default selected one.
      *
@@ -215,13 +219,19 @@ export const SidebarBoardList = () => {
         return boardList.filter((board) => board._id === id)[0]
     }
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (
+        event: React.ChangeEvent<HTMLInputElement>,
+        id: string
+    ) => {
         if (sidePanel) {
             if (isPhoneScreen())
                 setTimeout(() => dispatch(hideSidePanel()), 1000)
 
-            if (boardList.length)
+            if (boardList.length) {
                 dispatch(setActualBoard(getBoardIdAndName(event.target.value)))
+
+                navigate(`/board/${id}`)
+            }
         }
     }
 
@@ -234,7 +244,7 @@ export const SidebarBoardList = () => {
                     value={board._id}
                     checked={board._id === selectedBoard._id}
                     onChange={(event) => {
-                        handleChange(event)
+                        handleChange(event, board._id)
                     }}
                 />
                 <RadioButton>
