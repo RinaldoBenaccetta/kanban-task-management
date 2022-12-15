@@ -50,6 +50,7 @@ const RadioFieldset = styled.fieldset`
 
     border: none;
 
+    // The legend is only visible for screen-readers.
     legend {
         ${HiddenMixin};
 
@@ -216,7 +217,7 @@ export const SidebarBoardList = () => {
         if (boardList.length) dispatch(setActualBoard(boardList[0]))
     }, [boardList])
 
-    const getBoardIdAndName = (id: string) => {
+    const getBoardIdAndName = (id: string): BoardInBoardsType => {
         return boardList.filter((board) => board._id === id)[0]
     }
 
@@ -226,6 +227,8 @@ export const SidebarBoardList = () => {
     ) => {
         if (sidePanel) {
             if (isPhoneScreen())
+                // add some time before hide the modal window on smartphone screen.
+                // So the user can see what he have clicked.
                 setTimeout(() => dispatch(hideSidePanel()), 1000)
 
             if (boardList.length) {
@@ -236,6 +239,9 @@ export const SidebarBoardList = () => {
         }
     }
 
+    /**
+     * Create the list of radio buttons.
+     */
     const list = boardList.map((board: BoardInBoardsType) => {
         return (
             <RadioElement key={board._id}>
@@ -259,6 +265,7 @@ export const SidebarBoardList = () => {
     return (
         <div>
             <RadioFieldset>
+                {/*The legend is only visible for screen-readers.*/}
                 <legend>Choose a board :</legend>
                 {list}
             </RadioFieldset>
