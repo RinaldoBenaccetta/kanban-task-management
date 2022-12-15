@@ -5,6 +5,7 @@ import { LoaderFunctionArgs, useLoaderData } from 'react-router-dom'
 import { setBoardData } from '../../features/board/boardSlice'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { BoardContainer } from './styles/Board'
+import BoardColumn from './BoardColumn'
 
 export async function loader({ params }: LoaderFunctionArgs) {
     const board = await getBoard(params.boardId)
@@ -37,12 +38,10 @@ export default () => {
 
     return (
         <BoardContainer className={boardClass}>
-            board
-            <div>
-                column
+            <BoardColumn>
                 <div>status</div>
                 <div>taskList</div>
-            </div>
+            </BoardColumn>
         </BoardContainer>
     )
 }

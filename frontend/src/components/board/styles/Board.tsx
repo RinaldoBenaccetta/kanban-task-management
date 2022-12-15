@@ -18,6 +18,8 @@ export const BoardContainer = styled.div`
 
     z-index: -1;
 
+    display: flex;
+
     ${BreakPointMixin.tablet`
         top: 81px;
         
