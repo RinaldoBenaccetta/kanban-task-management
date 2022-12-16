@@ -6,7 +6,7 @@ import { setBoardData } from '../../features/board/boardSlice'
 import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { BoardContainer } from './styles/Board'
 import BoardColumn from './BoardColumn'
-import ColumnHeader from './BoardColumnHeader'
+import BoardColumnHeader from './BoardColumnHeader'
 
 export async function loader({ params }: LoaderFunctionArgs) {
     const board = await getBoard(params.boardId)
@@ -40,7 +40,7 @@ export default () => {
     return (
         <BoardContainer className={boardClass}>
             <BoardColumn>
-                <ColumnHeader>Column title</ColumnHeader>
+                <BoardColumnHeader>Column title</BoardColumnHeader>
                 <div>taskList</div>
             </BoardColumn>
         </BoardContainer>

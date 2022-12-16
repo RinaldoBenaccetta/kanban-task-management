@@ -3,11 +3,9 @@ import styled from 'styled-components'
 import typography from '../../themes/typography'
 
 const Header = styled.header`
-    outline: 1px solid yellow;
-
     margin-bottom: 24px;
 
-    display: flex;
+    height: 15px;
 `
 
 const ColorDot = styled.div`
@@ -22,17 +20,24 @@ const ColorDot = styled.div`
     background-color: aqua;
 `
 
-const ColumnTitle = styled.div`
+const ColumnTitle = styled.h1`
     ${typography.heading.s}
 
+    margin: 0;
+    padding: 0;
+
     text-transform: uppercase;
+
+    display: flex;
 `
 
 export default ({ children }: PropsWithChildren) => {
     return (
         <Header>
-            <ColorDot />
-            <ColumnTitle>{children}</ColumnTitle>
+            <ColumnTitle>
+                <ColorDot />
+                <div>{children}</div>
+            </ColumnTitle>
         </Header>
     )
 }
