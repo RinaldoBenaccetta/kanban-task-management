@@ -1,8 +1,9 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { PropsThemeType } from '../../@types/ThemesType'
 import typography from '../../themes/typography'
 import Colors from '../../themes/variables/colors'
+import { BoardTaskPropsType } from '../../@types/BoardTaskPropsType'
 
 const Task = styled.li`
     background-color: ${(props: PropsThemeType) =>
@@ -30,11 +31,6 @@ const SubtaskInfos = styled.p`
     margin: 8px 0 0;
 `
 
-type BoardTaskProps = {
-    'subtask-quantity': number
-    'subtask-done': number
-}
-
 /**
  * Return plural or singular of "subtask" according to the provided quantity of subtasks.
  *
@@ -56,7 +52,7 @@ export default ({
     'subtask-quantity': subtaskQuantity,
     'subtask-done': subtaskDone,
     children: children,
-}: PropsWithChildren) => {
+}: BoardTaskPropsType) => {
     return (
         <Task>
             <TaskTitle>{children}</TaskTitle>
