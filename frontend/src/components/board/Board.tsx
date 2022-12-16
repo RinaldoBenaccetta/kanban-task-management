@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks'
 import { BoardContainer } from './styles/Board'
 import BoardColumn from './BoardColumn'
 import BoardColumnHeader from './BoardColumnHeader'
+import BoardTaskList from './BoardTaskList'
+import BoardTask from './BoardTask'
 
 export async function loader({ params }: LoaderFunctionArgs) {
     const board = await getBoard(params.boardId)
@@ -41,7 +43,17 @@ export default () => {
         <BoardContainer className={boardClass}>
             <BoardColumn>
                 <BoardColumnHeader>Column title</BoardColumnHeader>
-                <div>taskList</div>
+                <BoardTaskList>
+                    <BoardTask subtask-quantity={3} subtask-done={1}>
+                        task 1
+                    </BoardTask>
+                    <BoardTask subtask-quantity={1} subtask-done={1}>
+                        task 2
+                    </BoardTask>
+                    <BoardTask subtask-quantity={4} subtask-done={4}>
+                        task 3
+                    </BoardTask>
+                </BoardTaskList>
             </BoardColumn>
         </BoardContainer>
     )

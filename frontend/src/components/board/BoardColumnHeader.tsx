@@ -20,7 +20,7 @@ const ColorDot = styled.div`
     background-color: aqua;
 `
 
-const ColumnTitle = styled.h1`
+const ColumnTitle = styled.h2`
     ${typography.heading.s}
 
     margin: 0;
