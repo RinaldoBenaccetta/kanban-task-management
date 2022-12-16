@@ -36,7 +36,7 @@ const SubtaskInfos = styled.p`
  *
  * @param subtaskQuantity
  */
-const subtaskWord = (subtaskQuantity: number) =>
+const subtaskWord = (subtaskQuantity: number): string =>
     subtaskQuantity > 1 ? 'subtasks' : 'subtask'
 
 /**
@@ -45,7 +45,7 @@ const subtaskWord = (subtaskQuantity: number) =>
  * @param subtaskQuantity
  * @param subtaskDone
  */
-const subtaskInfo = (subtaskQuantity: number, subtaskDone: number) =>
+const subtaskInfo = (subtaskQuantity: number, subtaskDone: number): string =>
     `${subtaskDone} of ${subtaskQuantity} ${subtaskWord(subtaskQuantity)}`
 
 export default ({
