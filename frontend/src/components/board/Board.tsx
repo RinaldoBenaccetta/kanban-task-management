@@ -37,24 +37,51 @@ export default () => {
     // Retrieve the classes to add based on the value of panelVisibility
     const boardClass = sidePanel ? 'right' : 'left'
 
-    console.log(boardData)
+    const columnsData = boardData.columns
+
+    const countCompletedSubtasks = (subtask) => {
+        return subtask.reduce((count, task) => {
+            return task.isCompleted ? count + 1 : count
+        }, 0)
+    }
+
+    /**
+     * Build all the tasks of one column in a board.
+     * @param taskList
+     */
+    const tasksPanels = (taskList) => {
+        return taskList.map((task) => {
+            const subtasks = task.subtasks
+
+            const subtaskQuantity = subtasks.length
+            const subtaskDone = countCompletedSubtasks(subtasks)
+
+            return (
+                <BoardTask
+                    subtask-quantity={subtaskQuantity}
+                    subtask-done={subtaskDone}
+                >
+                    {task.title}
+                </BoardTask>
+            )
+        })
+    }
+
+    /**
+     * Build all the columns of the board.
+     */
+    const columnsPanels = columnsData.map((column) => {
+        const { name, tasks } = column
+
+        return (
+            <BoardColumn>
+                <BoardColumnHeader>{name}</BoardColumnHeader>
+                <BoardTaskList>{tasksPanels(tasks)}</BoardTaskList>
+            </BoardColumn>
+        )
+    })
 
     return (
-        <BoardContainer className={boardClass}>
-            <BoardColumn>
-                <BoardColumnHeader>Column title</BoardColumnHeader>
-                <BoardTaskList>
-                    <BoardTask subtask-quantity={3} subtask-done={1}>
-                        task 1
-                    </BoardTask>
-                    <BoardTask subtask-quantity={1} subtask-done={1}>
-                        task 2
-                    </BoardTask>
-                    <BoardTask subtask-quantity={4} subtask-done={4}>
-                        task 3
-                    </BoardTask>
-                </BoardTaskList>
-            </BoardColumn>
-        </BoardContainer>
+        <BoardContainer className={boardClass}>{columnsPanels}</BoardContainer>
     )
 }

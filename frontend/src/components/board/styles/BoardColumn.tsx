@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Column = styled.article`
-    outline: 1px solid red;
+    min-width: 280px;
 
     width: 280px;
 
