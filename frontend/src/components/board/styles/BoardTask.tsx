@@ -2,8 +2,11 @@ import styled from 'styled-components'
 import { PropsThemeType } from '../../../@types/ThemesType'
 import typography from '../../../themes/typography'
 import Colors from '../../../themes/variables/colors'
+import DarkModeTransition from '../../../themes/mixins/DarkModeTransition'
 
 export const Task = styled.li`
+    ${DarkModeTransition};
+
     background-color: ${(props: PropsThemeType) =>
         props.theme.colors.frontBackground};
 
