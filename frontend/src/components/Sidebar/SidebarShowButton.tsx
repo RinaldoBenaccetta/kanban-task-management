@@ -15,6 +15,8 @@ const ShowButton = styled.button`
     bottom: 32px;
     left: 0;
 
+    z-index: 10;
+
     border-radius: 0 24px 24px 0;
 
     background-color: ${Colors.primary.mainPurple};

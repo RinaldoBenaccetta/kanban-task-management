@@ -11,17 +11,20 @@ export const BoardContainer = styled.main`
 
     position: fixed;
 
+    z-index: 0;
+
     top: 64px;
 
     width: 100%;
-    height: 100%;
-
-    z-index: -1;
+    height: calc(100% - 64px);
 
     display: flex;
 
+    overflow: auto;
+
     ${BreakPointMixin.tablet`
         top: 81px;
+        height: calc(100% - 81px);
         
        &.left {
           transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s, border-color 1s;
@@ -30,17 +33,22 @@ export const BoardContainer = styled.main`
       }
   
       &.right {
-          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s, border-color 1s;
+          transition: background-color 0.5s, transform 0.2s ease-out, width 0.2s ease-out, color 0.25s, border-color 1s;
+          
+          width: calc(100% - 261px);
           
           transform: translateX(261px);
       }
     `};
 
     ${BreakPointMixin.large`
-        top: 98px;
+        top: 97px;
+        height: calc(100% - 97px);
         
       &.right {
-          transition: background-color 0.5s, transform 0.2s ease-out, color 0.25s, border-color 1s;
+          transition: background-color 0.5s, transform 0.2s ease-out, width 0.2s ease-out, color 0.25s, border-color 1s;
+          
+          width: calc(100% - 300px);
           
           transform: translateX(300px);
       }
