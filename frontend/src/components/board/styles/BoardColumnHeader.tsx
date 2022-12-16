@@ -16,6 +16,7 @@ export const ColorDot = styled.div`
     margin-right: 12px;
 
     // todo : make a random color for this
+    // base hsl should be [ 210, 0.75, 0.75 ]
     background-color: aqua;
 `
 
