@@ -9,6 +9,12 @@ import BoardColumn from './BoardColumn'
 import BoardColumnHeader from './BoardColumnHeader'
 import BoardTaskList from './BoardTaskList'
 import BoardTask from './BoardTask'
+import {
+    BoardType,
+    ColumnType,
+    SubTaskType,
+    TaskType,
+} from '../../@types/BoardType'
 
 export async function loader({ params }: LoaderFunctionArgs) {
     const board = await getBoard(params.boardId)
@@ -28,8 +34,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default () => {
     const board = useLoaderData()
 
-    const boardData = useAppSelector((state) => state.board.value.board.data)
+    const boardData: BoardType | null = useAppSelector(
+        (state) => state.board.value.board.data
+    )
     const dispatch = useAppDispatch()
+
+    console.log(boardData)
 
     dispatch(setBoardData(board))
 
@@ -37,11 +47,14 @@ export default () => {
     // Retrieve the classes to add based on the value of panelVisibility
     const boardClass = sidePanel ? 'right' : 'left'
 
-    const columnsData = boardData.columns
+    const columnsData =
+        boardData && 'columns' in boardData ? boardData.columns : []
 
-    const countCompletedSubtasks = (subtask) => {
-        return subtask.reduce((count, task) => {
-            return task.isCompleted ? count + 1 : count
+    // const columnsData = boardData.columns as ColumnType[]
+
+    const countCompletedSubtasks = (subtasks: SubTaskType[]) => {
+        return subtasks.reduce((count: number, subTask: SubTaskType) => {
+            return subTask.isCompleted ? count + 1 : count
         }, 0)
     }
 
@@ -49,8 +62,8 @@ export default () => {
      * Build all the tasks of one column in a board.
      * @param taskList
      */
-    const tasksPanels = (taskList) => {
-        return taskList.map((task) => {
+    const tasksPanels = (taskList: TaskType[]) => {
+        return taskList.map((task: TaskType) => {
             const subtasks = task.subtasks
 
             const subtaskQuantity = subtasks.length
@@ -58,8 +71,8 @@ export default () => {
 
             return (
                 <BoardTask
-                    subtask-quantity={subtaskQuantity}
-                    subtask-done={subtaskDone}
+                    subtaskQuantity={subtaskQuantity}
+                    subtaskDone={subtaskDone}
                 >
                     {task.title}
                 </BoardTask>
@@ -70,7 +83,7 @@ export default () => {
     /**
      * Build all the columns of the board.
      */
-    const columnsPanels = columnsData.map((column) => {
+    const columnsPanels = columnsData?.map((column: ColumnType) => {
         const { name, tasks } = column
 
         return (

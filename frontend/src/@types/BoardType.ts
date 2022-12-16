@@ -18,4 +18,5 @@ export type ColumnType = {
 export type BoardType = {
     name: string
     columns?: ColumnType[]
+    _id: string
 }

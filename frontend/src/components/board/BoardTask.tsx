@@ -20,9 +20,9 @@ const subtaskInfo = (subtaskQuantity: number, subtaskDone: number): string =>
     `${subtaskDone} of ${subtaskQuantity} ${subtaskWord(subtaskQuantity)}`
 
 export default ({
-    'subtask-quantity': subtaskQuantity,
-    'subtask-done': subtaskDone,
-    children: children,
+    subtaskQuantity,
+    subtaskDone,
+    children,
 }: BoardTaskPropsType) => {
     return (
         <Task>
