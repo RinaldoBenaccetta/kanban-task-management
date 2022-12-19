@@ -5,9 +5,9 @@ set -e
 
 # give the repository infos for deploy
 # No spaces around = sign
-git_username=your_git_user_name
+git_username=RinaldoBenaccetta
 # shellcheck disable=SC1068
-git_repo=name_of_the_app_repository
+git_repo=kanban-task-management
 # This is the branch that will be created and that will contain the packed app for production.
 git_production_branch=prod
 
