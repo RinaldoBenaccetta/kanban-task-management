@@ -41,7 +41,7 @@ to install dependencies of root, frontend, and backend.
 View it on `http://localhost:3001`
 
 ### Pre-populate database
-#### `http://localhost:3001/api/prepopulate`
+#### `http://localhost:3001/api/boards/hydrate`
 This will create a database named *kanban* and fill it with fake data.
 
 ### Build locally
