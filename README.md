@@ -41,7 +41,7 @@ to install dependencies of root, frontend, and backend.
 View it on `http://localhost:3001`
 
 ### Pre-populate database
-#### `http://localhost:3001/api/prepopulate`
+#### `http://localhost:3001/api/hydrate`
 This will create a database named *kanban* and fill it with fake data.
 
 ### Build locally
@@ -62,7 +62,12 @@ First, fill in the values of the following variables in the *deploy.sh* file::
   - DB_PASSWORD
 
 To start server, run the following commands:
-### `npm install`
-### `npm run start`
+#### `npm install`
+#### `npm run server:start`
 
+Then go to this address in browser :
+#### `MY_HOST_ADRESS/api/boards/hydrate`
 
+This will create a database named *kanban* and fill it with fake data.
+
+Make backend ready use environment variables in README.md
