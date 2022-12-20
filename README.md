@@ -46,4 +46,23 @@ This will create a database named *kanban* and fill it with fake data.
 
 ### Build locally
 #### `npm run build`
-Then view it with `npm run start`
+Then view it with `npm run start
+
+### Deployment
+First, fill in the values of the following variables in the *deploy.sh* file::
+- git_username
+- git_repo
+- git_production_branch
+*No spaces, no apostrophe*
+
+- Then, run the *deploy.sh* script. It will create a new branch in the repository, named using the value provided in *git_production_branch*. The script will then build the app locally and push it to the newly created branch.
+- Create 3 environment variables on distant server :
+  - DB_HOST
+  - DB_USER
+  - DB_PASSWORD
+
+To start server, run the following commands:
+### `npm install`
+### `npm run start`
+
+
