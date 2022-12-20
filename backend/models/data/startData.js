@@ -290,80 +290,70 @@ module.exports = [
         ],
     },
     {
-        name: 'Marketing Plan',
+        name: 'Product Launch',
         columns: [
             {
-                name: 'Todo',
+                name: 'To Do',
                 tasks: [
                     {
-                        title: 'Plan Product Hunt launch',
-                        description: '',
-                        status: 'Todo',
+                        title: 'Design homepage layout',
+                        description:
+                            'Create a visually appealing layout for the homepage',
+                        status: 'To Do',
                         subtasks: [
                             {
-                                title: 'Find hunter',
+                                title: 'Create wireframe',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Choose color scheme',
                                 isCompleted: false,
                             },
                             {
-                                title: 'Gather assets',
-                                isCompleted: false,
-                            },
-                            {
-                                title: 'Draft product page',
-                                isCompleted: false,
-                            },
-                            {
-                                title: 'Notify customers',
-                                isCompleted: false,
-                            },
-                            {
-                                title: 'Notify network',
-                                isCompleted: false,
-                            },
-                            {
-                                title: 'Launch!',
+                                title: 'Design layout',
                                 isCompleted: false,
                             },
                         ],
                     },
                     {
-                        title: 'Share on Show HN',
-                        description: '',
-                        status: '',
+                        title: 'Implement search functionality',
+                        description:
+                            'Allow users to search for products on the website',
+                        status: 'To Do',
                         subtasks: [
                             {
-                                title: 'Draft out HN post',
-                                isCompleted: false,
-                            },
-                            {
-                                title: 'Get feedback and refine',
-                                isCompleted: false,
-                            },
-                            {
-                                title: 'Publish post',
+                                title: 'Write search algorithm',
                                 isCompleted: false,
                             },
                         ],
                     },
                     {
-                        title: 'Write launch article to publish on multiple channels',
+                        title: 'Create product pages',
                         description: '',
-                        status: '',
+                        status: 'To Do',
                         subtasks: [
                             {
-                                title: 'Write article',
+                                title: 'Create template for product pages',
                                 isCompleted: false,
                             },
                             {
-                                title: 'Publish on LinkedIn',
+                                title: 'Add product details and images',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Test all major user journeys',
+                        description:
+                            'Once we feel the product is ready to launch, we need to rigorously test it to identify any major gaps.',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Internal testing',
                                 isCompleted: false,
                             },
                             {
-                                title: 'Publish on Indie Hackers',
-                                isCompleted: false,
-                            },
-                            {
-                                title: 'Publish on Medium',
+                                title: 'External testing',
                                 isCompleted: false,
                             },
                         ],
@@ -371,52 +361,299 @@ module.exports = [
                 ],
             },
             {
-                name: 'Doing',
-                tasks: [],
+                name: 'In Progress',
+                tasks: [
+                    {
+                        title: 'Design product pages',
+                        description: '',
+                        status: 'In Progress',
+                        subtasks: [
+                            {
+                                title: 'Product pages - Template',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Product pages - Details and images',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Implement account management endpoints',
+                        description: '',
+                        status: 'In Progress',
+                        subtasks: [
+                            {
+                                title: 'Upgrade account',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Cancel account',
+                                isCompleted: true,
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 name: 'Done',
-                tasks: [],
+                tasks: [
+                    {
+                        title: 'Design homepage layout',
+                        description: '',
+                        status: 'Done',
+                        subtasks: [
+                            {
+                                title: 'Wireframe',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Color scheme',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Layout',
+                                isCompleted: true,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Implement search functionality',
+                        description: '',
+                        status: 'Done',
+                        subtasks: [
+                            {
+                                title: 'Write search algorithm',
+                                isCompleted: true,
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+
+    {
+        name: 'Project X',
+        columns: [
+            {
+                name: 'To Do',
+                tasks: [
+                    {
+                        title: 'Gather requirements',
+                        description:
+                            'Meet with stakeholders to gather requirements for the project',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Meet with stakeholders',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Write requirements document',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Create project plan',
+                        description:
+                            'Develop a plan outlining the steps needed to complete the project',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Outline project steps',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Estimate time and resources',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Write project plan document',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                name: 'In Progress',
+                tasks: [
+                    {
+                        title: 'Design user interface',
+                        description:
+                            'Create mockups for the user interface of the project',
+                        status: 'In Progress',
+                        subtasks: [
+                            {
+                                title: 'Create wireframes',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Choose color scheme',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Design user interface mockups',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Implement core functionality',
+                        description:
+                            'Start implementing the core functionality of the project',
+                        status: 'In Progress',
+                        subtasks: [
+                            {
+                                title: 'Implement authentication system',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Implement database management',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Implement core functionality',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                name: 'QA',
+                tasks: [
+                    {
+                        title: 'Test all major user journeys',
+                        description:
+                            'Test the project to identify any major gaps',
+                        status: 'QA',
+                        subtasks: [
+                            {
+                                title: 'Test user registration journey',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Test user login journey',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Test core functionality',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Fix identified issues',
+                        description: 'Fix any issues identified during testing',
+                        status: 'QA',
+                        subtasks: [
+                            {
+                                title: 'Fix issue #1',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Fix issue #2',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Fix issue #3',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                name: 'Done',
+                tasks: [
+                    {
+                        title: 'Launch project',
+                        description: 'Launch the project to the public',
+                        status: 'Done',
+                        subtasks: [
+                            {
+                                title: 'Test launch process',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Notify stakeholders',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Launch project',
+                                isCompleted: true,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Gather feedback',
+                        description:
+                            'Gather feedback from users and stakeholders',
+                        status: 'Done',
+                        subtasks: [
+                            {
+                                title: 'Send feedback survey',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Analyze feedback results',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Implement changes based on feedback',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },
     {
-        name: 'Roadmap',
+        name: 'Project Z',
         columns: [
             {
-                name: 'Now',
+                name: 'To Do',
                 tasks: [
                     {
-                        title: 'Launch version one',
-                        description: '',
-                        status: '',
+                        title: 'Paint office',
+                        description:
+                            "The office looks too dull, let's add some color!",
+                        status: 'To Do',
                         subtasks: [
                             {
-                                title: 'Launch privately to our wait-list',
+                                title: 'Choose paint color',
                                 isCompleted: false,
                             },
                             {
-                                title: 'Launch publicly on PH, HN, etc.',
+                                title: 'Buy paint and supplies',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Paint office',
                                 isCompleted: false,
                             },
                         ],
                     },
                     {
-                        title: 'Review early feedback and plan next steps for roadmap',
+                        title: 'Organize company retreat',
                         description:
-                            "Beyond the initial launch, we're keeping the initial roadmap completely empty. This meeting will help us plan out our next steps based on actual customer feedback.",
-                        status: '',
+                            "It's time for the annual company retreat!",
+                        status: 'To Do',
                         subtasks: [
                             {
-                                title: 'Interview 10 customers',
+                                title: 'Choose retreat location',
                                 isCompleted: false,
                             },
                             {
-                                title: 'Review common customer pain points and suggestions',
+                                title: 'Book accommodation and transportation',
                                 isCompleted: false,
                             },
                             {
-                                title: 'Outline next steps for our roadmap',
+                                title: 'Plan activities',
                                 isCompleted: false,
                             },
                         ],
@@ -424,15 +661,446 @@ module.exports = [
                 ],
             },
             {
-                name: 'Next',
-                tasks: [],
+                name: 'In Progress',
+                tasks: [
+                    {
+                        title: 'Create company mascot',
+                        description:
+                            'We need a mascot to represent the company culture!',
+                        status: 'In Progress',
+                        subtasks: [
+                            {
+                                title: 'Brainstorm mascot ideas',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Design mascot',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Create mascot costume',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Create company cheer',
+                        description:
+                            'We need a cheer to pump up the team at company meetings!',
+                        status: 'In Progress',
+                        subtasks: [
+                            {
+                                title: 'Brainstorm cheer ideas',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Write cheer lyrics',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Create cheer dance',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Another project',
+        columns: [
+            {
+                name: 'To Do',
+                tasks: [
+                    {
+                        title: 'Gather requirements',
+                        description:
+                            'Meet with stakeholders to gather requirements for the project',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Schedule meetings with stakeholders',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Create list of requirements',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Write requirements document',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Create project plan',
+                        description:
+                            'Develop a plan outlining the steps needed to complete the project',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Outline project steps',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Estimate time and resources',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Write project plan document',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Design user interface',
+                        description:
+                            'Create mockups for the user interface of the project',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Create wireframes',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Choose color scheme',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Design user interface mockups',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Implement core functionality',
+                        description:
+                            'Start implementing the core functionality of the project',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Implement authentication system',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Implement data storage system',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Implement user dashboard',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Test all major user journeys',
+                        description:
+                            'Test the project to identify any major gaps',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Test authentication system',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Test data storage system',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Test user dashboard',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Fix identified issues',
+                        description: 'Fix any issues identified during testing',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Fix authentication system issues',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Fix data storage system issues',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Fix user dashboard issues',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Implement changes based on feedback',
+                        description:
+                            'Implement any changes based on the feedback gathered',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Identify necessary changes',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Implement changes',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Test changes',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Work Day Organization',
+        columns: [
+            {
+                name: 'To Do',
+                tasks: [
+                    {
+                        title: 'Create to-do list',
+                        description:
+                            'Make a list of tasks to be completed today',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Identify high-priority tasks',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Organize tasks by importance',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Write to-do list',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Schedule meetings',
+                        description: 'Schedule any meetings for today',
+                        status: 'To Do',
+                        subtasks: [],
+                    },
+                ],
             },
             {
-                name: 'Later',
-                tasks: [],
+                name: 'In Progress',
+                tasks: [
+                    {
+                        title: 'Complete high-priority tasks',
+                        description:
+                            'Work on completing the most important tasks on the to-do list',
+                        status: 'In Progress',
+                        subtasks: [],
+                    },
+                    {
+                        title: 'Attend meetings',
+                        description: 'Attend any scheduled meetings',
+                        status: 'In Progress',
+                        subtasks: [],
+                    },
+                ],
+            },
+            {
+                name: 'Blocked',
+                tasks: [
+                    {
+                        title: 'Request information from colleague',
+                        description:
+                            'Awaiting information from a colleague to proceed with a task',
+                        status: 'Blocked',
+                        subtasks: [
+                            {
+                                title: 'Send request to colleague',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Follow up on request',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Waiting on external party',
+                        description:
+                            'Awaiting response or action from an external party',
+                        status: 'Blocked',
+                        subtasks: [],
+                    },
+                ],
+            },
+            {
+                name: 'Done',
+                tasks: [
+                    {
+                        title: 'Complete low-priority tasks',
+                        description:
+                            'Work on completing the remaining tasks on the to-do list',
+                        status: 'Done',
+                        subtasks: [],
+                    },
+                    {
+                        title: 'Write daily report',
+                        description:
+                            'Write a report summarizing the tasks completed and progress made today',
+                        status: 'Done',
+                        subtasks: [],
+                    },
+                ],
+            },
+            {
+                name: 'Cancelled',
+                tasks: [
+                    {
+                        title: 'Meet with team',
+                        description:
+                            'Meeting with the team to discuss progress and plans',
+                        status: 'Cancelled',
+                        subtasks: [],
+                    },
+                    {
+                        title: 'Attend industry conference',
+                        description:
+                            'Attend an industry conference to network and stay up-to-date on industry developments',
+                        status: 'Cancelled',
+                        subtasks: [],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        name: 'Terminator Schedule',
+        columns: [
+            {
+                name: 'To Do',
+                tasks: [
+                    {
+                        title: 'Locate Sarah Connor',
+                        description:
+                            'Track down Sarah Connor and determine her current whereabouts',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Gather intelligence on Sarah Connor',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Analyze data to determine location',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Acquire weapons and equipment',
+                        description:
+                            'Obtain the necessary weapons and equipment for the mission',
+                        status: 'To Do',
+                        subtasks: [
+                            {
+                                title: 'Identify required weapons and equipment',
+                                isCompleted: false,
+                            },
+                            {
+                                title: 'Locate and acquire weapons and equipment',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                name: 'In Progress',
+                tasks: [
+                    {
+                        title: "Travel to Sarah Connor's location",
+                        description:
+                            "Make the necessary arrangements to travel to Sarah Connor's current location",
+                        status: 'In Progress',
+                        subtasks: [
+                            {
+                                title: 'Determine mode of transport',
+                                isCompleted: true,
+                            },
+                            {
+                                title: 'Book transportation',
+                                isCompleted: false,
+                            },
+                        ],
+                    },
+                    {
+                        title: 'Eliminate Sarah Connor',
+                        description:
+                            'Carry out the mission to eliminate Sarah Connor',
+                        status: 'In Progress',
+                        subtasks: [],
+                    },
+                ],
+            },
+            {
+                name: 'Blocked',
+                tasks: [
+                    {
+                        title: 'Eliminate any threats',
+                        description:
+                            'Deal with any individuals or groups that may pose a threat to the mission',
+                        status: 'Blocked',
+                        subtasks: [],
+                    },
+                    {
+                        title: 'Acquire new target',
+                        description:
+                            'If the primary target is not located or becomes unavailable, acquire a new target',
+                        status: 'Blocked',
+                        subtasks: [],
+                    },
+                ],
+            },
+            {
+                name: 'Done',
+                tasks: [
+                    {
+                        title: 'Report mission status',
+                        description:
+                            'Report on the status of the mission to Skynet',
+                        status: 'Done',
+                        subtasks: [],
+                    },
+                    {
+                        title: 'Dispose of evidence',
+                        description:
+                            'Ensure that all evidence of the mission is eliminated',
+                        status: 'Done',
+                        subtasks: [],
+                    },
+                ],
+            },
+            {
+                name: 'Cancelled',
+                tasks: [
+                    {
+                        title: 'Terminate John Connor',
+                        description:
+                            'Eliminate John Connor as a potential future threat',
+                        status: 'Cancelled',
+                        subtasks: [],
+                    },
+                    {
+                        title: 'Capture Sarah Connor',
+                        description:
+                            'Capture Sarah Connor for further study and analysis',
+                        status: 'Cancelled',
+                        subtasks: [],
+                    },
+                ],
             },
         ],
     },
 ]
-
-// module.exports = startData
