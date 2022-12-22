@@ -34,12 +34,14 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default () => {
     const board = useLoaderData()
 
+    // todo : fix that ts error on line 39
+    // @ts-ignore
     const boardData: BoardType | null = useAppSelector(
         (state) => state.board.value.board.data
     )
     const dispatch = useAppDispatch()
 
-    console.log(boardData)
+    // console.log(boardData)
 
     dispatch(setBoardData(board))
 
